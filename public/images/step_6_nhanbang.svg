@@ -1,0 +1,42 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="redGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E01E00"/>
+      <stop offset="50%" stop-color="#C00A00"/>
+      <stop offset="100%" stop-color="#8E0500"/>
+    </linearGradient>
+    <linearGradient id="goldGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0A0"/>
+      <stop offset="50%" stop-color="#FFDF73"/>
+      <stop offset="100%" stop-color="#D49B00"/>
+    </linearGradient>
+    <filter id="shadow6" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#9C0600" flood-opacity="0.35"/>
+    </filter>
+    <linearGradient id="shine6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Trophy Pedestal Base -->
+  <path d="M38 102 L90 102 L98 114 L30 114 Z" fill="url(#goldGrad6)" filter="url(#shadow6)"/>
+  <rect x="44" y="88" width="40" height="14" rx="4" fill="url(#redGrad6)"/>
+
+  <!-- Stem -->
+  <path d="M58 74 L70 74 L68 88 L60 88 Z" fill="url(#goldGrad6)"/>
+
+  <!-- Handles Left & Right -->
+  <path d="M36 28 C18 28 18 54 36 60 L38 52 C26 48 26 34 38 34 Z" fill="url(#goldGrad6)"/>
+  <path d="M92 28 C110 28 110 54 92 60 L90 52 C102 48 102 34 90 34 Z" fill="url(#goldGrad6)"/>
+
+  <!-- Main Cup Body -->
+  <path d="M34 20 L94 20 L86 60 Q64 80 42 60 Z" fill="url(#redGrad6)" filter="url(#shadow6)"/>
+  <path d="M34 20 L94 20 L86 60 Q64 80 42 60 Z" fill="url(#shine6)"/>
+
+  <!-- Gold Top Rim -->
+  <ellipse cx="64" cy="20" rx="30" ry="6" fill="url(#goldGrad6)"/>
+
+  <!-- Star Emblem in Center -->
+  <path d="M64 34 L67.5 42 L76 43 L69.5 49 L71.5 57.5 L64 53 L56.5 57.5 L58.5 49 L52 43 L60.5 42 Z" fill="url(#goldGrad6)"/>
+</svg>

@@ -1,95 +1,57 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Header from "@/components/Header";
+import HeroBanner from "@/components/HeroBanner";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import WhyB2Section from "@/components/WhyB2Section";
+import CoursePricing from "@/components/CoursePricing";
+import Differences from "@/components/Differences";
+import Process from "@/components/Process";
+import StudentGallerySection from "@/components/StudentGallerySection";
+import PracticeGrounds from "@/components/PracticeGrounds";
+import RegistrationOptions from "@/components/RegistrationOptions";
+import ScrollToTop from "@/components/ScrollToTop";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      {/* 1. Header Navigation */}
+      <Header />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* Main Layout Content */}
+      <main style={{ flexGrow: 1 }}>
+        {/* 2. Hero Section & Form Đăng ký */}
+        <HeroBanner />
+
+        {/* 3. Tại sao chọn Trung tâm An Thái */}
+        <WhyChooseUs />
+
+        {/* 4. Section Tại sao nên thi bằng lái xe B2 */}
+        <WhyB2Section />
+
+        {/* 5. Các Khóa học & Bảng giá (B1, B2, C) */}
+        <CoursePricing />
+
+        {/* 6. Sự Khác Biệt & Cam Kết */}
+        <Differences />
+
+        {/* 7. Quy trình đào tạo 6 bước */}
+        <Process />
+
+        {/* 8. Hệ thống các sân tập của học lái xe */}
+        <PracticeGrounds />
+
+        {/* 9. 3 Phương án nộp hồ sơ */}
+        <RegistrationOptions />
+
+        {/* 10. Hình ảnh học viên thực tế & Đánh giá (Vị trí áp chót ngay trên Footer) */}
+        <StudentGallerySection />
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Scroll To Top Button */}
+      <ScrollToTop />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Dancing_Script } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter, Dancing_Script } from "next/font/google";
+import ScrollAnimationProvider from "@/components/ScrollAnimationProvider";
 import "./globals.css";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta-sans",
+  display: "swap",
+});
 
 const inter = Inter({
   subsets: ["latin", "vietnamese"],
@@ -17,6 +25,14 @@ const dancingScript = Dancing_Script({
 export const metadata: Metadata = {
   title: "Trung Tâm Giáo Dục Nghề Nghiệp An Thái - Đào Tạo Lái Xe Uy Tín",
   description: "Trung tâm GDNN An Thái chuyên đào tạo và sát hạch bằng lái xe ô tô B1, B2, C1, xe máy A1, A. Cam kết học phí trọn gói, tỷ lệ đậu cao, giảng viên tận tâm.",
+  icons: {
+    icon: [
+      { url: "/logo_anthai.png" },
+      { url: "/icon.png" }
+    ],
+    shortcut: "/logo_anthai.png",
+    apple: "/logo_anthai.png",
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +42,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`${inter.variable} ${dancingScript.variable}`}>
+      <body className={`${plusJakartaSans.variable} ${inter.variable} ${dancingScript.variable}`}>
+        <ScrollAnimationProvider />
         {children}
       </body>
     </html>

@@ -72,7 +72,7 @@ export default function WhyB2Section() {
         alignItems: "center"
       }}>
         {/* Left Side: Graphic Image */}
-        <div style={{ width: "100%", borderRadius: "16px", overflow: "hidden" }}>
+        <div className="reveal-left" style={{ width: "100%", borderRadius: "16px", overflow: "hidden" }}>
           <Image
             src="/images/bacground_section_4.png"
             alt="Trung Tâm Dạy Lái Xe An Thái"
@@ -89,7 +89,7 @@ export default function WhyB2Section() {
         </div>
 
         {/* Right Side: Reasons & Highlights List */}
-        <div>
+        <div className="reveal-right reveal-delay-2">
           <h2 className="why-b2-title" style={{
             fontSize: "clamp(1.5rem, 2.6vw, 2.05rem)",
             fontWeight: 800,
@@ -115,6 +115,7 @@ export default function WhyB2Section() {
             {points.map((pt, idx) => (
               <div
                 key={idx}
+                className={`reveal-up reveal-delay-${idx + 1}`}
                 style={{
                   display: "flex",
                   alignItems: "center",

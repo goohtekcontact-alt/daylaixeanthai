@@ -41,7 +41,7 @@ export default function Footer() {
       >
         {/* Top Grid Sections */}
         <div
-          className="footer-top-grid"
+          className="footer-top-grid reveal-up"
           style={{
             display: "grid",
             gridTemplateColumns: "minmax(260px, 1.3fr) repeat(3, minmax(110px, 1fr)) minmax(240px, 1.1fr)",

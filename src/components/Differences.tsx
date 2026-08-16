@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ShieldCheck, Check, Car, Clock } from "lucide-react";
+import { FaCheck } from "react-icons/fa6";
 
 export default function Differences() {
   const cards = [
@@ -77,24 +77,6 @@ export default function Differences() {
     }
   ];
 
-  const bottomFeatures = [
-    {
-      icon: <ShieldCheck size={20} style={{ color: "var(--primary)" }} />,
-      title: "Uy tín hàng đầu",
-      desc: "Được hàng ngàn học viên tin tưởng lựa chọn"
-    },
-    {
-      icon: <Car size={20} style={{ color: "var(--primary)" }} />,
-      title: "Đào tạo thực tế",
-      desc: "Học đi đôi với hành vững tay lái"
-    },
-    {
-      icon: <Clock size={20} style={{ color: "var(--primary)" }} />,
-      title: "Linh hoạt thời gian",
-      desc: "Học mọi lúc – mọi nơi phù hợp với bạn"
-    }
-  ];
-
   return (
     <section
       className="differences-section"
@@ -110,8 +92,8 @@ export default function Differences() {
     >
       <div className="differences-container">
         {/* Left Column: Title & Subtitle */}
-        <div className="differences-left">
-          <div className="differences-header" style={{ transform: "translateY(-40px)", marginBottom: "16px" }}>
+        <div className="differences-left reveal-left">
+          <div className="differences-header" style={{ transform: "translateY(-60px)", marginBottom: "16px" }}>
             <div className="differences-tagline">
               <span className="differences-tagline-line" />
               <span>Sự Khác Biệt</span>
@@ -127,12 +109,12 @@ export default function Differences() {
           </div>
         </div>
 
-        {/* Right Column: 4 Main Feature Cards & Bottom Summary Bar */}
-        <div className="differences-right">
+        {/* Right Column: 4 Main Feature Cards Grid */}
+        <div className="differences-right reveal-right reveal-delay-2">
           {/* 2x2 Feature Cards Grid */}
           <div className="differences-cards-grid">
             {cards.map((card, idx) => (
-              <div key={idx} className="differences-card">
+              <div key={idx} className={`differences-card reveal-up reveal-delay-${idx + 1}`}>
                 <div className="differences-card-header">
                   <div className="differences-card-icon-box">
                     {card.icon}
@@ -146,27 +128,12 @@ export default function Differences() {
                   {card.items.map((item, i) => (
                     <li key={i} className="differences-card-item">
                       <div className="differences-check-dot">
-                        <Check size={11} color="#FFFFFF" strokeWidth={3.5} />
+                        <FaCheck size={9} color="#FFFFFF" />
                       </div>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Summary Bar with 3 highlights */}
-          <div className="differences-bottom-bar">
-            {bottomFeatures.map((feat, idx) => (
-              <div key={idx} className="differences-bottom-item">
-                <div className="differences-bottom-icon-box">
-                  {feat.icon}
-                </div>
-                <div>
-                  <div className="differences-bottom-title">{feat.title}</div>
-                  <div className="differences-bottom-desc">{feat.desc}</div>
-                </div>
               </div>
             ))}
           </div>

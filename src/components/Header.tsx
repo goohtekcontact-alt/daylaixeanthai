@@ -21,8 +21,8 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header style={{ width: "100%", position: "relative" }}>
-      {/* Topbar Announcement & Hotline */}
+    <>
+      {/* Topbar Announcement & Hotline (Cuộn tự nhiên theo trang) */}
       <div className="header-topbar" style={{
         background: "var(--accent-gradient)",
         color: "#FFFFFF",
@@ -31,7 +31,8 @@ export default function Header() {
         fontWeight: 600,
         letterSpacing: "0.1px",
         lineHeight: 1.35,
-        position: "relative"
+        position: "relative",
+        zIndex: 10
       }}>
         <div className="header-topbar-content" style={{
           maxWidth: "1240px",
@@ -56,17 +57,21 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Glassmorphic Sticky Header Bar */}
-      <div style={{
-        backgroundColor: "rgba(255, 255, 255, 0.94)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
-        position: "sticky",
-        top: 0,
-        zIndex: 90,
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.03)"
-      }}>
+      {/* Main Navbar Sticky Bar (Ghim cố định top: 0 khi cuộn) */}
+      <header
+        className="header-glass"
+        style={{
+          width: "100%",
+          backgroundColor: "rgba(255, 255, 255, 0.94)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
+          position: "sticky",
+          top: 0,
+          zIndex: 999,
+          boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04)"
+        }}
+      >
         <div
           className="header-main-bar"
           style={{
@@ -190,7 +195,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Off-Canvas Backdrop (Fixed overlay with blur) */}
       <div
@@ -358,6 +363,6 @@ export default function Header() {
           </a>
         </div>
       </aside>
-    </header>
+    </>
   );
 }

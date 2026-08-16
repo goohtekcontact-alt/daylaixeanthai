@@ -5,9 +5,10 @@ import WhyB2Section from "@/components/WhyB2Section";
 import CoursePricing from "@/components/CoursePricing";
 import Differences from "@/components/Differences";
 import Process from "@/components/Process";
-import StudentGallerySection from "@/components/StudentGallerySection";
 import PracticeGrounds from "@/components/PracticeGrounds";
 import RegistrationOptions from "@/components/RegistrationOptions";
+import RegistrationFormSection from "@/components/RegistrationFormSection";
+import StudentGallerySection from "@/components/StudentGallerySection";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 
@@ -19,7 +20,7 @@ export default function Home() {
 
       {/* Main Layout Content */}
       <main style={{ flexGrow: 1 }}>
-        {/* 2. Hero Section & Form Đăng ký */}
+        {/* 2. Hero Section */}
         <HeroBanner />
 
         {/* 3. Tại sao chọn Trung tâm An Thái */}
@@ -43,7 +44,10 @@ export default function Home() {
         {/* 9. 3 Phương án nộp hồ sơ */}
         <RegistrationOptions />
 
-        {/* 10. Hình ảnh học viên thực tế & Đánh giá (Vị trí áp chót ngay trên Footer) */}
+        {/* 10. Form Đăng Ký Tư Vấn Nền Image Background */}
+        <RegistrationFormSection />
+
+        {/* 11. Hình ảnh học viên thực tế & Đánh giá (Vị trí áp chót ngay trên Footer) */}
         <StudentGallerySection />
       </main>
 

@@ -157,7 +157,7 @@ export default function CoursePricing() {
       />
 
       <div className="course-pricing-container" style={{ maxWidth: "1360px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "32px" }}>
+        <div className="reveal-up" style={{ textAlign: "center", marginBottom: "32px" }}>
           <h2 className="course-pricing-title" style={{ fontSize: "clamp(1.55rem, 2.6vw, 2rem)", fontWeight: 800, color: "var(--primary)", letterSpacing: "-0.5px" }}>
             BẢNG GIÁ & CÁC KHÓA HỌC LÁI XE
           </h2>
@@ -174,11 +174,11 @@ export default function CoursePricing() {
             gap: "16px"
           }}
         >
-          {courses.map((course) => (
+          {courses.map((course, idx) => (
             <div
               key={course.id}
               id={course.id}
-              className="course-card"
+              className={`course-card reveal-up reveal-delay-${(idx % 4) + 1}`}
               style={{
                 borderRadius: "20px",
                 border: "1px solid #E2E8F0",

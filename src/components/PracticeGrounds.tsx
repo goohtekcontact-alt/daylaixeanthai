@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { MapPin, Play, Pause } from "lucide-react";
+import { FaLocationDot, FaArrowRight, FaPlay, FaPause } from "react-icons/fa6";
 
 export default function PracticeGrounds() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -48,12 +48,12 @@ export default function PracticeGrounds() {
       }}
     >
       <div className="grounds-container">
-        {/* Left Column: Header, Practice Grounds List & Bottom Bar */}
-        <div className="grounds-left">
-          <div className="grounds-header" style={{ marginBottom: "20px" }}>
+        {/* Left Column: Heading and 2 Ground Cards */}
+        <div className="grounds-left reveal-left">
+          <div className="grounds-header">
             <div className="grounds-tagline">
               <span className="grounds-tagline-line" />
-              <span>Hệ thống sân tập</span>
+              <span>Hệ Thống Đào Tạo</span>
               <span className="grounds-tagline-line" />
             </div>
 
@@ -78,66 +78,48 @@ export default function PracticeGrounds() {
 
           {/* Ground Cards List */}
           <div className="grounds-list">
-            {grounds.map((ground) => (
+            {grounds.map((ground, idx) => (
               <a
                 key={ground.num}
                 href={ground.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="grounds-card"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "16px",
-                  backgroundColor: "#FFFFFF",
-                  padding: "16px 20px",
-                  borderRadius: "16px",
-                  border: "1px solid #E2E8F0",
-                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.04)",
-                  textDecoration: "none",
-                  transition: "all 0.2s ease"
-                }}
+                className={`grounds-card reveal-up reveal-delay-${idx + 1}`}
+                aria-label={`${ground.name} - ${ground.address} (Mở bản đồ Google Maps)`}
               >
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    backgroundColor: "var(--primary-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0
-                  }}
-                >
-                  <MapPin size={22} style={{ color: "var(--primary)" }} />
+                <div className="grounds-card-icon-box">
+                  <FaLocationDot size={20} />
                 </div>
 
-                <div style={{ flexGrow: 1 }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 800, color: "var(--primary)", marginBottom: "2px" }}>
-                    {ground.num}
+                <div className="grounds-card-content">
+                  <div className="grounds-card-header-row">
+                    <span className="grounds-card-tag">Cơ sở {ground.num}</span>
                   </div>
-                  <div style={{ fontSize: "0.95rem", fontWeight: 800, color: "#0F172A", marginBottom: "2px" }}>
+                  <h3 className="grounds-card-name">
                     {ground.name}
-                  </div>
-                  <div style={{ fontSize: "0.78rem", color: "#64748B", lineHeight: 1.35 }}>
+                  </h3>
+                  <div className="grounds-card-address">
                     {ground.address}
                   </div>
+                </div>
+
+                <div className="grounds-card-action" aria-hidden="true">
+                  <FaArrowRight size={13} />
                 </div>
               </a>
             ))}
           </div>
         </div>
 
-        {/* Right Column: Video Frame Curved/Arched top-right corner to match background_section_5.png */}
-        <div className="grounds-right">
+        {/* Right Column: Video Frame */}
+        <div className="grounds-right reveal-right reveal-delay-2">
           <div
             className="grounds-video-wrapper"
             style={{
               position: "relative",
               width: "100%",
               height: "100%",
-              borderRadius: "36px 160px 36px 36px",
+              borderRadius: "28px",
               overflow: "hidden",
               boxShadow: "0 16px 45px rgba(0, 0, 0, 0.12)",
               border: "4px solid #FFFFFF",
@@ -157,7 +139,7 @@ export default function PracticeGrounds() {
                 width: "100%",
                 height: "100%",
                 minHeight: "460px",
-                borderRadius: "32px 156px 32px 32px",
+                borderRadius: "24px",
                 objectFit: "cover",
                 display: "block",
                 backgroundColor: "#FFFFFF",
@@ -199,7 +181,7 @@ export default function PracticeGrounds() {
                 zIndex: 10
               }}
             >
-              {isPlaying ? <Pause size={28} /> : <Play size={28} style={{ marginLeft: "4px" }} />}
+              {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} style={{ marginLeft: "3px" }} />}
             </button>
           </div>
         </div>

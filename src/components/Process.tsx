@@ -103,7 +103,7 @@ export default function Process() {
       }}
     >
       <div className="process-container">
-        <div className="process-header">
+        <div className="process-header reveal-up">
           <h2 className="process-title">
             QUY TRÌNH ĐÀO TẠO ĐẠT CHUẨN KHI HỌC LÁI XE
           </h2>
@@ -114,7 +114,7 @@ export default function Process() {
 
           <div className="process-grid">
             {steps.map((step) => (
-              <div key={step.num} className="process-step-item">
+              <div key={step.num} className={`process-step-item reveal-zoom reveal-delay-${step.num}`}>
                 <div className="process-circle-box">
                   <div className="process-icon">{step.icon}</div>
                   <div className="process-number-badge">{step.num}</div>

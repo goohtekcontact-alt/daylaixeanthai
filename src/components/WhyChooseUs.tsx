@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
         alignItems: "center"
       }}>
         {/* Title Heading */}
-        <h2 className="why-choose-us-title" style={{
+        <h2 className="why-choose-us-title reveal-up" style={{
           fontSize: "clamp(1.8rem, 3.5vw, 2.4rem)",
           fontWeight: 800,
           color: "var(--primary)",
@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
         </h2>
 
         {/* Centered Graphic Image (Reduced Size) */}
-        <div style={{
+        <div className="reveal-zoom reveal-delay-2" style={{
           width: "100%",
           maxWidth: "960px",
           margin: "0 auto",

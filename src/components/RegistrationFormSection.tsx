@@ -1,18 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { User, Phone, MapPin, Car, ArrowRight, FileSignature } from "lucide-react";
+import { User, Phone, MapPin, Car, Truck, Bike, Zap, ArrowRight, FileSignature, CheckCircle2 } from "lucide-react";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 
 export default function RegistrationFormSection() {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
     address: "",
-    licenseType: "Hạng B",
+    licenseType: "Hạng B (Ô tô)",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const licenseOptions = ["Hạng B (Ô tô)", "Hạng C1 (Xe tải)", "Hạng A1 (Xe máy)", "Hạng A (Mô tô PKL)"];
+  const licenseOptions = [
+    { id: "Hạng B (Ô tô)", label: "Hạng B (Ô tô)", icon: <Car size={13} /> },
+    { id: "Hạng C1 (Xe tải)", label: "Hạng C1 (Xe tải)", icon: <Truck size={13} /> },
+    { id: "Hạng A1 (Xe máy)", label: "Hạng A1 (Xe máy)", icon: <Bike size={13} /> },
+    { id: "Hạng A (Mô tô PKL)", label: "Hạng A (Mô tô PKL)", icon: <Zap size={13} /> },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,19 +31,19 @@ export default function RegistrationFormSection() {
     setTimeout(() => {
       alert("Gửi thông tin đăng ký thành công! Trung tâm An Thái sẽ liên hệ với bạn trong thời gian sớm nhất.");
       setIsSubmitted(false);
-      setFormData({ fullName: "", phone: "", address: "", licenseType: "B1" });
-    }, 500);
+      setFormData({ fullName: "", phone: "", address: "", licenseType: "Hạng B (Ô tô)" });
+    }, 600);
   };
 
   return (
     <section
-      id="dang-ky-form"
+      id="dang-ky"
       className="registration-form-section"
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "clamp(500px, 44vw, 750px)",
-        padding: "36px 20px",
+        minHeight: "clamp(520px, 46vw, 760px)",
+        padding: "40px 20px",
         backgroundImage: "url('/images/image_background-form.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -64,17 +71,16 @@ export default function RegistrationFormSection() {
         {/* Right Column: Form Registration Card */}
         <div className="registration-form-card-wrapper" style={{ display: "flex", justifyContent: "flex-end" }}>
           <div
-            className="registration-form-card"
+            className="registration-form-card reveal-zoom"
             style={{
               width: "100%",
-              maxWidth: "420px",
+              maxWidth: "435px",
               backgroundColor: "#FFFFFF",
               borderRadius: "22px",
-              padding: "24px 22px 18px 22px",
-              boxShadow: "0 16px 45px rgba(192, 10, 0, 0.18), 0 4px 14px rgba(0, 0, 0, 0.05)",
-              border: "2px solid var(--primary)",
+              padding: "26px 24px 22px 24px",
+              boxShadow: "0 18px 48px rgba(192, 10, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.04)",
+              border: "1.5px solid rgba(192, 10, 0, 0.25)",
               position: "relative",
-              transform: "translateX(-30px)",
             }}
           >
             {/* Top Red Circular Icon Badge */}
@@ -99,11 +105,11 @@ export default function RegistrationFormSection() {
             </div>
 
             {/* Form Title */}
-            <div style={{ textAlign: "center", marginTop: "4px", marginBottom: "12px" }}>
+            <div style={{ textAlign: "center", marginTop: "6px", marginBottom: "14px" }}>
               <h2
                 style={{
-                  fontSize: "1.05rem",
-                  fontWeight: 800,
+                  fontSize: "1.15rem",
+                  fontWeight: 900,
                   color: "var(--primary)",
                   lineHeight: 1.25,
                   letterSpacing: "-0.2px",
@@ -131,239 +137,117 @@ export default function RegistrationFormSection() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {/* Field 1: Họ và tên */}
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <div
-                  style={{
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "8px",
-                    backgroundColor: "var(--primary-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <User size={15} style={{ color: "var(--primary)" }} />
-                </div>
-                <div style={{ flexGrow: 1, minWidth: 0 }}>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.76rem",
-                      fontWeight: 700,
-                      color: "#1E293B",
-                      marginBottom: "2px",
-                    }}
-                  >
-                    Họ và tên: <span style={{ color: "var(--primary)" }}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Nhập họ và tên của bạn"
-                    required
-                    value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    style={{
-                      width: "100%",
-                      padding: "5px 10px",
-                      borderRadius: "7px",
-                      border: "1px solid #E2E8F0",
-                      backgroundColor: "#FAFAFA",
-                      fontSize: "0.76rem",
-                      color: "#1E293B",
-                      outline: "none",
-                    }}
-                  />
-                </div>
-              </div>
+              <Input
+                label="Họ và tên:"
+                requiredStar
+                icon={<User size={15} />}
+                type="text"
+                placeholder="Nhập họ và tên của bạn"
+                required
+                value={formData.fullName}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+              />
 
               {/* Field 2: Số điện thoại */}
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <div
-                  style={{
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "8px",
-                    backgroundColor: "var(--primary-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <Phone size={15} style={{ color: "var(--primary)" }} />
-                </div>
-                <div style={{ flexGrow: 1, minWidth: 0 }}>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.76rem",
-                      fontWeight: 700,
-                      color: "#1E293B",
-                      marginBottom: "2px",
-                    }}
-                  >
-                    Số điện thoại: <span style={{ color: "var(--primary)" }}>*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Nhập số điện thoại"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    style={{
-                      width: "100%",
-                      padding: "5px 10px",
-                      borderRadius: "7px",
-                      border: "1px solid #E2E8F0",
-                      backgroundColor: "#FAFAFA",
-                      fontSize: "0.76rem",
-                      color: "#1E293B",
-                      outline: "none",
-                    }}
-                  />
-                </div>
-              </div>
+              <Input
+                label="Số điện thoại:"
+                requiredStar
+                icon={<Phone size={15} />}
+                type="tel"
+                placeholder="Nhập số điện thoại liên hệ"
+                required
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              />
 
               {/* Field 3: Địa chỉ */}
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <div
-                  style={{
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "8px",
-                    backgroundColor: "var(--primary-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <MapPin size={15} style={{ color: "var(--primary)" }} />
-                </div>
-                <div style={{ flexGrow: 1, minWidth: 0 }}>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.76rem",
-                      fontWeight: 700,
-                      color: "#1E293B",
-                      marginBottom: "2px",
-                    }}
-                  >
-                    Địa chỉ:
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Nhập địa chỉ của bạn"
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    style={{
-                      width: "100%",
-                      padding: "5px 10px",
-                      borderRadius: "7px",
-                      border: "1px solid #E2E8F0",
-                      backgroundColor: "#FAFAFA",
-                      fontSize: "0.76rem",
-                      color: "#1E293B",
-                      outline: "none",
-                    }}
-                  />
-                </div>
-              </div>
+              <Input
+                label="Địa chỉ:"
+                icon={<MapPin size={15} />}
+                type="text"
+                placeholder="Nhập khu vực / địa chỉ của bạn"
+                value={formData.address}
+                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+              />
 
               {/* Field 4: Nhu cầu học bằng lái */}
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
-                <div
-                  style={{
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "8px",
-                    backgroundColor: "var(--primary-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                    marginTop: "2px",
-                  }}
-                >
-                  <Car size={15} style={{ color: "var(--primary)" }} />
-                </div>
-                <div style={{ flexGrow: 1, minWidth: 0 }}>
-                  <label
-                    style={{
-                      display: "block",
-                      fontSize: "0.76rem",
-                      fontWeight: 700,
-                      color: "#1E293B",
-                      marginBottom: "4px",
-                    }}
-                  >
-                    Nhu cầu học bằng lái: <span style={{ color: "var(--primary)" }}>*</span>
-                  </label>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "2px" }}>
+                <label style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1E293B", display: "flex", alignItems: "center", gap: "5px" }}>
+                  <Car size={14} style={{ color: "var(--primary)" }} />
+                  <span>Nhu cầu học bằng lái:</span> <span style={{ color: "var(--primary)" }}>*</span>
+                </label>
 
-                  <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
-                    {licenseOptions.map((type) => (
-                      <label
-                        key={type}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "6px" }}>
+                  {licenseOptions.map((opt) => {
+                    const isSelected = formData.licenseType === opt.id;
+                    return (
+                      <button
+                        type="button"
+                        key={opt.id}
+                        onClick={() => setFormData({ ...formData, licenseType: opt.id })}
                         style={{
-                          display: "inline-flex",
+                          display: "flex",
                           alignItems: "center",
-                          gap: "3px",
+                          gap: "7px",
+                          padding: "8px 10px",
+                          borderRadius: "10px",
+                          border: isSelected ? "1.5px solid var(--primary)" : "1px solid #E2E8F0",
+                          background: isSelected ? "var(--accent-gradient)" : "#F8FAFC",
+                          color: isSelected ? "#FFFFFF" : "#334155",
+                          fontWeight: isSelected ? 600 : 500,
+                          fontSize: "0.78rem",
                           cursor: "pointer",
-                          fontSize: "0.76rem",
-                          fontWeight: formData.licenseType === type ? 800 : 600,
-                          color: formData.licenseType === type ? "var(--primary)" : "#475569",
+                          boxShadow: isSelected ? "0 4px 14px rgba(192, 10, 0, 0.28)" : "none",
+                          transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+                          textAlign: "left",
+                          userSelect: "none",
                         }}
                       >
-                        <input
-                          type="radio"
-                          name="licenseType"
-                          value={type}
-                          checked={formData.licenseType === type}
-                          onChange={(e) => setFormData({ ...formData, licenseType: e.target.value })}
+                        <div
                           style={{
-                            accentColor: "var(--primary)",
-                            width: "12px",
-                            height: "12px",
-                            cursor: "pointer",
+                            width: "22px",
+                            height: "22px",
+                            borderRadius: "6px",
+                            backgroundColor: isSelected ? "rgba(255, 255, 255, 0.25)" : "#E2E8F0",
+                            color: isSelected ? "#FFFFFF" : "#64748B",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexShrink: 0,
+                            transition: "all 0.2s ease",
                           }}
-                        />
-                        <span>{type}</span>
-                      </label>
-                    ))}
-                  </div>
+                        >
+                          {opt.icon}
+                        </div>
+                        <span style={{ flexGrow: 1, letterSpacing: "0.15px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                          {opt.label}
+                        </span>
+                        {isSelected && <CheckCircle2 size={14} color="#FFFFFF" strokeWidth={2.5} style={{ flexShrink: 0 }} />}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Submit Button */}
-              <button
+              {/* Submit Button using shared UI Button */}
+              <Button
                 type="submit"
+                variant="primary"
                 disabled={isSubmitted}
                 style={{
                   width: "100%",
-                  height: "36px",
-                  marginTop: "4px",
-                  borderRadius: "9px",
-                  background: "var(--accent-gradient)",
-                  color: "#FFFFFF",
-                  border: "none",
+                  minHeight: "42px",
+                  marginTop: "6px",
+                  borderRadius: "10px",
+                  fontSize: "0.88rem",
                   fontWeight: 800,
-                  fontSize: "0.82rem",
-                  letterSpacing: "0.4px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "8px",
-                  cursor: "pointer",
-                  boxShadow: "0 4px 14px rgba(192, 10, 0, 0.35)",
-                  transition: "all 0.2s ease",
+                  letterSpacing: "0.3px",
+                  boxShadow: "0 6px 18px rgba(192, 10, 0, 0.35)",
                 }}
               >
-                <span>{isSubmitted ? "ĐANG XỬ LÝ..." : "ĐĂNG KÝ HỌC"}</span>
+                <span>{isSubmitted ? "ĐANG XỬ LÝ..." : "ĐĂNG KÝ HỌC NGAY"}</span>
                 <div
                   style={{
                     width: "18px",
@@ -378,61 +262,7 @@ export default function RegistrationFormSection() {
                 >
                   <ArrowRight size={11} style={{ color: "var(--primary)" }} strokeWidth={3} />
                 </div>
-              </button>
-
-              {/* Divider: Hoặc */}
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "4px" }}>
-                <div style={{ flex: 1, height: "1px", backgroundColor: "#E2E8F0" }} />
-                <span style={{ fontSize: "0.7rem", color: "#64748B", fontWeight: 600 }}>Hoặc</span>
-                <div style={{ flex: 1, height: "1px", backgroundColor: "#E2E8F0" }} />
-              </div>
-
-              {/* Sub-note */}
-              <p style={{ textAlign: "center", fontSize: "0.68rem", color: "#475569", margin: 0, lineHeight: 1.2 }}>
-                Gọi ngay cho đội ngũ tư vấn viên để được hỗ trợ tốt nhất
-              </p>
-
-              {/* Hotline Pill */}
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <a
-                  href="tel:0786300900"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    backgroundColor: "#FFFFFF",
-                    border: "1px solid #E2E8F0",
-                    padding: "3px 12px",
-                    borderRadius: "20px",
-                    textDecoration: "none",
-                    boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "22px",
-                      height: "22px",
-                      borderRadius: "50%",
-                      background: "var(--accent-gradient)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Phone size={11} fill="#FFFFFF" color="#FFFFFF" />
-                  </div>
-                  <span
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: 900,
-                      color: "var(--primary)",
-                      letterSpacing: "0.2px",
-                    }}
-                  >
-                    0786 300 900
-                  </span>
-                </a>
-              </div>
+              </Button>
             </form>
           </div>
         </div>

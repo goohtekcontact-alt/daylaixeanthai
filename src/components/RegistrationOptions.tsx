@@ -89,7 +89,7 @@ export default function RegistrationOptions() {
         <div className="registration-left-spacer" style={{ minHeight: "340px" }} />
 
         {/* Right Column: Section Header & 3 Option Cards */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "540px" }}>
+        <div className="reveal-right" style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "540px" }}>
           {/* Header Title */}
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginBottom: "3px" }}>
@@ -115,10 +115,10 @@ export default function RegistrationOptions() {
 
           {/* Cards List */}
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {options.map((opt) => (
+            {options.map((opt, idx) => (
               <div
                 key={opt.id}
-                className="registration-card-box"
+                className={`registration-card-box reveal-up reveal-delay-${idx + 1}`}
                 style={{
                   backgroundColor: "#FFFFFF",
                   borderRadius: "12px",

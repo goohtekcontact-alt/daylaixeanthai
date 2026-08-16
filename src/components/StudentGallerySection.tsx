@@ -104,7 +104,7 @@ export default function StudentGallerySection() {
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto", textAlign: "center" }}>
         {/* Section Subtitle Badge */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "8px" }}>
+        <div className="reveal-up" style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "8px" }}>
           <div style={{ width: "32px", height: "2px", backgroundColor: "var(--primary)" }} />
           <span
             style={{
@@ -122,6 +122,7 @@ export default function StudentGallerySection() {
 
         {/* Section Headline */}
         <h2
+          className="reveal-up reveal-delay-1"
           style={{
             fontSize: "clamp(1.6rem, 2.6vw, 2.3rem)",
             fontWeight: 900,
@@ -136,13 +137,13 @@ export default function StudentGallerySection() {
         </h2>
 
         {/* Sub-description */}
-        <p className="student-gallery-desc" style={{ color: "#64748B", fontSize: "0.92rem", margin: "0 auto 30px", maxWidth: "680px", lineHeight: 1.5 }}>
+        <p className="student-gallery-desc reveal-up reveal-delay-2" style={{ color: "#64748B", fontSize: "0.92rem", margin: "0 auto 30px", maxWidth: "680px", lineHeight: 1.5 }}>
           Những khoảnh khắc học tập và trải nghiệm thực tế tại Trung Tâm Giáo Dục Nghề Nghiệp An Thái
         </p>
 
         {/* Top 4 Highlight Badges */}
         <div
-          className="student-gallery-badges-grid"
+          className="student-gallery-badges-grid reveal-up reveal-delay-3"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -298,85 +299,34 @@ export default function StudentGallerySection() {
         </div>
 
         {/* Interactive 3D Perspective Carousel Container */}
-        <div className="gallery-carousel-wrapper" style={{ position: "relative", width: "100%", margin: "0 auto 35px", display: "flex", alignItems: "center", justifyContent: "center", minHeight: "330px" }}>
+        <div className="gallery-carousel-wrapper reveal-zoom reveal-delay-4">
           {/* Prev Arrow Button */}
           <button
             onClick={handlePrev}
             aria-label="Previous Slide"
             className="gallery-prev-btn"
-            style={{
-              position: "absolute",
-              left: "4%",
-              zIndex: 10,
-              width: "48px",
-              height: "48px",
-              borderRadius: "50%",
-              backgroundColor: "#FFFFFF",
-              border: "none",
-              boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--primary)",
-              transition: "transform 0.2s ease, backgroundColor 0.2s ease"
-            }}
           >
-            <FaChevronLeft size={18} />
+            <FaChevronLeft />
           </button>
 
           {/* Carousel Slide Cards */}
-          <div className="gallery-slides-container" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "20px", width: "100%", overflow: "hidden" }}>
+          <div className="gallery-slides-container">
             {galleryItems.map((item, index) => {
               const isActive = index === activeIndex;
               const isPrev = index === (activeIndex === 0 ? galleryItems.length - 1 : activeIndex - 1);
               const isNext = index === (activeIndex === galleryItems.length - 1 ? 0 : activeIndex + 1);
 
-              let cardStyle: React.CSSProperties = {
-                display: "none"
-              };
-
-              if (isActive) {
-                cardStyle = {
-                  width: "580px",
-                  height: "320px",
-                  borderRadius: "22px",
-                  overflow: "hidden",
-                  boxShadow: "0 14px 36px rgba(0, 0, 0, 0.16)",
-                  position: "relative",
-                  zIndex: 5,
-                  transform: "scale(1)",
-                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                  flexShrink: 0
-                };
-              } else if (isPrev || isNext) {
-                cardStyle = {
-                  width: "380px",
-                  height: "260px",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
-                  position: "relative",
-                  zIndex: 2,
-                  opacity: 0.75,
-                  transform: "scale(0.88)",
-                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                  flexShrink: 0
-                };
-              }
-
               return (
                 <div
                   key={item.id}
                   className={`gallery-card-item ${isActive ? "is-active" : isPrev ? "is-prev" : isNext ? "is-next" : ""}`}
-                  style={cardStyle}
                   onClick={() => setActiveIndex(index)}
                 >
                   <Image
                     src={item.imageSrc}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 600px"
+                    sizes="(max-width: 768px) 70vw, 600px"
                     style={{ objectFit: "cover" }}
                     priority={isActive}
                   />
@@ -390,25 +340,8 @@ export default function StudentGallerySection() {
             onClick={handleNext}
             aria-label="Next Slide"
             className="gallery-next-btn"
-            style={{
-              position: "absolute",
-              right: "4%",
-              zIndex: 10,
-              width: "48px",
-              height: "48px",
-              borderRadius: "50%",
-              backgroundColor: "#FFFFFF",
-              border: "none",
-              boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--primary)",
-              transition: "transform 0.2s ease, backgroundColor 0.2s ease"
-            }}
           >
-            <FaChevronRight size={18} />
+            <FaChevronRight />
           </button>
         </div>
 

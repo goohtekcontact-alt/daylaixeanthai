@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGraduationCap, FaBuilding, FaFileSignature, FaHeadphones, FaLocationDot } from "react-icons/fa6";
+import { FaGraduationCap, FaBuilding, FaFileSignature, FaHeadphones } from "react-icons/fa6";
 
 export default function RegistrationOptions() {
   const options = [

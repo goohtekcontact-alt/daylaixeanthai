@@ -45,7 +45,7 @@ export default function Header() {
         }}>
           <div className="header-topbar-title" style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "0.74rem" }}>
             <MapPin size={13} strokeWidth={2.2} style={{ flexShrink: 0 }} />
-            <span>TRUNG TÂM GIÁO DỤC NGHỀ NGHIỆP AN THÁI</span>
+            <span>Trung Tâm Giáo Dục Nghề Nghiệp An Thái - Đào Tạo Lái Xe</span>
           </div>
 
           <div className="header-topbar-info" style={{ display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap", fontSize: "0.74rem" }}>

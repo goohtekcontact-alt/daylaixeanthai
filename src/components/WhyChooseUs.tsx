@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 export default function WhyChooseUs() {
@@ -30,7 +28,7 @@ export default function WhyChooseUs() {
           HỌC LÁI XE B2 ĐỂ LÀM GÌ?
         </h2>
 
-        {/* Centered Graphic Image (Reduced Size) */}
+        {/* Centered Graphic Image */}
         <div className="reveal-zoom reveal-delay-2" style={{
           width: "100%",
           maxWidth: "960px",
@@ -43,7 +41,6 @@ export default function WhyChooseUs() {
             alt="Học lái xe B2 để làm gì?"
             width={1164}
             height={508}
-            priority
             style={{
               width: "100%",
               height: "auto",

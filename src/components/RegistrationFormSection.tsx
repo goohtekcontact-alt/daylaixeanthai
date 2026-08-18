@@ -1,9 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { User, Phone, MapPin, Car, Truck, Bike, Zap, ArrowRight, FileSignature, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+
+const LICENSE_OPTIONS = [
+  { id: "Hạng B (Ô tô)", label: "Hạng B (Ô tô)", icon: <Car size={13} /> },
+  { id: "Hạng C1 (Xe tải)", label: "Hạng C1 (Xe tải)", icon: <Truck size={13} /> },
+  { id: "Hạng A1 (Xe máy)", label: "Hạng A1 (Xe máy)", icon: <Bike size={13} /> },
+  { id: "Hạng A (Mô tô PKL)", label: "Hạng A (Mô tô PKL)", icon: <Zap size={13} /> },
+];
 
 export default function RegistrationFormSection() {
   const [formData, setFormData] = useState({
@@ -14,14 +21,7 @@ export default function RegistrationFormSection() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const licenseOptions = [
-    { id: "Hạng B (Ô tô)", label: "Hạng B (Ô tô)", icon: <Car size={13} /> },
-    { id: "Hạng C1 (Xe tải)", label: "Hạng C1 (Xe tải)", icon: <Truck size={13} /> },
-    { id: "Hạng A1 (Xe máy)", label: "Hạng A1 (Xe máy)", icon: <Bike size={13} /> },
-    { id: "Hạng A (Mô tô PKL)", label: "Hạng A (Mô tô PKL)", icon: <Zap size={13} /> },
-  ];
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.phone) {
       alert("Vui lòng điền đầy đủ Họ và tên và Số điện thoại!");
@@ -33,7 +33,7 @@ export default function RegistrationFormSection() {
       setIsSubmitted(false);
       setFormData({ fullName: "", phone: "", address: "", licenseType: "Hạng B (Ô tô)" });
     }, 600);
-  };
+  }, [formData.fullName, formData.phone]);
 
   return (
     <section
@@ -179,8 +179,8 @@ export default function RegistrationFormSection() {
                   <span>Nhu cầu học bằng lái:</span> <span style={{ color: "var(--primary)" }}>*</span>
                 </label>
 
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "6px" }}>
-                  {licenseOptions.map((opt) => {
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "6px", width: "100%" }}>
+                  {LICENSE_OPTIONS.map((opt) => {
                     const isSelected = formData.licenseType === opt.id;
                     return (
                       <button
@@ -190,26 +190,31 @@ export default function RegistrationFormSection() {
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          gap: "7px",
-                          padding: "8px 10px",
+                          gap: "6px",
+                          padding: "7px 8px",
+                          width: "100%",
+                          minWidth: 0,
+                          boxSizing: "border-box",
                           borderRadius: "10px",
                           border: isSelected ? "1.5px solid var(--primary)" : "1px solid #E2E8F0",
                           background: isSelected ? "var(--accent-gradient)" : "#F8FAFC",
                           color: isSelected ? "#FFFFFF" : "#334155",
-                          fontWeight: isSelected ? 600 : 500,
-                          fontSize: "0.78rem",
+                          fontWeight: isSelected ? 700 : 500,
+                          fontSize: "0.76rem",
                           cursor: "pointer",
-                          boxShadow: isSelected ? "0 4px 14px rgba(192, 10, 0, 0.28)" : "none",
-                          transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+                          boxShadow: isSelected ? "0 4px 12px rgba(192, 10, 0, 0.25)" : "none",
+                          transition: "all 0.2s ease",
                           textAlign: "left",
                           userSelect: "none",
+                          position: "relative",
+                          overflow: "hidden",
                         }}
                       >
                         <div
                           style={{
-                            width: "22px",
-                            height: "22px",
-                            borderRadius: "6px",
+                            width: "20px",
+                            height: "20px",
+                            borderRadius: "5px",
                             backgroundColor: isSelected ? "rgba(255, 255, 255, 0.25)" : "#E2E8F0",
                             color: isSelected ? "#FFFFFF" : "#64748B",
                             display: "flex",
@@ -221,10 +226,27 @@ export default function RegistrationFormSection() {
                         >
                           {opt.icon}
                         </div>
-                        <span style={{ flexGrow: 1, letterSpacing: "0.15px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                        <span
+                          style={{
+                            flex: "1 1 auto",
+                            minWidth: 0,
+                            letterSpacing: "0.1px",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            fontSize: "0.75rem",
+                          }}
+                        >
                           {opt.label}
                         </span>
-                        {isSelected && <CheckCircle2 size={14} color="#FFFFFF" strokeWidth={2.5} style={{ flexShrink: 0 }} />}
+                        {isSelected && (
+                          <CheckCircle2
+                            size={13}
+                            color="#FFFFFF"
+                            strokeWidth={2.6}
+                            style={{ flexShrink: 0 }}
+                          />
+                        )}
                       </button>
                     );
                   })}

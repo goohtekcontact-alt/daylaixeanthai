@@ -1,37 +1,37 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { FaLocationDot, FaArrowRight, FaPlay, FaPause } from "react-icons/fa6";
+
+const GROUNDS = [
+  {
+    num: "01",
+    name: "Sân tập lái xe Dĩ An 1",
+    address: "Số 6 Độc Lập, Dĩ An, Bình Dương 820000, Vietnam",
+    mapUrl: "https://maps.google.com/?q=Số+6+Độc+Lập,+Dĩ+An,+Bình+Dương"
+  },
+  {
+    num: "02",
+    name: "Sân tập lái xe Dĩ An 2",
+    address: "VPRR+JVX, Dĩ An, Hồ Chí Minh, Vietnam",
+    mapUrl: "https://maps.google.com/?q=Dĩ+An,+Hồ+Chí+Minh"
+  }
+];
 
 export default function PracticeGrounds() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  const togglePlay = () => {
+  const togglePlay = useCallback(() => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
         videoRef.current.play();
       }
-      setIsPlaying(!isPlaying);
+      setIsPlaying((prev) => !prev);
     }
-  };
-
-  const grounds = [
-    {
-      num: "01",
-      name: "Sân tập lái xe Dĩ An 1",
-      address: "Số 6 Độc Lập, Dĩ An, Bình Dương 820000, Vietnam",
-      mapUrl: "https://maps.google.com/?q=Số+6+Độc+Lập,+Dĩ+An,+Bình+Dương"
-    },
-    {
-      num: "02",
-      name: "Sân tập lái xe Dĩ An 2",
-      address: "VPRR+JVX, Dĩ An, Hồ Chí Minh, Vietnam",
-      mapUrl: "https://maps.google.com/?q=Dĩ+An,+Hồ+Chí+Minh"
-    }
-  ];
+  }, [isPlaying]);
 
   return (
     <section
@@ -40,7 +40,7 @@ export default function PracticeGrounds() {
       style={{
         position: "relative",
         width: "100%",
-        backgroundImage: "url('/images/background_section_5.png')",
+        backgroundImage: "linear-gradient(to right, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.68) 45%, rgba(255, 255, 255, 0.3) 100%), url('/images/background_section_5.png')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
@@ -49,8 +49,8 @@ export default function PracticeGrounds() {
     >
       <div className="grounds-container">
         {/* Left Column: Heading and 2 Ground Cards */}
-        <div className="grounds-left reveal-left">
-          <div className="grounds-header">
+        <div className="grounds-left">
+          <div className="grounds-header reveal-up">
             <div className="grounds-tagline">
               <span className="grounds-tagline-line" />
               <span>Hệ Thống Đào Tạo</span>
@@ -60,40 +60,40 @@ export default function PracticeGrounds() {
             <h2
               className="grounds-title"
               style={{
-                fontSize: "clamp(2.1rem, 3.5vw, 2.85rem)",
+                fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
                 fontWeight: 900,
                 color: "#1E293B",
-                lineHeight: 1.32,
-                letterSpacing: "0.3px",
-                textTransform: "uppercase",
-                margin: 0
+                lineHeight: 1.3,
+                letterSpacing: "0.2px",
+                textTransform: "uppercase"
               }}
             >
-              CÁC SÂN TẬP<br />
-              <span className="grounds-title-highlight" style={{ color: "var(--primary)", display: "inline-block", marginTop: "4px" }}>
-                CỦA HỌC LÁI XE
-              </span>
+              HỆ THỐNG CÁC SÂN TẬP CỦA{" "}
+              <span style={{ color: "var(--primary)" }}>HỌC LÁI XE</span>
             </h2>
+
+            <p style={{ color: "#64748B", fontSize: "0.9rem", marginTop: "4px", lineHeight: 1.45 }}>
+              Sân tập đạt chuẩn quy chuẩn Tổng cục Đường bộ Việt Nam, thiết kế sa hình sát hạch thực tế 100%.
+            </p>
           </div>
 
-          {/* Ground Cards List */}
+          {/* 2 Ground Cards List */}
           <div className="grounds-list">
-            {grounds.map((ground, idx) => (
+            {GROUNDS.map((ground, idx) => (
               <a
                 key={ground.num}
                 href={ground.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`grounds-card reveal-up reveal-delay-${idx + 1}`}
-                aria-label={`${ground.name} - ${ground.address} (Mở bản đồ Google Maps)`}
               >
                 <div className="grounds-card-icon-box">
-                  <FaLocationDot size={20} />
+                  <FaLocationDot size={22} />
                 </div>
 
                 <div className="grounds-card-content">
                   <div className="grounds-card-header-row">
-                    <span className="grounds-card-tag">Cơ sở {ground.num}</span>
+                    <span className="grounds-card-tag">Sân {ground.num}</span>
                   </div>
                   <h3 className="grounds-card-name">
                     {ground.name}
@@ -103,38 +103,38 @@ export default function PracticeGrounds() {
                   </div>
                 </div>
 
-                <div className="grounds-card-action" aria-hidden="true">
-                  <FaArrowRight size={13} />
+                <div className="grounds-card-action">
+                  <FaArrowRight size={14} />
                 </div>
               </a>
             ))}
           </div>
         </div>
 
-        {/* Right Column: Video Frame */}
-        <div className="grounds-right reveal-right reveal-delay-2">
+        {/* Right Column: Video Playback Showcase */}
+        <div className="grounds-right">
           <div
-            className="grounds-video-wrapper"
+            className="grounds-video-container reveal-zoom reveal-delay-2"
             style={{
               position: "relative",
               width: "100%",
-              height: "100%",
-              borderRadius: "28px",
+              borderRadius: "24px",
               overflow: "hidden",
-              boxShadow: "0 16px 45px rgba(0, 0, 0, 0.12)",
-              border: "4px solid #FFFFFF",
+              boxShadow: "0 20px 48px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.05)",
               backgroundColor: "#FFFFFF",
-              isolation: "isolate"
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
             }}
           >
+            {/* Native HTML5 Video Player */}
             <video
               ref={videoRef}
-              className="grounds-video-element"
               autoPlay
               loop
               muted
               playsInline
-              poster="/images/bacground_section_4.png"
+              preload="metadata"
               style={{
                 width: "100%",
                 height: "100%",

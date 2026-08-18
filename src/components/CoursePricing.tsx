@@ -1,150 +1,148 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import { Check, ChevronRight, Car, Truck, Bike, Flame, Users, FileCheck, Disc, Navigation, BookOpen, ShieldCheck, Calendar } from "lucide-react";
 
-export default function CoursePricing() {
-  const courses = [
-    {
-      id: "bang-a1",
-      icon: <Bike size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-      title: "HẠNG A1 (XE MÁY)",
-      subtitle: "Xe Mô Mô 2 Bánh (Dưới 175cc)",
-      imageSrc: "/images/image_card_price_moto.png",
-      price: "650.000đ",
-      numericPrice: "650000",
-      priceDetail: "Hồ sơ trọn gói sát hạch",
-      features: [
-        {
-          icon: <BookOpen size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Mẹo lý thuyết <strong style={{ color: "var(--primary)", fontWeight: 800 }}>200 câu</strong> sát hạch</>
-        },
-        {
-          icon: <Disc size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Thực hành sa hình vòng 8 thi chuẩn</>
-        },
-        {
-          icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Thủ tục đơn giản chỉ cần <strong style={{ color: "var(--primary)", fontWeight: 800 }}>CCCD</strong></>
-        },
-        {
-          icon: <Calendar size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Lịch học & thi linh hoạt hàng tuần</>
-        }
-      ]
-    },
-    {
-      id: "bang-a",
-      icon: <Flame size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-      title: "HẠNG A (MÔ TÔ PKL)",
-      subtitle: "Xe Mô Tô PKL (Trên 175cc)",
-      imageSrc: "/images/image_card_price_motopkl.png",
-      price: "1.350.000đ",
-      numericPrice: "1350000",
-      priceDetail: "Hồ sơ trọn gói sát hạch",
-      features: [
-        {
-          icon: <BookOpen size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Bộ mẹo lý thuyết <strong style={{ color: "var(--primary)", fontWeight: 800 }}>450 câu</strong> GTVT</>
-        },
-        {
-          icon: <Flame size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Thực hành xe PKL đời mới 100%</>
-        },
-        {
-          icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Thủ tục nhanh gọn chỉ cần <strong style={{ color: "var(--primary)", fontWeight: 800 }}>CCCD</strong></>
-        },
-        {
-          icon: <Calendar size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Xếp lịch thi sát hạch <strong style={{ color: "var(--primary)", fontWeight: 800 }}>sớm nhất</strong></>
-        }
-      ]
-    },
-    {
-      id: "bang-b",
-      icon: <Car size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-      title: "HẠNG B (SÀN & TỰ ĐỘNG)",
-      subtitle: "Xe Ô Tô Số Sàn & Số Tự Động",
-      imageSrc: "/images/image_card_price_o_to.png",
-      price: "19.300.000đ",
-      numericPrice: "19300000",
-      priceDetail: "Hồ sơ trọn gói sát hạch",
-      features: [
-        {
-          icon: <Users size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Học xe <strong style={{ color: "var(--primary)", fontWeight: 800 }}>4 - 9 chỗ</strong> đời mới 100%</>
-        },
-        {
-          icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Học phí <strong style={{ color: "var(--primary)", fontWeight: 800 }}>trọn gói</strong> cam kết hợp đồng</>
-        },
-        {
-          icon: <Disc size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Học <strong style={{ color: "var(--primary)", fontWeight: 800 }}>1 thầy / 1 trò</strong> cầm tay chỉ việc</>
-        },
-        {
-          icon: <Navigation size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Thực hành <strong style={{ color: "var(--primary)", fontWeight: 800 }}>DAT đường trường</strong> đủ</>
-        }
-      ]
-    },
-    {
-      id: "bang-c1",
-      icon: <Truck size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-      title: "HẠNG C1 (XE TẢI)",
-      subtitle: "Xe Tải & Vận Tải Chuyên Nghiệp",
-      imageSrc: "/images/image_card_price_c1.png",
-      price: "23.100.000đ",
-      numericPrice: "23100000",
-      priceDetail: "Hồ sơ trọn gói sát hạch",
-      features: [
-        {
-          icon: <Truck size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Đào tạo xe tải chuẩn <strong style={{ color: "var(--primary)", fontWeight: 800 }}>Bộ GTVT</strong></>
-        },
-        {
-          icon: <ShieldCheck size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Sa hình thực hành <strong style={{ color: "var(--primary)", fontWeight: 800 }}>ISO sát hạch</strong></>
-        },
-        {
-          icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Học phí <strong style={{ color: "var(--primary)", fontWeight: 800 }}>trọn gói</strong> cam kết hợp đồng</>
-        },
-        {
-          icon: <Navigation size={18} style={{ color: "var(--primary)" }} />,
-          text: <>Chạy <strong style={{ color: "var(--primary)", fontWeight: 800 }}>DAT đường trường</strong> thực tế</>
-        }
-      ]
-    }
-  ];
-
-  // Schema.org Structured Data cho Googlebot đọc giá & khóa học cho Rich Snippets SEO
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": courses.map((course, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Course",
-        "name": `Khóa học đào tạo lái xe ${course.title}`,
-        "description": course.subtitle,
-        "provider": {
-          "@type": "EducationalOrganization",
-          "name": "Trung Tâm Giáo Dục Nghề Nghiệp An Thái"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": course.numericPrice,
-          "priceCurrency": "VND",
-          "availability": "https://schema.org/InStock"
-        }
+const COURSES = [
+  {
+    id: "bang-a1",
+    icon: <Bike size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
+    title: "HẠNG A1 (XE MÁY)",
+    subtitle: "Xe Mô Mô 2 Bánh (Dưới 175cc)",
+    imageSrc: "/images/image_card_price_moto.png",
+    price: "650.000đ",
+    numericPrice: "650000",
+    priceDetail: "Hồ sơ trọn gói sát hạch",
+    features: [
+      {
+        icon: <BookOpen size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Mẹo lý thuyết <strong style={{ color: "var(--primary)", fontWeight: 800 }}>200 câu</strong> sát hạch</>
+      },
+      {
+        icon: <Disc size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Thực hành sa hình vòng 8 thi chuẩn</>
+      },
+      {
+        icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Thủ tục đơn giản chỉ cần <strong style={{ color: "var(--primary)", fontWeight: 800 }}>CCCD</strong></>
+      },
+      {
+        icon: <Calendar size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Lịch học & thi linh hoạt hàng tuần</>
       }
-    }))
-  };
+    ]
+  },
+  {
+    id: "bang-a",
+    icon: <Flame size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
+    title: "HẠNG A (MÔ TÔ PKL)",
+    subtitle: "Xe Mô Tô PKL (Trên 175cc)",
+    imageSrc: "/images/image_card_price_motopkl.png",
+    price: "1.350.000đ",
+    numericPrice: "1350000",
+    priceDetail: "Hồ sơ trọn gói sát hạch",
+    features: [
+      {
+        icon: <BookOpen size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Bộ mẹo lý thuyết <strong style={{ color: "var(--primary)", fontWeight: 800 }}>450 câu</strong> GTVT</>
+      },
+      {
+        icon: <Flame size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Thực hành xe PKL đời mới 100%</>
+      },
+      {
+        icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Thủ tục nhanh gọn chỉ cần <strong style={{ color: "var(--primary)", fontWeight: 800 }}>CCCD</strong></>
+      },
+      {
+        icon: <Calendar size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Xếp lịch thi sát hạch <strong style={{ color: "var(--primary)", fontWeight: 800 }}>sớm nhất</strong></>
+      }
+    ]
+  },
+  {
+    id: "bang-b",
+    icon: <Car size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
+    title: "HẠNG B (SÀN & TỰ ĐỘNG)",
+    subtitle: "Xe Ô Tô Số Sàn & Số Tự Động",
+    imageSrc: "/images/image_card_price_o_to.png",
+    price: "19.300.000đ",
+    numericPrice: "19300000",
+    priceDetail: "Hồ sơ trọn gói sát hạch",
+    features: [
+      {
+        icon: <Users size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Học xe <strong style={{ color: "var(--primary)", fontWeight: 800 }}>4 - 9 chỗ</strong> đời mới 100%</>
+      },
+      {
+        icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Học phí <strong style={{ color: "var(--primary)", fontWeight: 800 }}>trọn gói</strong> cam kết hợp đồng</>
+      },
+      {
+        icon: <Disc size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Học <strong style={{ color: "var(--primary)", fontWeight: 800 }}>1 thầy / 1 trò</strong> cầm tay chỉ việc</>
+      },
+      {
+        icon: <Navigation size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Thực hành <strong style={{ color: "var(--primary)", fontWeight: 800 }}>DAT đường trường</strong> đủ</>
+      }
+    ]
+  },
+  {
+    id: "bang-c1",
+    icon: <Truck size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
+    title: "HẠNG C1 (XE TẢI)",
+    subtitle: "Xe Tải & Vận Tải Chuyên Nghiệp",
+    imageSrc: "/images/image_card_price_c1.png",
+    price: "23.100.000đ",
+    numericPrice: "23100000",
+    priceDetail: "Hồ sơ trọn gói sát hạch",
+    features: [
+      {
+        icon: <Truck size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Đào tạo xe tải chuẩn <strong style={{ color: "var(--primary)", fontWeight: 800 }}>Bộ GTVT</strong></>
+      },
+      {
+        icon: <ShieldCheck size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Sa hình thực hành <strong style={{ color: "var(--primary)", fontWeight: 800 }}>ISO sát hạch</strong></>
+      },
+      {
+        icon: <FileCheck size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Học phí <strong style={{ color: "var(--primary)", fontWeight: 800 }}>trọn gói</strong> cam kết hợp đồng</>
+      },
+      {
+        icon: <Navigation size={18} style={{ color: "var(--primary)" }} />,
+        text: <>Chạy <strong style={{ color: "var(--primary)", fontWeight: 800 }}>DAT đường trường</strong> thực tế</>
+      }
+    ]
+  }
+];
 
+// Schema.org Structured Data cho Googlebot đọc giá & khóa học cho Rich Snippets SEO
+const SCHEMA_DATA = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": COURSES.map((course, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Course",
+      "name": `Khóa học đào tạo lái xe ${course.title}`,
+      "description": course.subtitle,
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Trung Tâm Giáo Dục Nghề Nghiệp An Thái"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": course.numericPrice,
+        "priceCurrency": "VND",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  }))
+};
+
+export default function CoursePricing() {
   return (
     <section id="khoa-hoc" className="course-pricing-section" style={{
       padding: "64px 24px",
@@ -153,7 +151,7 @@ export default function CoursePricing() {
       {/* Schema.org Structured Data cho Google Search Crawlers */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_DATA) }}
       />
 
       <div className="course-pricing-container" style={{ maxWidth: "1360px", margin: "0 auto" }}>
@@ -174,7 +172,7 @@ export default function CoursePricing() {
             gap: "16px"
           }}
         >
-          {courses.map((course, idx) => (
+          {COURSES.map((course, idx) => (
             <div
               key={course.id}
               id={course.id}

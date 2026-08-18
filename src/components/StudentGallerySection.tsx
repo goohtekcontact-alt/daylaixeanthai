@@ -2,6 +2,14 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import {
   FaCamera,
   FaUsers,
@@ -15,76 +23,121 @@ import {
   FaArrowRight
 } from "react-icons/fa6";
 
-export default function StudentGallerySection() {
-  const [activeIndex, setActiveIndex] = useState(1);
-
-  const galleryItems = [
-    {
-      id: 1,
-      imageSrc: "/images/image_card_price_car.png",
-      title: "Sân tập sa hình chuẩn GTVT An Thái",
-      customer: {
-        name: "Nguyễn Thị Mai Anh",
-        avatar: "/images/avatar_customer.png",
-        rating: 5,
-        quote: "Cơ sở vật chất hiện đại, sân tập rộng rãi, giáo viên tận tâm hướng dẫn. Môi trường học tập chuyên nghiệp, giúp mình tự tin khi thi và lái xe thực tế."
-      }
-    },
-    {
-      id: 2,
-      imageSrc: "/images/image_card_price_o_to.png",
-      title: "Học viên thực hành lái xe DAT đường trường",
-      customer: {
-        name: "Trần Thu Hà",
-        avatar: "/images/avatar_customer.png",
-        rating: 5,
-        quote: "Giáo viên dạy rất nhiệt tình, hướng dẫn chi tiết từng bài thi sa hình. Nhờ vậy mà mình thi một lần là đỗ ngay cả lý thuyết lẫn thực hành!"
-      }
-    },
-    {
-      id: 3,
-      imageSrc: "/images/image_card_price_c1.png",
-      title: "Dàn xe tập lái đời mới trang bị điều hòa",
-      customer: {
-        name: "Lê Thu Trang",
-        avatar: "/images/avatar_customer.png",
-        rating: 5,
-        quote: "Lịch học vô cùng linh hoạt, phù hợp với người đi làm bận rộn. Xe tập lái đời mới, máy lạnh mát rượi, học rất thoải mái."
-      }
-    },
-    {
-      id: 4,
-      imageSrc: "/images/image_card_price_motopkl.png",
-      title: "Buổi tổng duyệt sa hình trước ngày sát hạch",
-      customer: {
-        name: "Phạm Phương Anh",
-        avatar: "/images/avatar_customer.png",
-        rating: 5,
-        quote: "Chi phí hợp lý, cam kết không phát sinh thêm bất kỳ khoản phụ phí nào. Trung tâm hỗ trợ thủ tục hồ sơ rất chu đáo."
-      }
-    },
-    {
-      id: 5,
-      imageSrc: "/images/image_card_price_moto.png",
-      title: "Hình ảnh học viên vui mừng nhận bằng lái xe",
-      customer: {
-        name: "Đặng Minh Anh",
-        avatar: "/images/avatar_customer.png",
-        rating: 5,
-        quote: "Sân thi chuẩn sát hạch GTVT giúp học viên làm quen áp lực trước khi thi thật. Rất hài lòng với chất lượng đào tạo tại An Thái!"
-      }
+const GALLERY_ITEMS = [
+  {
+    id: 1,
+    type: "image",
+    src: "/images/Bản sao của 2025_04_28_08_01_IMG_5473.JPG",
+    title: "Học viên nhận bằng tốt nghiệp lái xe tại An Thái",
+    customer: {
+      name: "Nguyễn Thị Mai Anh",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Cơ sở vật chất hiện đại, sân tập rộng rãi, giáo viên tận tâm hướng dẫn. Môi trường học tập chuyên nghiệp, giúp mình tự tin khi thi và lái xe thực tế."
     }
-  ];
+  },
+  {
+    id: 2,
+    type: "video",
+    src: "/videos/Bản sao của 2024_09_13_09_30_IMG_0582.MOV",
+    title: "Video học viên thực hành lái xe trên sân sa hình An Thái",
+    customer: {
+      name: "Trần Thu Hà",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Giáo viên dạy rất nhiệt tình, hướng dẫn chi tiết từng bài thi sa hình. Nhờ vậy mà mình thi một lần là đỗ ngay cả lý thuyết lẫn thực hành!"
+    }
+  },
+  {
+    id: 3,
+    type: "image",
+    src: "/images/Bản sao của 2025_04_28_08_03_IMG_5479.JPG",
+    title: "Trao chứng chỉ tốt nghiệp cho học viên lái xe xuất sắc",
+    customer: {
+      name: "Hoàng Bích Ngọc",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Được học thực hành nhiều giờ trên xe đời mới, thầy chỉ dẫn rất kỹ lưỡng và điềm đạm. Rất cảm ơn trung tâm An Thái!"
+    }
+  },
+  {
+    id: 4,
+    type: "video",
+    src: "/videos/Bản sao của 2024_09_13_09_33_IMG_0558.MOV",
+    title: "Video buổi diễn tập sa hình chuẩn sát hạch GTVT",
+    customer: {
+      name: "Phạm Phương Anh",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Chi phí hợp lý, cam kết không phát sinh thêm bất kỳ khoản phụ phí nào. Trung tâm hỗ trợ thủ tục hồ sơ rất chu đáo."
+    }
+  },
+  {
+    id: 5,
+    type: "image",
+    src: "/images/Bản sao của 2025_04_28_08_06_IMG_5483.JPG",
+    title: "Hình ảnh học viên vui mừng nhận giấy phép lái xe",
+    customer: {
+      name: "Lê Thu Trang",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Lịch học vô cùng linh hoạt, phù hợp với người đi làm bận rộn. Xe tập lái đời mới, máy lạnh mát rượi, học rất thoải mái."
+    }
+  },
+  {
+    id: 6,
+    type: "video",
+    src: "/videos/Bản sao của 2024_09_13_09_35_IMG_0567.MOV",
+    title: "Video học viên luyện tập đường trường và sa hình thực tế",
+    customer: {
+      name: "Lê Đức Minh",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Khóa học rất chất lượng, sa hình chuẩn Sở GTVT giúp mình tự tin và phản xạ tốt trong mọi tình huống khi cầm lái."
+    }
+  },
+  {
+    id: 7,
+    type: "image",
+    src: "/images/Bản sao của 2025_04_28_08_07_IMG_5487.JPG",
+    title: "Khoảnh khắc trao bằng và chụp ảnh kỷ niệm tại trung tâm",
+    customer: {
+      name: "Đặng Minh Anh",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Sân thi chuẩn sát hạch GTVT giúp học viên làm quen áp lực trước khi thi thật. Rất hài lòng với chất lượng đào tạo tại An Thái!"
+    }
+  },
+  {
+    id: 8,
+    type: "image",
+    src: "/images/Bản sao của 2025_04_28_08_38_IMG_5513.JPG",
+    title: "Học viên xuất sắc vượt qua kỳ thi sát hạch ô tô",
+    customer: {
+      name: "Nguyễn Hoàng Nam",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Thầy dạy có tâm, chỉ bảo từng mẹo nhỏ khi lùi chuồng và qua vệt bánh xe. Thi đậu bằng B2 ngay lần đầu tiên!"
+    }
+  },
+  {
+    id: 9,
+    type: "image",
+    src: "/images/Bản sao của 2025_04_28_08_39_IMG_5514.JPG",
+    title: "Kỷ niệm ngày nhận bằng lái xe cùng giảng viên An Thái",
+    customer: {
+      name: "Vũ Hải Đăng",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Thời gian đào tạo đúng tiến độ cam kết, xe tập lái số tự động và số sàn đều mới toanh. Rất khuyên mọi người nên học tại đây!"
+    }
+  }
+];
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? galleryItems.length - 1 : prev - 1));
-  };
+export default function StudentGallerySection() {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev === galleryItems.length - 1 ? 0 : prev + 1));
-  };
-
-  const currentCustomer = galleryItems[activeIndex].customer;
+  const currentCustomer = GALLERY_ITEMS[activeIndex]?.customer || GALLERY_ITEMS[0].customer;
 
   return (
     <section
@@ -104,12 +157,13 @@ export default function StudentGallerySection() {
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto", textAlign: "center" }}>
         {/* Section Subtitle Badge */}
-        <div className="reveal-up" style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "8px" }}>
-          <div style={{ width: "32px", height: "2px", backgroundColor: "var(--primary)" }} />
+        <div className="reveal-up" style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "center", marginBottom: "6px" }}>
+          <div style={{ width: "24px", height: "2px", backgroundColor: "var(--primary)" }} />
           <span
+            className="student-gallery-subtitle"
             style={{
               fontFamily: "var(--font-dancing), 'Dancing Script', cursive",
-              fontSize: "1.55rem",
+              fontSize: "1.45rem",
               fontWeight: 700,
               color: "var(--primary)",
               letterSpacing: "0.5px"
@@ -117,14 +171,14 @@ export default function StudentGallerySection() {
           >
             Thư viện hình ảnh & Feedback
           </span>
-          <div style={{ width: "32px", height: "2px", backgroundColor: "var(--primary)" }} />
+          <div style={{ width: "24px", height: "2px", backgroundColor: "var(--primary)" }} />
         </div>
 
         {/* Section Headline */}
         <h2
-          className="reveal-up reveal-delay-1"
+          className="student-gallery-title reveal-up reveal-delay-1"
           style={{
-            fontSize: "clamp(1.6rem, 2.6vw, 2.3rem)",
+            fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
             fontWeight: 900,
             color: "#0F172A",
             lineHeight: 1.25,
@@ -219,9 +273,9 @@ export default function StudentGallerySection() {
             </div>
             <div style={{ textAlign: "left" }}>
               <div style={{ fontSize: "0.78rem", fontWeight: 800, color: "#0F172A", lineHeight: 1.2 }}>
-                FEEDBACK HỌC VIÊN
+                15.000+ TỐT NGHIỆP
               </div>
-              <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>Đánh giá chân thực</div>
+              <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>Học viên mỗi năm</div>
             </div>
           </div>
 
@@ -255,9 +309,9 @@ export default function StudentGallerySection() {
             </div>
             <div style={{ textAlign: "left" }}>
               <div style={{ fontSize: "0.78rem", fontWeight: 800, color: "#0F172A", lineHeight: 1.2 }}>
-                CHẤT LƯỢNG ĐÀO TẠO
+                TỶ LỆ ĐẬU &gt;95%
               </div>
-              <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>Uy tín hàng đầu</div>
+              <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>Ngay lần thi đầu tiên</div>
             </div>
           </div>
 
@@ -298,46 +352,94 @@ export default function StudentGallerySection() {
           </div>
         </div>
 
-        {/* Interactive 3D Perspective Carousel Container */}
+        {/* Swiper Interactive Showcase Carousel Container */}
         <div className="gallery-carousel-wrapper reveal-zoom reveal-delay-4">
-          {/* Prev Arrow Button */}
+          {/* Custom Prev Arrow Button */}
           <button
-            onClick={handlePrev}
             aria-label="Previous Slide"
             className="gallery-prev-btn"
           >
             <FaChevronLeft />
           </button>
 
-          {/* Carousel Slide Cards */}
-          <div className="gallery-slides-container">
-            {galleryItems.map((item, index) => {
-              const isActive = index === activeIndex;
-              const isPrev = index === (activeIndex === 0 ? galleryItems.length - 1 : activeIndex - 1);
-              const isNext = index === (activeIndex === galleryItems.length - 1 ? 0 : activeIndex + 1);
-
-              return (
-                <div
-                  key={item.id}
-                  className={`gallery-card-item ${isActive ? "is-active" : isPrev ? "is-prev" : isNext ? "is-next" : ""}`}
-                  onClick={() => setActiveIndex(index)}
-                >
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 70vw, 600px"
-                    style={{ objectFit: "cover" }}
-                    priority={isActive}
-                  />
-                </div>
-              );
-            })}
+          {/* Swiper Core Track */}
+          <div className="gallery-swiper-container">
+            <Swiper
+              modules={[Autoplay, Navigation, Pagination]}
+              loop={true}
+              speed={550}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+              }}
+              navigation={{
+                prevEl: ".gallery-prev-btn",
+                nextEl: ".gallery-next-btn"
+              }}
+              pagination={{
+                el: ".gallery-swiper-pagination",
+                clickable: true,
+                bulletClass: "gallery-custom-bullet",
+                bulletActiveClass: "is-active"
+              }}
+              onSlideChange={(swiper) => {
+                setActiveIndex(swiper.realIndex);
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1.28,
+                  spaceBetween: 10,
+                  centeredSlides: false
+                },
+                640: {
+                  slidesPerView: 1.45,
+                  spaceBetween: 16,
+                  centeredSlides: false
+                },
+                900: {
+                  slidesPerView: "auto",
+                  spaceBetween: 24,
+                  centeredSlides: true
+                }
+              }}
+              className="gallery-swiper"
+            >
+              {GALLERY_ITEMS.map((item) => (
+                <SwiperSlide key={item.id} className="gallery-swiper-slide">
+                  <div className="gallery-card-item">
+                    {item.type === "video" ? (
+                      <video
+                        src={item.src}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          display: "block"
+                        }}
+                      />
+                    ) : (
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 78vw, 640px"
+                        style={{ objectFit: "cover" }}
+                      />
+                    )}
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
-          {/* Next Arrow Button */}
+          {/* Custom Next Arrow Button */}
           <button
-            onClick={handleNext}
             aria-label="Next Slide"
             className="gallery-next-btn"
           >
@@ -345,27 +447,10 @@ export default function StudentGallerySection() {
           </button>
         </div>
 
-        {/* Carousel Pagination Dots */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginBottom: "35px" }}>
-          {galleryItems.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveIndex(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              style={{
-                width: idx === activeIndex ? "12px" : "10px",
-                height: idx === activeIndex ? "12px" : "10px",
-                borderRadius: "50%",
-                backgroundColor: idx === activeIndex ? "var(--primary)" : "#CBD5E1",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.25s ease"
-              }}
-            />
-          ))}
-        </div>
+        {/* Swiper Custom Pagination Dots */}
+        <div className="gallery-swiper-pagination" />
 
-        {/* Student Testimonial Quote Card (Sử dụng ảnh avatar_customer.png) */}
+        {/* Student Testimonial Quote Card */}
         <div
           style={{
             maxWidth: "820px",

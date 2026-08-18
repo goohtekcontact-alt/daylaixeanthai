@@ -17,7 +17,7 @@ export default function ScrollAnimationProvider() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          // Once animated in, we unobserve to keep performance high and prevent reflow
+          // Once animated in, unobserve to keep performance high and prevent reflow
           observer.unobserve(entry.target);
         }
       });
@@ -25,8 +25,8 @@ export default function ScrollAnimationProvider() {
 
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
-      rootMargin: "0px 0px -40px 0px", // triggers slightly before full view for smooth UX
-      threshold: 0.08,
+      rootMargin: "0px 0px -20px 0px",
+      threshold: 0.04,
     });
 
     const elementsToObserve = document.querySelectorAll(

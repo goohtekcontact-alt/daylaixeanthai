@@ -8,11 +8,12 @@ export default function ScrollToTop() {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    let lastState = false;
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+      const shouldBeVisible = window.scrollY > 300;
+      if (shouldBeVisible !== lastState) {
+        lastState = shouldBeVisible;
+        setIsVisible(shouldBeVisible);
       }
     };
 

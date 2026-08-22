@@ -309,7 +309,7 @@ export default function CoursePricing() {
                     background: "var(--accent-gradient)",
                     color: "#FFFFFF",
                     padding: "10px 14px",
-                    borderRadius: "12px",
+                    borderRadius: "9999px",
                     fontWeight: 800,
                     fontSize: "0.88rem",
                     letterSpacing: "0.2px",

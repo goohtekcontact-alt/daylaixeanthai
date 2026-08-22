@@ -11,14 +11,13 @@ import {
   X,
   Home,
   GraduationCap,
-  Car,
-  Truck,
-  Bike,
-  FileText
+  FileText,
+  FileSignature
 } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState("trang-chu");
 
   return (
     <>
@@ -99,21 +98,10 @@ export default function Header() {
           {/* Animated Quick Call Button (Mobile Left) */}
           <a
             href="tel:0786300900"
-            className="mobile-call-btn"
+            className="mobile-call-btn header-quick-call-btn"
             aria-label="Gọi ngay 0786 300 900"
-            style={{
-              display: "none",
-              width: "42px",
-              height: "42px",
-              borderRadius: "50%",
-              backgroundColor: "var(--primary-light)",
-              border: "1.5px solid rgba(192, 10, 0, 0.2)",
-              alignItems: "center",
-              justifyContent: "center",
-              textDecoration: "none",
-              boxShadow: "0 2px 8px rgba(192, 10, 0, 0.15)",
-              transition: "transform 0.2s ease"
-            }}
+            title="Gọi ngay: 0786 300 900"
+            style={{ display: "none" }}
           >
             <div
               className="call-pulse-circle"
@@ -126,7 +114,8 @@ export default function Header() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                flexShrink: 0
+                flexShrink: 0,
+                boxShadow: "0 2px 6px rgba(192, 10, 0, 0.3)"
               }}
             >
               <PhoneCall size={16} className="ring-wiggle-icon" strokeWidth={2.4} />
@@ -134,39 +123,55 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav style={{
-            display: "none",
-            alignItems: "center",
-            gap: "28px",
-            fontWeight: 700,
-            fontSize: "1rem",
-            letterSpacing: "0.2px"
-          }} className="desktop-nav">
-            <a href="#" className="desktop-nav-link" style={{ color: "var(--primary)", textDecoration: "none", transition: "color 0.2s" }}>TRANG CHỦ</a>
-            <a href="#khoa-hoc" className="desktop-nav-link" style={{ color: "var(--foreground)", textDecoration: "none", transition: "color 0.2s" }}>DANH MỤC ĐÀO TẠO</a>
-            <a href="#bang-b" className="desktop-nav-link" style={{ color: "var(--foreground)", textDecoration: "none", transition: "color 0.2s" }}>BẰNG B</a>
-            <a href="#bang-c1" className="desktop-nav-link" style={{ color: "var(--foreground)", textDecoration: "none", transition: "color 0.2s" }}>BẰNG C1</a>
-            <a href="#bang-a1" className="desktop-nav-link" style={{ color: "var(--foreground)", textDecoration: "none", transition: "color 0.2s" }}>BẰNG A1 & A</a>
-            <a href="#quy-trinh" className="desktop-nav-link" style={{ color: "var(--foreground)", textDecoration: "none", transition: "color 0.2s" }}>QUY TRÌNH</a>
-            <a href="#lien-he" className="desktop-nav-link" style={{ color: "var(--foreground)", textDecoration: "none", transition: "color 0.2s" }}>LIÊN HỆ</a>
+          <nav
+            style={{
+              display: "none",
+              alignItems: "center",
+              gap: "6px",
+              fontWeight: 700,
+              fontSize: "0.92rem",
+              letterSpacing: "0.2px"
+            }}
+            className="desktop-nav"
+          >
+            {[
+              { id: "trang-chu", label: "Trang chủ", href: "#" },
+              { id: "khoa-hoc", label: "Danh mục đào tạo", href: "#khoa-hoc" },
+              { id: "quy-trinh", label: "Quy trình", href: "#quy-trinh" },
+              { id: "lien-he", label: "Liên hệ", href: "#lien-he" }
+            ].map((nav) => (
+              <a
+                key={nav.id}
+                href={nav.href}
+                onClick={() => setActiveNav(nav.id)}
+                className={`desktop-nav-link ${activeNav === nav.id ? "active" : ""}`}
+              >
+                {nav.label}
+              </a>
+            ))}
           </nav>
 
           {/* Action CTA Button & Mobile Toggle */}
           <div className="header-actions-wrapper" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <a href="#dang-ky" className="header-cta-btn" style={{
-              background: "var(--accent-gradient)",
-              color: "#FFFFFF",
-              padding: "10px 22px",
-              borderRadius: "10px",
-              fontWeight: 800,
-              fontSize: "0.875rem",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              boxShadow: "0 6px 18px rgba(255, 43, 0, 0.28)",
-              transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-              textDecoration: "none"
-            }}>
+            {/* Desktop CTA Button: Đăng Ký Học */}
+            <a
+              href="#dang-ky"
+              className="header-cta-btn"
+              style={{
+                background: "var(--accent-gradient)",
+                color: "#FFFFFF",
+                padding: "9px 20px",
+                borderRadius: "9999px",
+                fontWeight: 800,
+                fontSize: "0.875rem",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                boxShadow: "0 4px 16px rgba(192, 10, 0, 0.28)",
+                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                textDecoration: "none"
+              }}
+            >
               <span>Đăng Ký Học</span>
               <ChevronRight size={16} strokeWidth={2.5} />
             </a>
@@ -179,7 +184,7 @@ export default function Header() {
               style={{
                 width: "42px",
                 height: "42px",
-                borderRadius: "10px",
+                borderRadius: "9999px",
                 backgroundColor: "#F8FAFC",
                 border: "1px solid #E2E8F0",
                 display: "none",
@@ -271,41 +276,58 @@ export default function Header() {
           {/* Navigation Menu List */}
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             {[
-              { label: "TRANG CHỦ", href: "#", icon: <Home size={17} color="var(--primary)" /> },
-              { label: "DANH MỤC ĐÀO TẠO", href: "#khoa-hoc", icon: <GraduationCap size={17} color="var(--primary)" /> },
-              { label: "BẰNG LÁI B (SÀN & TỰ ĐỘNG)", href: "#bang-b", icon: <Car size={17} color="var(--primary)" /> },
-              { label: "BẰNG LÁI C1 (XE TẢI)", href: "#bang-c1", icon: <Truck size={17} color="var(--primary)" /> },
-              { label: "BẰNG LÁI A1 & A (XE MÁY)", href: "#bang-a1", icon: <Bike size={17} color="var(--primary)" /> },
-              { label: "QUY TRÌNH ĐÀO TẠO", href: "#quy-trinh", icon: <FileText size={17} color="var(--primary)" /> },
-              { label: "LIÊN HỆ TRUNG TÂM", href: "#lien-he", icon: <PhoneCall size={17} color="var(--primary)" /> }
-            ].map((item, idx) => (
-              <a
-                key={idx}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  padding: "10px 12px",
-                  borderRadius: "12px",
-                  backgroundColor: "#FAFAFC",
-                  color: "#0F172A",
-                  textDecoration: "none",
-                  fontWeight: 700,
-                  fontSize: "0.84rem",
-                  transition: "all 0.2s ease"
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <div style={{ width: "30px", height: "30px", borderRadius: "8px", backgroundColor: "var(--primary-light)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    {item.icon}
+              { id: "trang-chu", label: "Trang chủ", href: "#", icon: <Home size={17} /> },
+              { id: "khoa-hoc", label: "Danh mục đào tạo", href: "#khoa-hoc", icon: <GraduationCap size={17} /> },
+              { id: "quy-trinh", label: "Quy trình đào tạo", href: "#quy-trinh", icon: <FileText size={17} /> },
+              { id: "dang-ky", label: "Đăng ký học", href: "#dang-ky", icon: <FileSignature size={17} /> },
+              { id: "lien-he", label: "Liên hệ trung tâm", href: "#lien-he", icon: <PhoneCall size={17} /> }
+            ].map((item) => {
+              const isActive = activeNav === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => {
+                    setActiveNav(item.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "10px 14px",
+                    borderRadius: "9999px",
+                    backgroundColor: isActive ? "var(--primary-light)" : "#FAFAFC",
+                    color: isActive ? "var(--primary)" : "#0F172A",
+                    border: isActive ? "1px solid rgba(192, 10, 0, 0.2)" : "1px solid transparent",
+                    textDecoration: "none",
+                    fontWeight: isActive ? 800 : 700,
+                    fontSize: "0.84rem",
+                    transition: "all 0.2s ease"
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        borderRadius: "8px",
+                        backgroundColor: isActive ? "var(--primary)" : "var(--primary-light)",
+                        color: isActive ? "#FFFFFF" : "var(--primary)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0
+                      }}
+                    >
+                      {item.icon}
+                    </div>
+                    <span>{item.label}</span>
                   </div>
-                  <span>{item.label}</span>
-                </div>
-                <ChevronRight size={14} style={{ color: "#94A3B8" }} />
-              </a>
-            ))}
+                  <ChevronRight size={14} style={{ color: isActive ? "var(--primary)" : "#94A3B8" }} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -318,7 +340,7 @@ export default function Header() {
             style={{
               width: "100%",
               padding: "12px 16px",
-              borderRadius: "12px",
+              borderRadius: "9999px",
               background: "var(--accent-gradient)",
               color: "#FFFFFF",
               display: "flex",
@@ -340,7 +362,7 @@ export default function Header() {
             href="tel:0786300900"
             style={{
               padding: "10px 14px",
-              borderRadius: "12px",
+              borderRadius: "9999px",
               backgroundColor: "#F8FAFC",
               border: "1px solid #E2E8F0",
               color: "#0F172A",
@@ -355,7 +377,6 @@ export default function Header() {
                 <PhoneCall size={16} />
               </div>
               <div>
-                <div style={{ fontSize: "0.68rem", color: "#64748B", fontWeight: 600 }}>TƯ VẤN TRỰC TIẾP</div>
                 <div style={{ fontSize: "0.95rem", fontWeight: 900, color: "var(--primary)" }}>0786 300 900</div>
               </div>
             </div>

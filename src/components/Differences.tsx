@@ -81,19 +81,16 @@ export default function Differences() {
     <section
       className="differences-section"
       style={{
-        position: "relative",
-        width: "100%",
         backgroundImage: "url('/images/image_section_girl.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        padding: "70px 0",
       }}
     >
       <div className="differences-container">
         {/* Left Column: Title & Subtitle */}
         <div className="differences-left">
-          <div className="differences-header reveal-up" style={{ marginTop: "-50px", marginBottom: "16px" }}>
+          <div className="differences-header reveal-up">
             <div className="differences-tagline">
               <span className="differences-tagline-line" />
               <span>Sự Khác Biệt</span>

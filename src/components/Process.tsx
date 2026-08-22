@@ -89,7 +89,7 @@ const STEPS = [
 
 export default function Process() {
   return (
-    <section className="process-section" style={{
+    <section id="quy-trinh" className="process-section" style={{
       width: "100%",
       padding: "64px 0",
       backgroundColor: "#FFFFFF",

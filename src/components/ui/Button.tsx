@@ -13,7 +13,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       alignItems: "center",
       justifyContent: "center",
       gap: "8px",
-      borderRadius: "10px",
+      borderRadius: "9999px",
       fontWeight: 700,
       fontFamily: "inherit",
       letterSpacing: "0.3px",

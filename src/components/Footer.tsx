@@ -183,7 +183,7 @@ export default function Footer() {
                   justifyContent: "center",
                   fontWeight: 800,
                   fontSize: "0.62rem",
-                  fontFamily: "var(--font-inter), sans-serif",
+                  fontFamily: "var(--font-plus-jakarta), sans-serif",
                   textDecoration: "none",
                   boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
                 }}
@@ -403,7 +403,7 @@ export default function Footer() {
               <div style={{ minWidth: 0, flexGrow: 1 }}>
                 <div
                   style={{
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
+                    fontFamily: "var(--font-plus-jakarta), system-ui, sans-serif",
                     fontSize: "0.7rem",
                     fontWeight: 800,
                     letterSpacing: "0.3px",
@@ -417,7 +417,7 @@ export default function Footer() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
+                    fontFamily: "var(--font-plus-jakarta), system-ui, sans-serif",
                     fontSize: "1.25rem",
                     fontWeight: 900,
                     letterSpacing: "0.4px",
@@ -437,33 +437,32 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Copyright Line (Floating Absolute Positioning) */}
+        {/* Bottom Copyright Line */}
         <div
           className="footer-copyright-bar"
           style={{
             position: "absolute",
             bottom: "0px",
-            left: "50%",
-            transform: "translateX(-50%)",
+            left: 0,
             width: "100%",
-            maxWidth: "1320px",
-            padding: "0 24px",
+            padding: "0 8px",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
             gap: "10px",
             fontSize: "0.68rem",
             color: "#FFFFFF",
             fontWeight: 500,
             zIndex: 10,
+            boxSizing: "border-box"
           }}
         >
           <div>
-            © {new Date().getFullYear()} An Thai Vocational Education Center. All rights reserved.
+            © {new Date().getFullYear()} All rights reserved.
           </div>
           <div>
-            Designed by <a href="https://goohtek.com/" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>GoohTek</a>
+            Designed by <a href="https://goohtek.com/" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>goohtek.com</a>
           </div>
         </div>
       </div>

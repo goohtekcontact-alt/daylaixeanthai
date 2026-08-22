@@ -27,7 +27,7 @@ const GALLERY_ITEMS = [
   {
     id: 1,
     type: "image",
-    src: "/images/Bản sao của 2025_04_28_08_01_IMG_5473.JPG",
+    src: "/images/real_image/IMG_7059.JPG",
     title: "Học viên nhận bằng tốt nghiệp lái xe tại An Thái",
     customer: {
       name: "Nguyễn Thị Mai Anh",
@@ -51,7 +51,7 @@ const GALLERY_ITEMS = [
   {
     id: 3,
     type: "image",
-    src: "/images/Bản sao của 2025_04_28_08_03_IMG_5479.JPG",
+    src: "/images/real_image/IMG_7066.JPG",
     title: "Trao chứng chỉ tốt nghiệp cho học viên lái xe xuất sắc",
     customer: {
       name: "Hoàng Bích Ngọc",
@@ -75,7 +75,7 @@ const GALLERY_ITEMS = [
   {
     id: 5,
     type: "image",
-    src: "/images/Bản sao của 2025_04_28_08_06_IMG_5483.JPG",
+    src: "/images/real_image/IMG_7074.JPG",
     title: "Hình ảnh học viên vui mừng nhận giấy phép lái xe",
     customer: {
       name: "Lê Thu Trang",
@@ -99,7 +99,7 @@ const GALLERY_ITEMS = [
   {
     id: 7,
     type: "image",
-    src: "/images/Bản sao của 2025_04_28_08_07_IMG_5487.JPG",
+    src: "/images/real_image/IMG_7096.JPG",
     title: "Khoảnh khắc trao bằng và chụp ảnh kỷ niệm tại trung tâm",
     customer: {
       name: "Đặng Minh Anh",
@@ -111,7 +111,7 @@ const GALLERY_ITEMS = [
   {
     id: 8,
     type: "image",
-    src: "/images/Bản sao của 2025_04_28_08_38_IMG_5513.JPG",
+    src: "/images/real_image/IMG_7143.JPG",
     title: "Học viên xuất sắc vượt qua kỳ thi sát hạch ô tô",
     customer: {
       name: "Nguyễn Hoàng Nam",
@@ -123,13 +123,61 @@ const GALLERY_ITEMS = [
   {
     id: 9,
     type: "image",
-    src: "/images/Bản sao của 2025_04_28_08_39_IMG_5514.JPG",
-    title: "Kỷ niệm ngày nhận bằng lái xe cùng giảng viên An Thái",
+    src: "/images/real_image/IMG_7147.JPG",
+    title: "Thực hành tập lái thực tế cùng giảng viên An Thái",
     customer: {
       name: "Vũ Hải Đăng",
       avatar: "/images/avatar_customer.png",
       rating: 5,
       quote: "Thời gian đào tạo đúng tiến độ cam kết, xe tập lái số tự động và số sàn đều mới toanh. Rất khuyên mọi người nên học tại đây!"
+    }
+  },
+  {
+    id: 10,
+    type: "image",
+    src: "/images/real_image/IMG_7148.JPG",
+    title: "Hình ảnh khóa học lái xe hạng B2 chất lượng cao",
+    customer: {
+      name: "Phan Thanh Tùng",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Trung tâm uy tín, đội ngũ giảng viên giàu kinh nghiệm. Môi trường thực hành sát thực tế thi giúp nâng cao tay lái nhanh chóng."
+    }
+  },
+  {
+    id: 11,
+    type: "image",
+    src: "/images/real_image/Bản sao của 2025_04_28_08_07_IMG_5487.JPG",
+    title: "Buổi trao bằng tốt nghiệp cho học viên lái xe",
+    customer: {
+      name: "Trịnh Hoài Nam",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Quy trình đăng ký nhanh gọn, được chủ động sắp xếp thời gian rảnh. Rất tuyệt vời!"
+    }
+  },
+  {
+    id: 12,
+    type: "image",
+    src: "/images/real_image/Bản sao của 2025_04_28_08_38_IMG_5513.JPG",
+    title: "Không khí học tập sôi nổi tại Trung Tâm An Thái",
+    customer: {
+      name: "Đỗ Quốc Việt",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Học 1 thầy 1 trò vô cùng hiệu quả, nắm chắc kiến thức và tự tin tay lái ngay từ buổi học đầu tiên."
+    }
+  },
+  {
+    id: 13,
+    type: "image",
+    src: "/images/real_image/Bản sao của 2025_04_28_08_39_IMG_5514.JPG",
+    title: "Niềm vui nhận bằng lái xe sau khóa đào tạo",
+    customer: {
+      name: "Bùi Khánh Linh",
+      avatar: "/images/avatar_customer.png",
+      rating: 5,
+      quote: "Nhân viên tư vấn siêu nhiệt tình, thầy giáo hiền lành kiên nhẫn. 10/10 điểm cho chất lượng dịch vụ!"
     }
   }
 ];
@@ -183,11 +231,10 @@ export default function StudentGallerySection() {
             color: "#0F172A",
             lineHeight: 1.25,
             letterSpacing: "-0.3px",
-            marginBottom: "8px",
-            textTransform: "uppercase"
+            marginBottom: "8px"
           }}
         >
-          HÌNH ẢNH THỰC TẾ <span style={{ color: "var(--primary)" }}>TỪ HỌC VIÊN</span>
+          Hình Ảnh Thực Tế <span style={{ color: "var(--primary)" }}>Từ Học Viên</span>
         </h2>
 
         {/* Sub-description */}

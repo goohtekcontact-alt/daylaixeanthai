@@ -18,7 +18,7 @@ Tài liệu này quy định các quy tắc thiết kế, mã nguồn và kiến
 
 ## 🔤 2. Quy Tắc Phông Chữ & Tối Ưu Tiếng Việt (Typography & Vietnamese Diacritics)
 
-*   **Font mặc định**: Google Font **`Inter`** (`var(--font-inter)`) được tích hợp qua `next/font/google`.
+*   **Font mặc định**: Google Font **`Plus Jakarta Sans`** (`var(--font-plus-jakarta)`) được tích hợp qua `next/font/google`.
 *   **Quy tắc chống dính/đè dấu tiếng Việt (Anti-Squish Diacritics)**:
     *   **KHÔNG** dùng chữ in hoa toàn bộ quá dày (`text-transform: uppercase` + `font-weight: 800/900`) cho các câu tiếng Việt dài (ví dụ: *"GỬI THÔNG TIN ĐĂNG KÝ"*).
     *   **LUÔN** ưu tiên dùng dạng **Title Case** (ví dụ: *"Gửi Thông Tin Đăng Ký"*, *"Đăng Ký Học Ngay"*).

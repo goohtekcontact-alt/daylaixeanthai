@@ -1,5 +1,6 @@
 "use client";
 
+import "@/styles/registration-form.scss";
 import { useState, useCallback } from "react";
 import { User, Phone, MapPin, Car, Truck, Bike, Zap, ArrowRight, FileSignature, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/Input";

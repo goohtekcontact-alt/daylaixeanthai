@@ -1,0 +1,68 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   REGISTRATION FORM SECTION SASS STYLES
+   ========================================================================== */
+
+.registration-form-section,
+.registration-form-card,
+.registration-form-card input,
+.registration-form-card button,
+.registration-form-card label,
+.registration-form-card span,
+.registration-form-card h2 {
+  font-family: $font-main !important;
+}
+
+.registration-form-card {
+  @media (min-width: 900px) {
+    transform: translateX(-20px);
+  }
+}
+
+.registration-form-section {
+  @include tablet {
+    background-image: url('/images/image_background-form.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    min-height: auto !important;
+    padding: 40px 20px 50px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  @include mobile {
+    background-image: url('/images/image_background-form_mobile.png') !important;
+    background-size: 100% 100% !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    min-height: auto !important;
+    padding-top: clamp(40px, 10vw, 60px) !important;
+    padding-bottom: clamp(240px, 64vw, 380px) !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+.registration-form-container {
+  @include mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+  }
+}
+
+.registration-form-spacer {
+  @include mobile {
+    display: none !important;
+  }
+}

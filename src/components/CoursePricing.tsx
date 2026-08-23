@@ -1,4 +1,5 @@
 import React from "react";
+import "@/styles/course-pricing.scss";
 import Image from "next/image";
 import { Check, ChevronRight, Car, Truck, Bike, Flame, Users, FileCheck, Disc, Navigation, BookOpen, ShieldCheck, Calendar } from "lucide-react";
 

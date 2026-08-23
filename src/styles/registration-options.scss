@@ -1,0 +1,143 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   REGISTRATION OPTIONS SECTION SASS STYLES
+   ========================================================================== */
+
+.registration-options-tagline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-script !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: $primary;
+  text-transform: none !important;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+
+  @include tablet {
+    justify-content: flex-start !important;
+  }
+}
+
+.registration-options-tagline-line {
+  width: 24px;
+  height: 2px;
+  background: $primary;
+  display: inline-block;
+}
+
+.registration-card-box {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease !important;
+
+  &:hover {
+    transform: translateY(-4px) translateX(2px);
+    box-shadow: 0 8px 24px rgba(192, 10, 0, 0.12) !important;
+    border-color: rgba(192, 10, 0, 0.35) !important;
+
+    .registration-card-icon-box {
+      transform: scale(1.1) rotate(4deg);
+    }
+  }
+
+  @include tablet {
+    padding: 16px 20px !important;
+    border-radius: 16px !important;
+    gap: 16px !important;
+  }
+
+  @include mobile {
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    border-radius: 14px !important;
+    margin-bottom: 0px !important;
+  }
+}
+
+.registration-card-icon-box {
+  transition: transform 0.3s ease;
+
+  @include tablet {
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 12px !important;
+  }
+
+  @include mobile {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+
+    svg {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
+}
+
+/* Tablet & Medium Screens (641px - 1024px) */
+.registration-options-section {
+  @include tablet {
+    background-image: none !important;
+    background-color: #FAFAFA !important;
+    min-height: auto !important;
+    padding: 50px 20px !important;
+  }
+
+  @include mobile {
+    background-image: none !important;
+    background-color: #FAFAFA !important;
+    min-height: auto !important;
+    padding: 35px 16px 45px !important;
+  }
+}
+
+.registration-options-container {
+  @include tablet {
+    max-width: 840px !important;
+    margin: 0 auto !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    padding: 0 !important;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    padding: 0 !important;
+  }
+}
+
+.registration-image-wrapper {
+  @include tablet {
+    min-height: 340px !important;
+    height: 340px !important;
+  }
+
+  @include mobile {
+    min-height: 220px !important;
+    height: 220px !important;
+    border-radius: 18px !important;
+  }
+}
+
+.registration-image-badge {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.registration-card-title {
+  @include mobile {
+    font-size: 0.94rem !important;
+  }
+}
+
+.registration-card-desc {
+  @include mobile {
+    font-size: 0.8rem !important;
+  }
+}

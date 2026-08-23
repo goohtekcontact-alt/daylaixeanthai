@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import "@/styles/practice-grounds.scss";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { FaLocationDot, FaArrowRight, FaPlay, FaPause } from "react-icons/fa6";
 
 const GROUNDS = [
@@ -21,6 +22,22 @@ const GROUNDS = [
 export default function PracticeGrounds() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.defaultMuted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Autoplay prevented by browser power-saving policy
+            setIsPlaying(false);
+          });
+      }
+    }
+  }, []);
 
   const togglePlay = useCallback(() => {
     if (videoRef.current) {
@@ -71,10 +88,6 @@ export default function PracticeGrounds() {
               HỆ THỐNG CÁC SÂN TẬP CỦA{" "}
               <span style={{ color: "var(--primary)" }}>HỌC LÁI XE</span>
             </h2>
-
-            <p style={{ color: "#64748B", fontSize: "0.9rem", marginTop: "4px", lineHeight: 1.45 }}>
-              Sân tập đạt chuẩn quy chuẩn Tổng cục Đường bộ Việt Nam, thiết kế sa hình sát hạch thực tế 100%.
-            </p>
           </div>
 
           {/* 2 Ground Cards List */}
@@ -114,14 +127,14 @@ export default function PracticeGrounds() {
         {/* Right Column: Video Playback Showcase */}
         <div className="grounds-right">
           <div
-            className="grounds-video-container reveal-zoom reveal-delay-2"
+            className="grounds-video-wrapper grounds-video-container reveal-zoom reveal-delay-2"
             style={{
               position: "relative",
               width: "100%",
               borderRadius: "24px",
               overflow: "hidden",
               boxShadow: "0 20px 48px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.05)",
-              backgroundColor: "#FFFFFF",
+              backgroundColor: "#000000",
               display: "flex",
               alignItems: "center",
               justifyContent: "center"
@@ -130,11 +143,15 @@ export default function PracticeGrounds() {
             {/* Native HTML5 Video Player */}
             <video
               ref={videoRef}
+              className="grounds-video-element"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              poster="/images/poster_san_tap.jpg"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
               style={{
                 width: "100%",
                 height: "100%",
@@ -142,12 +159,12 @@ export default function PracticeGrounds() {
                 borderRadius: "24px",
                 objectFit: "cover",
                 display: "block",
-                backgroundColor: "#FFFFFF",
+                backgroundColor: "#000000",
                 outline: "none"
               }}
             >
               <source
-                src="/videos/sân_tập_lái_an_thái.MOV"
+                src="/videos/san_tap_lai_an_thai.mp4"
                 type="video/mp4"
               />
               <source
@@ -165,10 +182,10 @@ export default function PracticeGrounds() {
               title={isPlaying ? "Tạm dừng video" : "Phát video sân tập"}
               style={{
                 position: "absolute",
-                bottom: "24px",
-                right: "24px",
-                width: "56px",
-                height: "56px",
+                bottom: "20px",
+                right: "20px",
+                width: "50px",
+                height: "50px",
                 borderRadius: "50%",
                 backgroundColor: "rgba(192, 10, 0, 0.9)",
                 color: "#FFF",
@@ -181,7 +198,7 @@ export default function PracticeGrounds() {
                 zIndex: 10
               }}
             >
-              {isPlaying ? <FaPause size={20} /> : <FaPlay size={20} style={{ marginLeft: "3px" }} />}
+              {isPlaying ? <FaPause size={18} /> : <FaPlay size={18} style={{ marginLeft: "3px" }} />}
             </button>
           </div>
         </div>

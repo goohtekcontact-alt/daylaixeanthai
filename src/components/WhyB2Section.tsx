@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "@/styles/why-b2.scss";
 import { Award, Calendar, Users, Building2, GraduationCap, Trophy } from "lucide-react";
 
 const POINTS = [

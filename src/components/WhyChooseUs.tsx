@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "@/styles/why-choose-us.scss";
 
 export default function WhyChooseUs() {
   return (

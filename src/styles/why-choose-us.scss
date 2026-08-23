@@ -1,0 +1,31 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   WHY CHOOSE US SASS STYLES
+   ========================================================================== */
+
+.why-choose-us-section {
+  width: 100%;
+  padding: 56px 24px 64px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  @include mobile {
+    padding: 36px 16px 44px;
+  }
+}
+
+.why-choose-us-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: $primary;
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+
+  @include mobile {
+    font-size: clamp(1.35rem, 5vw, 1.7rem);
+    margin-bottom: 20px;
+  }
+}

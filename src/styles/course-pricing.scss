@@ -1,0 +1,56 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   COURSE PRICING SASS STYLES
+   ========================================================================== */
+
+.course-pricing-section {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: #FAFAFA;
+
+  @include mobile {
+    padding: 36px 12px 48px;
+  }
+}
+
+.course-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.course-card-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: $accent-gradient;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(192, 10, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(192, 10, 0, 0.35);
+  }
+}

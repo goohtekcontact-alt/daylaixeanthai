@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "@/styles/footer.scss";
 import {
   MapPin,
   Phone,
@@ -48,8 +49,8 @@ export default function Footer() {
             marginBottom: "40px",
           }}
         >
-          {/* Column 1: Brand Info (Wider Column with Vertical Border & Moderate Top Offset) */}
-          <div style={{ paddingRight: "16px", borderRight: "1px solid rgba(255,255,255,0.08)", marginTop: "clamp(60px, 5vw, 90px)" }}>
+          {/* Column 1: Brand Info */}
+          <div className="footer-col-brand" style={{ paddingRight: "16px", borderRight: "1px solid rgba(255,255,255,0.08)", marginTop: "clamp(60px, 5vw, 90px)" }}>
             <div className="footer-logo-box" style={{ marginBottom: "16px" }}>
               <Image
                 src="/logo_anthai.png"
@@ -60,32 +61,34 @@ export default function Footer() {
               />
             </div>
 
-            <h3
-              style={{
-                fontSize: "0.88rem",
-                fontWeight: 800,
-                color: "#FFFFFF",
-                textTransform: "uppercase",
-                margin: "0 0 2px 0",
-                lineHeight: 1.3,
-                whiteSpace: "nowrap",
-              }}
-            >
-              TRUNG TÂM GIÁO DỤC NGHỀ NGHIỆP
-            </h3>
-            <h3
-              style={{
-                fontSize: "0.88rem",
-                fontWeight: 900,
-                color: "var(--primary)",
-                textTransform: "uppercase",
-                margin: "0 0 10px 0",
-                lineHeight: 1.3,
-                whiteSpace: "nowrap",
-              }}
-            >
-              AN THÁI - ĐÀO TẠO LÁI XE
-            </h3>
+            <div className="footer-brand-heading">
+              <h3
+                style={{
+                  fontSize: "0.88rem",
+                  fontWeight: 800,
+                  color: "#FFFFFF",
+                  textTransform: "uppercase",
+                  margin: "0 0 2px 0",
+                  lineHeight: 1.3,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                TRUNG TÂM GIÁO DỤC NGHỀ NGHIỆP
+              </h3>
+              <h3
+                style={{
+                  fontSize: "0.88rem",
+                  fontWeight: 900,
+                  color: "var(--primary)",
+                  textTransform: "uppercase",
+                  margin: "0 0 10px 0",
+                  lineHeight: 1.3,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                AN THÁI - ĐÀO TẠO LÁI XE
+              </h3>
+            </div>
 
             <p
               style={{

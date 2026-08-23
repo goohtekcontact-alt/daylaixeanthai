@@ -1,0 +1,31 @@
+/* ==========================================================================
+   AN THÁI DESIGN SYSTEM - SASS VARIABLES & RESPONSIVE MIXINS
+   ========================================================================== */
+
+// Brand Colors
+$primary: #C00A00;
+$secondary: #D91600;
+$primary-hover: #A00800;
+$primary-light: #FDF2F1;
+$accent-gradient: linear-gradient(135deg, #C00A00 0%, #E01E00 100%);
+
+// Fonts
+$font-main: var(--font-plus-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif;
+$font-script: var(--font-dancing), 'Dancing Script', cursive;
+
+// Responsive Breakpoints
+@mixin ultra-wide {
+  @media (min-width: 1441px) { @content; }
+}
+
+@mixin desktop-small {
+  @media (min-width: 900px) and (max-width: 1380px) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: 641px) and (max-width: 1024px) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: 640px) { @content; }
+}

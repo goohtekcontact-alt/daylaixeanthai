@@ -1,0 +1,224 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   STUDENT GALLERY & SWIPER CAROUSEL SASS STYLES
+   ========================================================================== */
+
+.gallery-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  overflow: visible;
+
+  @include mobile {
+    min-height: auto;
+    margin-bottom: 4px;
+  }
+}
+
+.gallery-swiper-container {
+  width: 100%;
+  max-width: 1400px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 24px;
+
+  @include mobile {
+    padding: 0 2px !important;
+    border-radius: 16px !important;
+  }
+}
+
+.gallery-swiper {
+  width: 100%;
+  padding: 8px 0 !important;
+  overflow: visible !important;
+}
+
+.gallery-swiper-slide {
+  width: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.gallery-card-item {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  width: clamp(300px, 52vw, 760px);
+  height: clamp(200px, 32vw, 420px);
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transform: scale(0.96);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    background-color: #0F172A;
+  }
+
+  @include mobile {
+    width: clamp(270px, 83vw, 480px) !important;
+    height: clamp(200px, 56vw, 340px) !important;
+    border-radius: 18px !important;
+    transform: scale(0.96) !important;
+  }
+}
+
+.gallery-swiper-slide-active .gallery-card-item {
+  transform: scale(1);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+
+  @include mobile {
+    transform: scale(1) !important;
+  }
+}
+
+.gallery-prev-btn,
+.gallery-next-btn {
+  position: absolute;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px rgba(192, 10, 0, 0.2);
+  }
+
+  @include mobile {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+.gallery-prev-btn {
+  left: 1%;
+  @include mobile { left: 4px !important; }
+}
+
+.gallery-next-btn {
+  right: 1%;
+  @include mobile { right: 4px !important; }
+}
+
+.gallery-swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 2px;
+  margin-bottom: 28px;
+  position: static !important;
+
+  @include mobile {
+    gap: 6px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+  }
+}
+
+.gallery-custom-bullet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #CBD5E1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &.is-active {
+    width: 12px;
+    height: 12px;
+    background-color: $primary;
+  }
+}
+
+/* Testimonial Quote Card Styles */
+.testimonial-card-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+
+  @include mobile {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 16px 18px !important;
+    border-radius: 18px !important;
+  }
+}
+
+.testimonial-card-profile {
+  @include mobile {
+    border-right: none !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 12px !important;
+    width: 100% !important;
+  }
+}
+
+.testimonial-card-quote {
+  @include mobile {
+    width: 100% !important;
+  }
+}
+
+.student-gallery-badges-grid,
+.gallery-stats-grid {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.student-gallery-desc {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.student-gallery-subtitle {
+  @include mobile {
+    font-size: 1.35rem !important;
+    font-family: $font-script !important;
+    margin-bottom: 4px !important;
+  }
+}
+
+.student-gallery-title {
+  @include mobile {
+    font-size: clamp(1.32rem, 5.2vw, 1.62rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.28 !important;
+    letter-spacing: -0.3px !important;
+    margin-bottom: 8px !important;
+  }
+}

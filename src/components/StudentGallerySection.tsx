@@ -1,5 +1,6 @@
 "use client";
 
+import "@/styles/student-gallery.scss";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -414,6 +415,7 @@ export default function StudentGallerySection() {
             <Swiper
               modules={[Autoplay, Navigation, Pagination]}
               loop={true}
+              centeredSlides={true}
               speed={550}
               autoplay={{
                 delay: 3500,
@@ -433,20 +435,22 @@ export default function StudentGallerySection() {
               onSlideChange={(swiper) => {
                 setActiveIndex(swiper.realIndex);
               }}
+              slidesPerView="auto"
+              spaceBetween={8}
               breakpoints={{
                 0: {
-                  slidesPerView: 1.28,
-                  spaceBetween: 10,
-                  centeredSlides: false
+                  slidesPerView: "auto",
+                  spaceBetween: 5,
+                  centeredSlides: true
                 },
                 640: {
-                  slidesPerView: 1.45,
-                  spaceBetween: 16,
-                  centeredSlides: false
+                  slidesPerView: "auto",
+                  spaceBetween: 8,
+                  centeredSlides: true
                 },
                 900: {
                   slidesPerView: "auto",
-                  spaceBetween: 24,
+                  spaceBetween: 12,
                   centeredSlides: true
                 }
               }}
@@ -499,6 +503,7 @@ export default function StudentGallerySection() {
 
         {/* Student Testimonial Quote Card */}
         <div
+          className="testimonial-card-grid"
           style={{
             maxWidth: "820px",
             margin: "0 auto 35px",
@@ -507,13 +512,9 @@ export default function StudentGallerySection() {
             padding: "20px 30px",
             boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",
             border: "1px solid rgba(0, 0, 0, 0.04)",
-            display: "grid",
-            gridTemplateColumns: "220px 1fr",
-            gap: "24px",
             alignItems: "center",
             textAlign: "left"
           }}
-          className="testimonial-card-grid"
         >
           {/* Customer Profile Column */}
           <div className="testimonial-card-profile" style={{ display: "flex", alignItems: "center", gap: "14px", borderRight: "1px solid #E2E8F0", paddingRight: "16px" }}>

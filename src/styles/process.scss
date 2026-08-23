@@ -1,0 +1,147 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   PROCESS SECTION SASS STYLES
+   ========================================================================== */
+
+.process-section {
+  position: relative;
+  width: 100%;
+  padding: 60px 0;
+
+  @include mobile {
+    padding-top: clamp(28px, 7vw, 44px) !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+.process-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.process-title {
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-weight: 900;
+  color: $primary;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+}
+
+.process-subtitle {
+  font-size: 0.95rem;
+  color: #64748B;
+}
+
+.process-stepper-wrapper {
+  position: relative;
+}
+
+.process-connector-line {
+  position: absolute;
+  top: 30px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: #E2E8F0;
+  z-index: 1;
+
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+.process-step-item {
+  text-align: center;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+  &:hover {
+    transform: translateY(-6px);
+
+    .process-circle-box {
+      transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(192, 10, 0, 0.25) !important;
+      border-color: $secondary !important;
+    }
+
+    .process-number-badge {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.process-circle-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(192, 10, 0, 0.15);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.3s ease !important;
+}
+
+.process-number-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: $primary;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(192, 10, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.process-step-desc {
+  font-size: 0.84rem;
+  color: #64748B;
+  line-height: 1.45;
+  margin: 0;
+}

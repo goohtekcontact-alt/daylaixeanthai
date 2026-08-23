@@ -1,0 +1,133 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   HEADER & TOPBAR NAVIGATION SASS STYLES
+   ========================================================================== */
+
+.header-glass {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999 !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.94) !important;
+  width: 100% !important;
+}
+
+.header-topbar-title {
+  display: inline-flex !important;
+  align-items: flex-start !important;
+  gap: 5px !important;
+
+  svg {
+    width: 14px !important;
+    height: 14px !important;
+    margin-top: 1px !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+.desktop-nav-link {
+  white-space: nowrap !important;
+  padding: 8px 18px !important;
+  border-radius: 9999px !important;
+  color: #334155 !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  &:hover {
+    color: $primary !important;
+    background-color: $primary-light !important;
+  }
+
+  &.active {
+    background: $accent-gradient !important;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 14px rgba(192, 10, 0, 0.28) !important;
+
+    &:hover {
+      color: #FFFFFF !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(192, 10, 0, 0.36) !important;
+    }
+  }
+}
+
+/* Header Quick Call Button (Only visible on mobile/tablet <= 900px) */
+.header-quick-call-btn,
+.mobile-call-btn {
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  background-color: $primary-light !important;
+  border: 1.5px solid rgba(192, 10, 0, 0.2) !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(192, 10, 0, 0.15) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  flex-shrink: 0 !important;
+
+  &:hover {
+    background-color: #FFEAE8 !important;
+    border-color: $primary !important;
+    box-shadow: 0 4px 16px rgba(192, 10, 0, 0.28) !important;
+    transform: scale(1.08) translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@include desktop-small {
+  .desktop-nav {
+    display: flex !important;
+    gap: clamp(4px, 0.8vw, 12px) !important;
+    font-size: clamp(0.82rem, 0.9vw, 0.88rem) !important;
+  }
+
+  .desktop-nav-link {
+    padding: 7px 14px !important;
+  }
+}
+
+@media (min-width: 1381px) {
+  .desktop-nav {
+    display: flex !important;
+    gap: 8px !important;
+    font-size: 0.92rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-main-bar {
+    padding: 8px 16px !important;
+    justify-content: space-between !important;
+  }
+
+  .mobile-call-btn,
+  .header-quick-call-btn {
+    display: inline-flex !important;
+  }
+
+  .mobile-toggle {
+    display: inline-flex !important;
+  }
+
+  .header-cta-btn {
+    display: none !important;
+  }
+
+  .header-logo-link {
+    display: none !important;
+  }
+}

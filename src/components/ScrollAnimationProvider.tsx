@@ -4,10 +4,10 @@ import { useEffect } from "react";
 
 export default function ScrollAnimationProvider() {
   useEffect(() => {
-    // Check if IntersectionObserver is supported
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      // Fallback: make all elements immediately visible
-      document.querySelectorAll(".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom").forEach((el) => {
+    if (typeof window === "undefined") return;
+
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .course-card").forEach((el) => {
         el.classList.add("is-visible");
       });
       return;
@@ -17,7 +17,6 @@ export default function ScrollAnimationProvider() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          // Once animated in, unobserve to keep performance high and prevent reflow
           observer.unobserve(entry.target);
         }
       });
@@ -26,17 +25,21 @@ export default function ScrollAnimationProvider() {
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
       rootMargin: "0px 0px -20px 0px",
-      threshold: 0.04,
+      threshold: 0.02,
     });
 
-    const elementsToObserve = document.querySelectorAll(
-      ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .reveal-stagger"
-    );
+    const initObserver = () => {
+      const elementsToObserve = document.querySelectorAll(
+        ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .reveal-stagger, .course-card"
+      );
+      elementsToObserve.forEach((el) => observer.observe(el));
+    };
 
-    elementsToObserve.forEach((el) => observer.observe(el));
+    initObserver();
+    const rafId = requestAnimationFrame(initObserver);
 
-    // Cleanup observer on unmount
     return () => {
+      cancelAnimationFrame(rafId);
       observer.disconnect();
     };
   }, []);

@@ -187,8 +187,7 @@ export default function CoursePricing() {
                 display: "flex",
                 flexDirection: "column",
                 padding: "20px 18px",
-                gap: "14px",
-                transition: "transform 0.25s ease, boxShadow 0.25s ease"
+                gap: "14px"
               }}
             >
               {/* Top Header Block */}

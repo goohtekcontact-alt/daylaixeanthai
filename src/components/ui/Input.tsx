@@ -68,7 +68,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               border: "none",
               backgroundColor: "transparent",
               color: "#0F172A",
-              fontSize: "0.85rem",
+              fontSize: "16px",
               fontWeight: 500,
               outline: "none",
               fontFamily: "inherit",

@@ -60,34 +60,6 @@
   }
 }
 
-/* Header Quick Call Button (Only visible on mobile/tablet <= 900px) */
-.header-quick-call-btn,
-.mobile-call-btn {
-  display: none !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 42px !important;
-  height: 42px !important;
-  border-radius: 50% !important;
-  background-color: $primary-light !important;
-  border: 1.5px solid rgba(192, 10, 0, 0.2) !important;
-  text-decoration: none !important;
-  box-shadow: 0 2px 8px rgba(192, 10, 0, 0.15) !important;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  flex-shrink: 0 !important;
-
-  &:hover {
-    background-color: #FFEAE8 !important;
-    border-color: $primary !important;
-    box-shadow: 0 4px 16px rgba(192, 10, 0, 0.28) !important;
-    transform: scale(1.08) translateY(-1px);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-}
-
 @include desktop-small {
   .desktop-nav {
     display: flex !important;
@@ -111,16 +83,12 @@
 @media (max-width: 900px) {
   .header-main-bar {
     padding: 8px 16px !important;
-    justify-content: space-between !important;
-  }
-
-  .mobile-call-btn,
-  .header-quick-call-btn {
-    display: inline-flex !important;
+    justify-content: flex-end !important;
   }
 
   .mobile-toggle {
     display: inline-flex !important;
+    margin-left: auto !important;
   }
 
   .header-cta-btn {

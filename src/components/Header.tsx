@@ -96,33 +96,6 @@ export default function Header() {
             />
           </a>
 
-          {/* Animated Quick Call Button (Mobile Left) */}
-          <a
-            href="tel:0786300900"
-            className="mobile-call-btn header-quick-call-btn"
-            aria-label="Gọi ngay 0786 300 900"
-            title="Gọi ngay: 0786 300 900"
-            style={{ display: "none" }}
-          >
-            <div
-              className="call-pulse-circle"
-              style={{
-                width: "32px",
-                height: "32px",
-                borderRadius: "50%",
-                background: "linear-gradient(135deg, #C00A00 0%, #E01E00 100%)",
-                color: "#FFFFFF",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                boxShadow: "0 2px 6px rgba(192, 10, 0, 0.3)"
-              }}
-            >
-              <PhoneCall size={16} className="ring-wiggle-icon" strokeWidth={2.4} />
-            </div>
-          </a>
-
           {/* Desktop Navigation Links */}
           <nav
             style={{

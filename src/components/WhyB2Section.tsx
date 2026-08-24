@@ -96,7 +96,7 @@ export default function WhyB2Section() {
               textTransform: "uppercase"
             }}
           >
-            TẠI SAO NÊN THI BẰNG LÁI XE B2 ?
+            TẠI SAO NÊN THI BẰNG LÁI XE TẠI AN THÁI ?
           </h2>
 
           {/* Underline Accent Line */}

@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
           letterSpacing: "-0.5px",
           lineHeight: 1.25
         }}>
-          HỌC LÁI XE B2 ĐỂ LÀM GÌ?
+          Vì sao nên chọn học lái xe tại trung tâm An Thái?
         </h2>
 
         {/* Centered Graphic Image */}
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
         }}>
           <Image
             src="/images/background_section_3.png"
-            alt="Học lái xe B2 để làm gì?"
+            alt="Vì sao nên chọn học lái xe tại Trung tâm An Thái?"
             width={1164}
             height={508}
             style={{

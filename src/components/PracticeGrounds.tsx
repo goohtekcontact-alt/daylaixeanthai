@@ -7,13 +7,13 @@ import { FaLocationDot, FaArrowRight, FaPlay, FaPause } from "react-icons/fa6";
 const GROUNDS = [
   {
     num: "01",
-    name: "Sân tập lái xe Dĩ An 1",
+    name: "Sân sát hạch xe máy",
     address: "Số 6 Độc Lập, Dĩ An, Bình Dương 820000, Vietnam",
     mapUrl: "https://maps.google.com/?q=Số+6+Độc+Lập,+Dĩ+An,+Bình+Dương"
   },
   {
     num: "02",
-    name: "Sân tập lái xe Dĩ An 2",
+    name: "Sân tập lái xe ô tô",
     address: "VPRR+JVX, Dĩ An, Hồ Chí Minh, Vietnam",
     mapUrl: "https://maps.google.com/?q=Dĩ+An,+Hồ+Chí+Minh"
   }

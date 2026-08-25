@@ -1,0 +1,299 @@
+@use "variables" as *;
+
+/* ==========================================================================
+   FLOATING CONTACT SPEED DIAL WIDGET (UPWARD STACK, EQUAL WIDTH PILLS)
+   ========================================================================== */
+
+@keyframes contact-pulse-wave {
+  0% {
+    box-shadow: 0 0 0 0 rgba(192, 10, 0, 0.55), 0 8px 24px rgba(192, 10, 0, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(192, 10, 0, 0), 0 8px 24px rgba(192, 10, 0, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(192, 10, 0, 0), 0 8px 24px rgba(192, 10, 0, 0.35);
+  }
+}
+
+@keyframes ring-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50%, 70% { transform: rotate(14deg); }
+  20%, 40%, 60%, 80% { transform: rotate(-14deg); }
+  90% { transform: rotate(0deg); }
+}
+
+@keyframes item-pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.floating-contact-container {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column; /* Menu stacks cleanly ABOVE main trigger button */
+  align-items: flex-end;
+  gap: 10px;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+}
+
+
+
+/* Expanded speed dial list (sits ABOVE trigger button) */
+.floating-contact-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+/* Floating Item Link Button (EQUAL UNIFORM WIDTH PILLS) */
+.floating-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 240px; /* Equal width for all 4 pill buttons */
+  box-sizing: border-box;
+  padding: 8px 18px 8px 8px;
+  border-radius: 9999px;
+  text-decoration: none;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  animation: item-pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateX(-4px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    border-color: #ffffff;
+
+    .item-icon-box {
+      transform: scale(1.08);
+    }
+  }
+
+  .item-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease;
+  }
+
+  .item-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-grow: 1;
+    overflow: hidden;
+
+    .item-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.2px;
+      opacity: 0.95;
+      line-height: 1.1;
+    }
+
+    .item-detail {
+      font-size: 0.92rem;
+      font-weight: 900;
+      white-space: nowrap;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  /* Variant Specific Branding */
+  &.item-call {
+    background: linear-gradient(135deg, #C00A00 0%, #E01E00 100%);
+    .item-icon-box { color: #C00A00; }
+  }
+
+  &.item-zalo {
+    background: linear-gradient(135deg, #0068FF 0%, #0052CC 100%);
+  }
+
+  &.item-facebook {
+    background: linear-gradient(135deg, #1877F2 0%, #0D59C6 100%);
+    .item-icon-box { color: #1877F2; }
+  }
+
+  &.item-maps {
+    background: linear-gradient(135deg, #2E7D32 0%, #388E3C 100%);
+    .item-icon-box { color: #2E7D32; }
+  }
+}
+
+/* Main Speed Dial Trigger Button */
+.floating-contact-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 8px 8px;
+  border-radius: 9999px;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 10px 28px rgba(192, 10, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.12);
+  animation: contact-pulse-wave 2.5s infinite;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 14px 36px rgba(192, 10, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.18);
+    border-color: #ffffff;
+  }
+
+  &.is-active {
+    background: #111827;
+    border-color: rgba(255, 255, 255, 0.4);
+    animation: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    .toggle-icon-box {
+      background-color: var(--primary);
+      color: #ffffff;
+      transform: rotate(90deg);
+    }
+  }
+
+  .toggle-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, color 0.3s ease;
+
+    .ring-wiggle {
+      animation: ring-wiggle 3s ease-in-out infinite;
+    }
+  }
+
+  .toggle-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    .toggle-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.3px;
+      opacity: 0.95;
+      line-height: 1.1;
+    }
+
+    .toggle-title {
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+  }
+
+  .toggle-badge-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+  }
+}
+
+/* Stagger Animation Delays */
+.floating-contact-menu > *:nth-child(1) { animation-delay: 0.12s; }
+.floating-contact-menu > *:nth-child(2) { animation-delay: 0.09s; }
+.floating-contact-menu > *:nth-child(3) { animation-delay: 0.06s; }
+.floating-contact-menu > *:nth-child(4) { animation-delay: 0.03s; }
+
+/* Mobile Responsiveness - Compact Round Floating Icons without Text */
+@media (max-width: 640px) {
+  .floating-contact-container {
+    right: 16px;
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .floating-contact-menu {
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .floating-item-btn {
+    width: 48px !important;
+    height: 48px !important;
+    padding: 3px !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28) !important;
+
+    &:hover {
+      transform: scale(1.08) !important;
+    }
+
+    .item-icon-box {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 50% !important;
+      box-shadow: none !important;
+    }
+
+    .item-text {
+      display: none !important;
+    }
+  }
+
+  .floating-contact-toggle {
+    padding: 4px !important;
+    width: 50px !important;
+    height: 50px !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+
+    .toggle-icon-box {
+      width: 38px !important;
+      height: 38px !important;
+      box-shadow: none !important;
+    }
+
+    .toggle-text {
+      display: none !important;
+    }
+  }
+}

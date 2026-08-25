@@ -1,13 +1,21 @@
 import Image from "next/image";
 import "@/styles/why-b2.scss";
-import { Award, Calendar, Users, Building2, GraduationCap, Trophy } from "lucide-react";
+import { Users, Car, Calendar, Building2, GraduationCap, Trophy } from "lucide-react";
 
 const POINTS = [
   {
-    icon: <Award size={16} color="#FFF" strokeWidth={2.2} />,
+    icon: <Users size={16} color="#FFF" strokeWidth={2.2} />,
     title: (
       <>
-        Trên <strong style={{ color: "var(--primary)", fontWeight: 800 }}>25 năm</strong> kinh nghiệm đào tạo lái xe
+        Đội ngũ <strong style={{ color: "var(--primary)", fontWeight: 800 }}>giáo viên có kinh nghiệm</strong>, giảng dạy tận tình
+      </>
+    ),
+  },
+  {
+    icon: <Car size={16} color="#FFF" strokeWidth={2.2} />,
+    title: (
+      <>
+        Dàn xe tập lái <strong style={{ color: "var(--primary)", fontWeight: 800 }}>Hyundai Accent đời mới</strong>, máy lạnh 100%
       </>
     ),
   },
@@ -20,18 +28,10 @@ const POINTS = [
     ),
   },
   {
-    icon: <Users size={16} color="#FFF" strokeWidth={2.2} />,
-    title: (
-      <>
-        Luôn lấy <strong style={{ color: "var(--primary)", fontWeight: 800 }}>học viên</strong> làm trung tâm để phục vụ
-      </>
-    ),
-  },
-  {
     icon: <Building2 size={16} color="#FFF" strokeWidth={2.2} />,
     title: (
       <>
-        Cơ sở vật chất <strong style={{ color: "var(--primary)", fontWeight: 800 }}>đầy đủ, hiện đại</strong>
+        Cơ sở vật chất & sân tập <strong style={{ color: "var(--primary)", fontWeight: 800 }}>chuẩn sa hình GTVT</strong>
       </>
     ),
   },
@@ -39,7 +39,7 @@ const POINTS = [
     icon: <GraduationCap size={16} color="#FFF" strokeWidth={2.2} />,
     title: (
       <>
-        Đào tạo <strong style={{ color: "var(--primary)", fontWeight: 800 }}>chuyên nghiệp</strong>
+        Đào tạo <strong style={{ color: "var(--primary)", fontWeight: 800 }}>chuyên nghiệp</strong> – 1 thầy 1 trò
       </>
     ),
   },
@@ -47,7 +47,7 @@ const POINTS = [
     icon: <Trophy size={16} color="#FFF" strokeWidth={2.2} />,
     title: (
       <>
-        Tỷ lệ <strong style={{ color: "var(--primary)", fontWeight: 800 }}>đỗ cao</strong>
+        Tỷ lệ <strong style={{ color: "var(--primary)", fontWeight: 800 }}>đỗ cao</strong>, hỗ trợ tới khi có bằng
       </>
     ),
   },

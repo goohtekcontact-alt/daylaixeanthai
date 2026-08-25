@@ -34,7 +34,7 @@ const CARDS = [
     ),
     items: [
       "Sân tập chuẩn sa hình sát hạch ISO 9001.",
-      "Xe tập đời mới 100% trang bị máy lạnh.",
+      "Dàn xe Hyundai Accent đời mới 100% trang bị máy lạnh.",
       "Hỗ trợ trọn gói phần mềm học Bộ GTVT.",
       "Thực hành đường trường DAT đủ số km."
     ]
@@ -52,8 +52,8 @@ const CARDS = [
     ),
     items: [
       "100% giáo viên có chứng chỉ sư phạm dạy nghề.",
-      "Kinh nghiệm trên 5 năm đào tạo thực chiến.",
-      "Tận tâm, kiên nhẫn, tuyệt đối không vòi vĩnh.",
+      "Đội ngũ giáo viên nhiều kinh nghiệm, tận tâm.",
+      "Kiên nhẫn, nhiệt tình, tuyệt đối không vòi vĩnh.",
       "Được đổi giáo viên nếu học viên không hài lòng."
     ]
   },

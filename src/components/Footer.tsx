@@ -107,7 +107,7 @@ export default function Footer() {
                 <div style={{ width: "22px", height: "22px", borderRadius: "50%", backgroundColor: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "2px" }}>
                   <MapPin size={12} color="#FFF" />
                 </div>
-                <span>Số 6 Độc Lập, P. Dĩ An, TP. Dĩ An, Bình Dương</span>
+                <span>141 DT743, P. Dĩ An, TP. Dĩ An, Bình Dương</span>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -135,7 +135,9 @@ export default function Footer() {
             {/* Social Circle Icon Buttons (React Icons - Fa6 Vector Icons) */}
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <a
-                href="#"
+                href="https://www.facebook.com/anthaidaotaolaixe?locale=vi_VN"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
                 style={{
                   width: "32px",

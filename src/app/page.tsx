@@ -9,8 +9,7 @@ import PracticeGrounds from "@/components/PracticeGrounds";
 import RegistrationOptions from "@/components/RegistrationOptions";
 import RegistrationFormSection from "@/components/RegistrationFormSection";
 import StudentGallerySection from "@/components/StudentGallerySection";
-import FloatingCallButton from "@/components/FloatingCallButton";
-import FloatingZaloButton from "@/components/FloatingZaloButton";
+import FloatingContactWidget from "@/components/FloatingContactWidget";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -52,9 +51,8 @@ export default function Home() {
         <StudentGallerySection />
       </main>
 
-      {/* Floating Hotline Call Button & Zalo Button */}
-      <FloatingCallButton />
-      <FloatingZaloButton />
+      {/* Floating Speed Dial Contact Widget (Hotline, Zalo, Facebook, Google Maps) */}
+      <FloatingContactWidget />
 
       {/* Footer */}
       <Footer />

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "@/styles/registration-options.scss";
-import { Building2, FileSignature, Headphones, PhoneCall, MapPin, CheckCircle2 } from "lucide-react";
+import { Building2, Headphones, PhoneCall, MapPin, CheckCircle2 } from "lucide-react";
 
 const OPTIONS = [
   {
@@ -11,19 +11,12 @@ const OPTIONS = [
     extra: (
       <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "6px", backgroundColor: "#F8FAFC", padding: "4px 10px", borderRadius: "8px", border: "1px solid #E2E8F0" }}>
         <MapPin size={12} color="var(--primary)" strokeWidth={2.5} style={{ flexShrink: 0 }} />
-        <span style={{ fontSize: "0.8rem", color: "#475569", fontWeight: 600 }}>Số 6 Độc Lập, P. Dĩ An, TP. Dĩ An</span>
+        <span style={{ fontSize: "0.8rem", color: "#475569", fontWeight: 600 }}>141 DT743, TP. Dĩ An</span>
       </div>
     )
   },
   {
     id: "02",
-    icon: <FileSignature size={22} color="#FFFFFF" strokeWidth={2.2} />,
-    title: "Cử nhân viên thu tại nhà",
-    desc: "Hỗ trợ làm hồ sơ tận nơi miễn phí từ 8h – 21h hàng ngày (đầy đủ biên lai & tài liệu học).",
-    extra: null
-  },
-  {
-    id: "03",
     icon: <Headphones size={22} color="#FFFFFF" strokeWidth={2.2} />,
     title: "Nộp online qua Zalo",
     desc: "Chụp gửi CCCD qua Zalo & chuyển khoản nhanh gọn, nhận thẻ học viên ngay.",
@@ -167,7 +160,7 @@ export default function RegistrationOptions() {
               }}
             >
               <div>Nộp hồ sơ học tại An Thái</div>
-              <div style={{ color: "var(--primary)", fontWeight: 900 }}>Có 3 phương án hỗ trợ</div>
+              <div style={{ color: "var(--primary)", fontWeight: 900 }}>Có 2 phương án hỗ trợ</div>
             </h2>
           </div>
 

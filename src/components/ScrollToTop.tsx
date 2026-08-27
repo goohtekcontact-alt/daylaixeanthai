@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronUp } from "lucide-react";
+import { FiChevronUp } from "react-icons/fi";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,7 +64,7 @@ export default function ScrollToTop() {
         transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      <ChevronUp size={24} strokeWidth={2.8} />
+      <FiChevronUp size={24} />
       <span className="sr-only">Cuộn lên đầu trang</span>
     </button>
   );

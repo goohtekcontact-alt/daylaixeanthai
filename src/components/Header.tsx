@@ -3,18 +3,8 @@
 import "@/styles/header.scss";
 import { useState } from "react";
 import Image from "next/image";
-import {
-  MapPin,
-  PhoneCall,
-  Clock,
-  ChevronRight,
-  Menu,
-  X,
-  Home,
-  GraduationCap,
-  FileText,
-  FileSignature
-} from "lucide-react";
+import { FiMapPin, FiPhoneCall, FiClock, FiChevronRight, FiMenu, FiX, FiHome, FiFileText } from "react-icons/fi";
+import { FaGraduationCap, FaFileSignature } from "react-icons/fa6";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,13 +34,13 @@ export default function Header() {
           gap: "6px 14px"
         }}>
           <div className="header-topbar-title" style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "0.74rem" }}>
-            <MapPin size={13} strokeWidth={2.2} style={{ flexShrink: 0 }} />
+            <FiMapPin size={13} style={{ flexShrink: 0 }} />
             <span>Trung Tâm Giáo Dục Nghề Nghiệp An Thái - Đào Tạo Lái Xe</span>
           </div>
 
           <div className="header-topbar-info" style={{ display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap", fontSize: "0.74rem" }}>
             <div className="header-topbar-clock" style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-              <Clock size={13} strokeWidth={2.2} style={{ flexShrink: 0 }} />
+              <FiClock size={13} style={{ flexShrink: 0 }} />
               <span>08:00 - 20:00 (Cả Thứ 7 & CN)</span>
             </div>
           </div>
@@ -147,7 +137,7 @@ export default function Header() {
               }}
             >
               <span>Đăng Ký Học</span>
-              <ChevronRight size={16} strokeWidth={2.5} />
+              <FiChevronRight size={16} />
             </a>
 
             {/* Mobile Toggle Button (Right side) */}
@@ -170,7 +160,7 @@ export default function Header() {
                 transition: "all 0.2s ease"
               }}
             >
-              <Menu size={24} strokeWidth={2.2} />
+              <FiMenu size={24} />
             </button>
           </div>
         </div>
@@ -243,18 +233,18 @@ export default function Header() {
                 cursor: "pointer"
               }}
             >
-              <X size={20} />
+              <FiX size={20} />
             </button>
           </div>
 
           {/* Navigation Menu List */}
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             {[
-              { id: "trang-chu", label: "Trang chủ", href: "#", icon: <Home size={17} /> },
-              { id: "khoa-hoc", label: "Danh mục đào tạo", href: "#khoa-hoc", icon: <GraduationCap size={17} /> },
-              { id: "quy-trinh", label: "Quy trình đào tạo", href: "#quy-trinh", icon: <FileText size={17} /> },
-              { id: "dang-ky", label: "Đăng ký học", href: "#dang-ky", icon: <FileSignature size={17} /> },
-              { id: "lien-he", label: "Liên hệ trung tâm", href: "#lien-he", icon: <PhoneCall size={17} /> }
+              { id: "trang-chu", label: "Trang chủ", href: "#", icon: <FiHome size={17} /> },
+              { id: "khoa-hoc", label: "Danh mục đào tạo", href: "#khoa-hoc", icon: <FaGraduationCap size={17} /> },
+              { id: "quy-trinh", label: "Quy trình đào tạo", href: "#quy-trinh", icon: <FiFileText size={17} /> },
+              { id: "dang-ky", label: "Đăng ký học", href: "#dang-ky", icon: <FaFileSignature size={17} /> },
+              { id: "lien-he", label: "Liên hệ trung tâm", href: "#lien-he", icon: <FiPhoneCall size={17} /> }
             ].map((item) => {
               const isActive = activeNav === item.id;
               return (
@@ -298,7 +288,7 @@ export default function Header() {
                     </div>
                     <span>{item.label}</span>
                   </div>
-                  <ChevronRight size={14} style={{ color: isActive ? "var(--primary)" : "#94A3B8" }} />
+                  <FiChevronRight size={14} style={{ color: isActive ? "var(--primary)" : "#94A3B8" }} />
                 </a>
               );
             })}
@@ -328,7 +318,7 @@ export default function Header() {
             }}
           >
             <span>Đăng Ký Học Ngay</span>
-            <ChevronRight size={18} strokeWidth={2.5} />
+            <FiChevronRight size={18} />
           </a>
 
           {/* Hotline 24/7 Card */}
@@ -348,13 +338,13 @@ export default function Header() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "var(--primary-light)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <PhoneCall size={16} />
+                <FiPhoneCall size={16} />
               </div>
               <div>
                 <div style={{ fontSize: "0.95rem", fontWeight: 900, color: "var(--primary)" }}>0786 300 900</div>
               </div>
             </div>
-            <ChevronRight size={15} color="#94A3B8" />
+            <FiChevronRight size={15} color="#94A3B8" />
           </a>
         </div>
       </aside>

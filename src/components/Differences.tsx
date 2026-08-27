@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "@/styles/differences.scss";
-import { Check } from "lucide-react";
+import { FiCheck } from "react-icons/fi";
 
 const CARDS = [
   {
@@ -146,7 +146,7 @@ export default function Differences() {
                   {card.items.map((item, i) => (
                     <li key={i} className="differences-card-item">
                       <div className="differences-check-circle">
-                        <Check size={11} color="var(--primary)" strokeWidth={3} />
+                        <FiCheck size={11} color="var(--primary)" />
                       </div>
                       <span>{item}</span>
                     </li>

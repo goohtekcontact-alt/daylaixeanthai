@@ -118,7 +118,7 @@ const GALLERY_ITEMS = [
       name: "Nguyễn Hoàng Nam",
       avatar: "/images/avatar_customer.png",
       rating: 5,
-      quote: "Thầy dạy có tâm, chỉ bảo từng mẹo nhỏ khi lùi chuồng và qua vệt bánh xe. Thi đậu bằng B2 ngay lần đầu tiên!"
+      quote: "Thầy dạy có tâm, chỉ bảo từng mẹo nhỏ khi lùi chuồng và qua vệt bánh xe. Thi đậu bằng Hạng B ngay lần đầu tiên!"
     }
   },
   {
@@ -137,7 +137,7 @@ const GALLERY_ITEMS = [
     id: 10,
     type: "image",
     src: "/images/real_image/IMG_7148.JPG",
-    title: "Hình ảnh khóa học lái xe hạng B2 chất lượng cao",
+    title: "Hình ảnh khóa học lái xe hạng B chất lượng cao",
     customer: {
       name: "Phan Thanh Tùng",
       avatar: "/images/avatar_customer.png",

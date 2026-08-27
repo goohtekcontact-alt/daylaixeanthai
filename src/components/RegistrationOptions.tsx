@@ -1,23 +1,24 @@
 import Image from "next/image";
 import "@/styles/registration-options.scss";
-import { Building2, Headphones, PhoneCall, MapPin, CheckCircle2 } from "lucide-react";
+import { FaBuilding } from "react-icons/fa6";
+import { FiHeadphones, FiPhoneCall, FiMapPin, FiCheckCircle } from "react-icons/fi";
 
 const OPTIONS = [
   {
     id: "01",
-    icon: <Building2 size={22} color="#FFFFFF" strokeWidth={2.2} />,
+    icon: <FaBuilding size={22} color="#FFFFFF" />,
     title: "Tới trực tiếp văn phòng",
     desc: "Nộp hồ sơ trực tiếp tại văn phòng tuyển sinh để được thầy cô tư vấn chu đáo.",
     extra: (
       <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "6px", backgroundColor: "#F8FAFC", padding: "4px 10px", borderRadius: "8px", border: "1px solid #E2E8F0" }}>
-        <MapPin size={12} color="var(--primary)" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+        <FiMapPin size={12} color="var(--primary)" style={{ flexShrink: 0 }} />
         <span style={{ fontSize: "0.8rem", color: "#475569", fontWeight: 600 }}>141 DT743, TP. Dĩ An</span>
       </div>
     )
   },
   {
     id: "02",
-    icon: <Headphones size={22} color="#FFFFFF" strokeWidth={2.2} />,
+    icon: <FiHeadphones size={22} color="#FFFFFF" />,
     title: "Nộp online qua Zalo",
     desc: "Chụp gửi CCCD qua Zalo & chuyển khoản nhanh gọn, nhận thẻ học viên ngay.",
     extra: (
@@ -41,7 +42,7 @@ const OPTIONS = [
             letterSpacing: "0.2px"
           }}
         >
-          <PhoneCall size={12} strokeWidth={2.4} />
+          <FiPhoneCall size={12} />
           <span>0786 300 900</span>
         </a>
       </div>
@@ -123,7 +124,7 @@ export default function RegistrationOptions() {
             >
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <div style={{ width: "32px", height: "32px", borderRadius: "50%", backgroundColor: "rgba(192, 10, 0, 0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: "#FF4D4D", flexShrink: 0 }}>
-                  <CheckCircle2 size={18} strokeWidth={2.4} />
+                  <FiCheckCircle size={18} />
                 </div>
                 <div>
                   <div style={{ fontSize: "0.85rem", fontWeight: 800, lineHeight: 1.2 }}>Trung Tâm GDNN An Thái</div>

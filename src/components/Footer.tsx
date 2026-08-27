@@ -1,16 +1,7 @@
 import Image from "next/image";
 import "@/styles/footer.scss";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Globe,
-  ChevronRight,
-  GraduationCap,
-  Users,
-  Headset,
-} from "lucide-react";
-import { FaFacebookF, FaYoutube, FaTiktok } from "react-icons/fa6";
+import { FiMapPin, FiPhone, FiGlobe, FiChevronRight, FiHeadphones } from "react-icons/fi";
+import { FaFacebook, FaYoutube, FaTiktok, FaGraduationCap, FaUsers } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -105,30 +96,37 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "0.75rem", color: "#CBD5E1", marginBottom: "16px" }}>
               <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
                 <div style={{ width: "22px", height: "22px", borderRadius: "50%", backgroundColor: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "2px" }}>
-                  <MapPin size={12} color="#FFF" />
+                  <FiMapPin size={12} color="#FFF" />
                 </div>
                 <span>141 DT743, P. Dĩ An, TP. Dĩ An, Bình Dương</span>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <div style={{ width: "22px", height: "22px", borderRadius: "50%", backgroundColor: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Phone size={12} color="#FFF" />
+                  <FiPhone size={12} color="#FFF" />
                 </div>
                 <a href="tel:0786300900" style={{ color: "#FFF", textDecoration: "none", fontWeight: 700 }}>0786 300 900</a>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <div style={{ width: "22px", height: "22px", borderRadius: "50%", backgroundColor: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Mail size={12} color="#FFF" />
+                  <FaFacebook size={12} color="#FFF" />
                 </div>
-                <span>hotro@trungtamlaixeanthai.edu.vn</span>
+                <a
+                  href="https://www.facebook.com/anthaidaotaolaixe?locale=vi_VN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#FFF", textDecoration: "none", fontWeight: 600 }}
+                >
+                  Facebook Fanpage An Thái
+                </a>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <div style={{ width: "22px", height: "22px", borderRadius: "50%", backgroundColor: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <Globe size={12} color="#FFF" />
+                  <FiGlobe size={12} color="#FFF" />
                 </div>
-                <span>www.trungtamlaixeanthai.edu.vn</span>
+                <span>daylaixeanthai.edu.vn</span>
               </div>
             </div>
 
@@ -152,7 +150,7 @@ export default function Footer() {
                   boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
                 }}
               >
-                <FaFacebookF size={15} />
+                <FaFacebook size={17} />
               </a>
 
               <a
@@ -221,25 +219,25 @@ export default function Footer() {
           <div className="footer-col-courses" style={{ paddingRight: "12px", borderRight: "1px solid rgba(255,255,255,0.08)", marginTop: "clamp(240px, 21vw, 295px)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px", borderBottom: "1px solid rgba(255,255,255,0.12)", paddingBottom: "8px" }}>
               <div style={{ width: "26px", height: "26px", borderRadius: "50%", backgroundColor: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <GraduationCap size={14} color="#FFF" />
+                <FaGraduationCap size={14} color="#FFF" />
               </div>
               <h4 style={{ fontSize: "0.86rem", fontWeight: 800, color: "#FFFFFF", letterSpacing: "0.4px", margin: 0 }}>KHÓA HỌC</h4>
             </div>
 
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px", fontSize: "0.76rem", color: "#CBD5E1" }}>
               {[
-                { title: "Khóa học B1 (Tự động)", href: "#khoa-hoc" },
-                { title: "Khóa học B2 (Số sàn)", href: "#khoa-hoc" },
-                { title: "Khóa học C (Xe tải)", href: "#khoa-hoc" },
-                { title: "Khóa học A1 & A (Xe máy)", href: "#khoa-hoc" },
-                { title: "Khóa học nâng hạng", href: "#khoa-hoc" },
-                { title: "Bổ túc tay lái DAT", href: "#khoa-hoc" },
-                { title: "Lịch khai giảng mới", href: "#khoa-hoc" },
-                { title: "Học phí trọn gói", href: "#khoa-hoc" },
+                { title: "Khóa học Hạng B (Số Tự Động)", href: "#bang-b" },
+                { title: "Khóa học Hạng B (Số Sàn)", href: "#bang-b" },
+                { title: "Khóa học Hạng C1 (Xe Tải)", href: "#bang-c1" },
+                { title: "Khóa học Hạng A1 (Xe Máy)", href: "#bang-a1" },
+                { title: "Khóa học Hạng A (Mô Tô PKL)", href: "#bang-a" },
+                { title: "Bổ túc tay lái DAT đường trường", href: "#khoa-hoc" },
+                { title: "Bảng giá học phí trọn gói", href: "#khoa-hoc" },
+                { title: "Đăng ký học lái xe ngay", href: "#form-dang-ky" },
               ].map((item, idx) => (
                 <li key={idx}>
                   <a href={item.href} style={{ display: "flex", alignItems: "center", gap: "5px", color: "#CBD5E1", textDecoration: "none", transition: "color 0.2s" }}>
-                    <ChevronRight size={12} style={{ color: "var(--primary)" }} />
+                    <FiChevronRight size={12} style={{ color: "var(--primary)" }} />
                     <span>{item.title}</span>
                   </a>
                 </li>
@@ -251,25 +249,24 @@ export default function Footer() {
           <div style={{ paddingRight: "12px", borderRight: "1px solid rgba(255,255,255,0.08)", marginTop: "clamp(240px, 21vw, 295px)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px", borderBottom: "1px solid rgba(255,255,255,0.12)", paddingBottom: "8px" }}>
               <div style={{ width: "26px", height: "26px", borderRadius: "50%", backgroundColor: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Users size={14} color="#FFF" />
+                <FaUsers size={14} color="#FFF" />
               </div>
               <h4 style={{ fontSize: "0.86rem", fontWeight: 800, color: "#FFFFFF", letterSpacing: "0.4px", margin: 0 }}>VỀ CHÚNG TÔI</h4>
             </div>
 
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px", fontSize: "0.76rem", color: "#CBD5E1" }}>
               {[
-                { title: "Giới thiệu trung tâm", href: "#tai-sao-chon" },
-                { title: "Sứ mệnh - Tầm nhìn", href: "#tai-sao-chon" },
-                { title: "Đội ngũ giáo viên", href: "#tai-sao-chon" },
-                { title: "Cơ sở vật chất ISO", href: "#san-tap" },
-                { title: "Hình ảnh sân tập", href: "#san-tap" },
-                { title: "Cam kết chất lượng", href: "#tai-sao-chon" },
-                { title: "Tuyển dụng giáo viên", href: "#lien-he" },
-                { title: "Liên hệ trung tâm", href: "#lien-he" },
+                { title: "Giới thiệu Trung tâm An Thái", href: "#tai-sao-chon" },
+                { title: "Lý do chọn học tại An Thái", href: "#tai-sao-chon" },
+                { title: "Sự khác biệt & Cam kết", href: "#su-khac-biet" },
+                { title: "Đội ngũ giáo viên kinh nghiệm", href: "#tai-sao-chon" },
+                { title: "Sân tập đạt chuẩn sa hình GTVT", href: "#san-tap" },
+                { title: "Hình ảnh học viên thực tế", href: "#hinh-anh-thuc-te" },
+                { title: "Phương thức nộp hồ sơ", href: "#phuong-thuc-dang-ky" },
               ].map((item, idx) => (
                 <li key={idx}>
                   <a href={item.href} style={{ display: "flex", alignItems: "center", gap: "5px", color: "#CBD5E1", textDecoration: "none", transition: "color 0.2s" }}>
-                    <ChevronRight size={12} style={{ color: "var(--primary)" }} />
+                    <FiChevronRight size={12} style={{ color: "var(--primary)" }} />
                     <span>{item.title}</span>
                   </a>
                 </li>
@@ -281,23 +278,23 @@ export default function Footer() {
           <div style={{ paddingRight: "12px", marginTop: "clamp(240px, 21vw, 295px)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px", borderBottom: "1px solid rgba(255,255,255,0.12)", paddingBottom: "8px" }}>
               <div style={{ width: "26px", height: "26px", borderRadius: "50%", backgroundColor: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Headset size={14} color="#FFF" />
+                <FiHeadphones size={14} color="#FFF" />
               </div>
               <h4 style={{ fontSize: "0.86rem", fontWeight: 800, color: "#FFFFFF", letterSpacing: "0.4px", margin: 0 }}>HỖ TRỢ HỌC VIÊN</h4>
             </div>
 
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px", fontSize: "0.76rem", color: "#CBD5E1" }}>
               {[
-                { title: "Quy trình 6 bước GTVT", href: "#quy-trinh" },
-                { title: "Hướng dẫn làm hồ sơ", href: "#ho-so" },
-                { title: "Phương án nộp hồ sơ", href: "#ho-so" },
-                { title: "Quy định học viên", href: "#quy-trinh" },
-                { title: "Chính sách bảo mật", href: "#lien-he" },
-                { title: "Điều khoản dịch vụ", href: "#lien-he" },
+                { title: "Quy trình đào tạo 6 bước GTVT", href: "#quy-trinh" },
+                { title: "Phương án nộp hồ sơ đăng ký", href: "#phuong-thuc-dang-ky" },
+                { title: "Hướng dẫn làm hồ sơ đăng ký", href: "#phuong-thuc-dang-ky" },
+                { title: "Form đăng ký nhận tư vấn", href: "#form-dang-ky" },
+                { title: "Bản đồ vị trí sân tập", href: "#san-tap" },
+                { title: "Hotline & Zalo tư vấn 24/7", href: "#form-dang-ky" },
               ].map((item, idx) => (
                 <li key={idx}>
                   <a href={item.href} style={{ display: "flex", alignItems: "center", gap: "5px", color: "#CBD5E1", textDecoration: "none", transition: "color 0.2s" }}>
-                    <ChevronRight size={12} style={{ color: "var(--primary)" }} />
+                    <FiChevronRight size={12} style={{ color: "var(--primary)" }} />
                     <span>{item.title}</span>
                   </a>
                 </li>
@@ -401,7 +398,7 @@ export default function Footer() {
                   boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
                 }}
               >
-                <Phone size={20} style={{ color: "#C00A00", transform: "rotate(-10deg)" }} />
+                <FiPhone size={20} style={{ color: "#C00A00", transform: "rotate(-10deg)" }} />
               </div>
 
               {/* Text Information (Single Line Guaranteed) */}

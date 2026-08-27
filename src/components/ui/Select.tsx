@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown, Check } from "lucide-react";
+import { FiChevronDown, FiCheck } from "react-icons/fi";
 
 export interface SelectOption {
   value: string;
@@ -131,7 +131,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
           <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
             {selectedOption ? selectedOption.label : placeholder}
           </span>
-          <ChevronDown
+          <FiChevronDown
             size={18}
             style={{
               color: isOpen ? "var(--primary)" : "#64748B",
@@ -195,7 +195,7 @@ export const Select = React.forwardRef<HTMLDivElement, SelectProps>(
                   }}
                 >
                   <span>{opt.label}</span>
-                  {isSelected && <Check size={16} style={{ color: "var(--primary)", flexShrink: 0 }} />}
+                  {isSelected && <FiCheck size={16} style={{ color: "var(--primary)", flexShrink: 0 }} />}
                 </div>
               );
             })}

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import "@/styles/why-b2.scss";
-import { Users, Car, Calendar, Building2, GraduationCap, Trophy } from "lucide-react";
+import { FaUsers, FaCar, FaCalendarDays, FaBuilding, FaGraduationCap, FaTrophy } from "react-icons/fa6";
 
 const POINTS = [
   {
-    icon: <Users size={16} color="#FFF" strokeWidth={2.2} />,
+    icon: <FaUsers size={16} color="#FFF" />,
     title: (
       <>
         Đội ngũ <strong style={{ color: "var(--primary)", fontWeight: 800 }}>giáo viên có kinh nghiệm</strong>, giảng dạy tận tình
@@ -12,7 +12,7 @@ const POINTS = [
     ),
   },
   {
-    icon: <Car size={16} color="#FFF" strokeWidth={2.2} />,
+    icon: <FaCar size={16} color="#FFF" />,
     title: (
       <>
         Dàn xe tập lái <strong style={{ color: "var(--primary)", fontWeight: 800 }}>Hyundai Accent đời mới</strong>, máy lạnh 100%
@@ -20,7 +20,7 @@ const POINTS = [
     ),
   },
   {
-    icon: <Calendar size={16} color="#FFF" strokeWidth={2.2} />,
+    icon: <FaCalendarDays size={16} color="#FFF" />,
     title: (
       <>
         Lịch học <strong style={{ color: "var(--primary)", fontWeight: 800 }}>đa dạng</strong> – Tự chọn sân tập
@@ -28,7 +28,7 @@ const POINTS = [
     ),
   },
   {
-    icon: <Building2 size={16} color="#FFF" strokeWidth={2.2} />,
+    icon: <FaBuilding size={16} color="#FFF" />,
     title: (
       <>
         Cơ sở vật chất & sân tập <strong style={{ color: "var(--primary)", fontWeight: 800 }}>chuẩn sa hình GTVT</strong>
@@ -36,7 +36,7 @@ const POINTS = [
     ),
   },
   {
-    icon: <GraduationCap size={16} color="#FFF" strokeWidth={2.2} />,
+    icon: <FaGraduationCap size={16} color="#FFF" />,
     title: (
       <>
         Đào tạo <strong style={{ color: "var(--primary)", fontWeight: 800 }}>chuyên nghiệp</strong> – 1 thầy 1 trò
@@ -44,7 +44,7 @@ const POINTS = [
     ),
   },
   {
-    icon: <Trophy size={16} color="#FFF" strokeWidth={2.2} />,
+    icon: <FaTrophy size={16} color="#FFF" />,
     title: (
       <>
         Tỷ lệ <strong style={{ color: "var(--primary)", fontWeight: 800 }}>đỗ cao</strong>, hỗ trợ tới khi có bằng

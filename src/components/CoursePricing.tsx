@@ -14,7 +14,7 @@ const COURSES = [
     imageSrc: "/images/image_card_price_moto.png",
     price: "650.000đ",
     numericPrice: "650000",
-    priceDetail: "Hồ sơ trọn gói sát hạch",
+    priceDetail: "trọn gói phí đào tạo",
     features: [
       {
         icon: <FaBookOpen size={18} style={{ color: "var(--primary)" }} />,
@@ -42,7 +42,7 @@ const COURSES = [
     imageSrc: "/images/image_card_price_motopkl.png",
     price: "1.350.000đ",
     numericPrice: "1350000",
-    priceDetail: "Hồ sơ trọn gói sát hạch",
+    priceDetail: "trọn gói phí đào tạo",
     features: [
       {
         icon: <FaBookOpen size={18} style={{ color: "var(--primary)" }} />,
@@ -70,7 +70,7 @@ const COURSES = [
     imageSrc: "/images/image_card_price_o_to.png",
     price: "19.300.000đ",
     numericPrice: "19300000",
-    priceDetail: "Hồ sơ trọn gói sát hạch",
+    priceDetail: "trọn gói phí đào tạo",
     features: [
       {
         icon: <FaUsers size={18} style={{ color: "var(--primary)" }} />,
@@ -98,7 +98,7 @@ const COURSES = [
     imageSrc: "/images/image_card_price_c1.png",
     price: "23.100.000đ",
     numericPrice: "23100000",
-    priceDetail: "Hồ sơ trọn gói sát hạch",
+    priceDetail: "trọn gói phí đào tạo",
     features: [
       {
         icon: <FaTruck size={18} style={{ color: "var(--primary)" }} />,
@@ -240,19 +240,21 @@ export default function CoursePricing() {
                 </div>
 
                 {/* Price Display Tag */}
-                <div style={{ display: "flex", alignItems: "baseline", gap: "6px", marginTop: "12px" }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: "5px", marginTop: "12px", flexWrap: "nowrap" }}>
                   <span
                     className="course-card-price"
                     style={{
-                      fontSize: "1.45rem",
+                      fontSize: "1.35rem",
                       fontWeight: 900,
                       color: "var(--primary)",
-                      letterSpacing: "-0.5px"
+                      letterSpacing: "-0.5px",
+                      whiteSpace: "nowrap",
+                      flexShrink: 0
                     }}
                   >
                     {course.price}
                   </span>
-                  <span style={{ fontSize: "0.75rem", color: "#64748B", fontWeight: 600 }}>
+                  <span style={{ fontSize: "0.72rem", color: "#64748B", fontWeight: 600, whiteSpace: "nowrap" }}>
                     / {course.priceDetail}
                   </span>
                 </div>

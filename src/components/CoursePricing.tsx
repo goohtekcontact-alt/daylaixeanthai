@@ -9,16 +9,16 @@ const COURSES = [
   {
     id: "bang-a1",
     icon: <FaMotorcycle size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-    title: "HẠNG A1 (XE MÁY)",
-    subtitle: "Xe Mô Mô 2 Bánh (Dưới 175cc)",
+    title: "Hạng A1 (Xe Máy)",
+    subtitle: "Xe Mô Tô 2 Bánh (Dưới 175cc)",
     imageSrc: "/images/image_card_price_moto.png",
-    price: "650.000đ",
-    numericPrice: "650000",
+    price: "6xx.000đ",
+    numericPrice: "600000",
     priceDetail: "trọn gói phí đào tạo",
     features: [
       {
         icon: <FaBookOpen size={18} style={{ color: "var(--primary)" }} />,
-        text: <>Mẹo lý thuyết <strong style={{ color: "var(--primary)", fontWeight: 800 }}>200 câu</strong> sát hạch</>
+        text: <>Mẹo lý thuyết <strong style={{ color: "var(--primary)", fontWeight: 800 }}>250 câu</strong> sát hạch</>
       },
       {
         icon: <FiDisc size={18} style={{ color: "var(--primary)" }} />,
@@ -37,11 +37,11 @@ const COURSES = [
   {
     id: "bang-a",
     icon: <HiOutlineFire size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-    title: "HẠNG A (MÔ TÔ PKL)",
+    title: "Hạng A (Mô Tô PKL)",
     subtitle: "Xe Mô Tô PKL (Trên 175cc)",
     imageSrc: "/images/image_card_price_motopkl.png",
-    price: "1.350.000đ",
-    numericPrice: "1350000",
+    price: "1.xxx.000đ",
+    numericPrice: "1000000",
     priceDetail: "trọn gói phí đào tạo",
     features: [
       {
@@ -65,11 +65,11 @@ const COURSES = [
   {
     id: "bang-b",
     icon: <FaCar size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-    title: "HẠNG B (SÀN & TỰ ĐỘNG)",
+    title: "Hạng B (Sàn & Tự Động)",
     subtitle: "Xe Ô Tô Số Sàn & Số Tự Động",
     imageSrc: "/images/image_card_price_o_to.png",
-    price: "19.300.000đ",
-    numericPrice: "19300000",
+    price: "1x.xxx.000đ",
+    numericPrice: "10000000",
     priceDetail: "trọn gói phí đào tạo",
     features: [
       {
@@ -93,11 +93,11 @@ const COURSES = [
   {
     id: "bang-c1",
     icon: <FaTruck size={20} style={{ color: "var(--primary)", flexShrink: 0 }} />,
-    title: "HẠNG C1 (XE TẢI)",
+    title: "Hạng C1 (Xe Tải)",
     subtitle: "Xe Tải & Vận Tải Chuyên Nghiệp",
     imageSrc: "/images/image_card_price_c1.png",
-    price: "23.100.000đ",
-    numericPrice: "23100000",
+    price: "2x.xxx.000đ",
+    numericPrice: "20000000",
     priceDetail: "trọn gói phí đào tạo",
     features: [
       {
@@ -194,74 +194,16 @@ export default function CoursePricing() {
                 transition: "all 0.3s ease"
               }}
             >
-              {/* Header Box */}
+              {/* Graphic Banner Image at Top of Card */}
               <div
-                className="course-card-header-box"
                 style={{
-                  padding: "16px 20px 14px",
-                  borderBottom: "1px solid #F1F5F9",
-                  backgroundColor: "#FAFAFC"
+                  position: "relative",
+                  width: "100%",
+                  height: "155px",
+                  backgroundColor: "#F1F5F9",
+                  overflow: "hidden"
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "6px" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                    <div
-                      style={{
-                        width: "36px",
-                        height: "36px",
-                        borderRadius: "10px",
-                        backgroundColor: "var(--primary-light)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0
-                      }}
-                    >
-                      {course.icon}
-                    </div>
-                    <div>
-                      <h3
-                        className="course-card-title"
-                        style={{
-                          fontSize: "1.05rem",
-                          fontWeight: 900,
-                          color: "#0F172A",
-                          margin: 0,
-                          lineHeight: 1.2
-                        }}
-                      >
-                        {course.title}
-                      </h3>
-                      <div style={{ fontSize: "0.76rem", color: "#64748B", marginTop: "2px" }}>
-                        {course.subtitle}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Price Display Tag */}
-                <div style={{ display: "flex", alignItems: "baseline", gap: "5px", marginTop: "12px", flexWrap: "nowrap" }}>
-                  <span
-                    className="course-card-price"
-                    style={{
-                      fontSize: "1.35rem",
-                      fontWeight: 900,
-                      color: "var(--primary)",
-                      letterSpacing: "-0.5px",
-                      whiteSpace: "nowrap",
-                      flexShrink: 0
-                    }}
-                  >
-                    {course.price}
-                  </span>
-                  <span style={{ fontSize: "0.72rem", color: "#64748B", fontWeight: 600, whiteSpace: "nowrap" }}>
-                    / {course.priceDetail}
-                  </span>
-                </div>
-              </div>
-
-              {/* Graphic Banner Image inside Card */}
-              <div style={{ position: "relative", width: "100%", height: "140px", backgroundColor: "#F1F5F9", overflow: "hidden" }}>
                 <Image
                   src={course.imageSrc}
                   alt={course.title}
@@ -269,6 +211,54 @@ export default function CoursePricing() {
                   sizes="(max-width: 768px) 100vw, 320px"
                   style={{ objectFit: "cover" }}
                 />
+              </div>
+
+              {/* Course Information Header Box below Image */}
+              <div
+                className="course-card-header-box"
+                style={{
+                  padding: "16px 18px",
+                  borderBottom: "1.5px solid #F1F5F9",
+                  backgroundColor: "#FFFFFF"
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "11px",
+                      background: "linear-gradient(135deg, #FFF0EE 0%, #FFE2DF 100%)",
+                      border: "1.5px solid rgba(192, 10, 0, 0.15)",
+                      boxShadow: "0 3px 10px rgba(192, 10, 0, 0.08)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0
+                    }}
+                  >
+                    {course.icon}
+                  </div>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <h3
+                      className="course-card-title"
+                      style={{
+                        fontSize: "0.94rem",
+                        fontWeight: 800,
+                        color: "#0F172A",
+                        margin: 0,
+                        lineHeight: 1.25,
+                        letterSpacing: "-0.2px",
+                        whiteSpace: "nowrap"
+                      }}
+                    >
+                      {course.title}
+                    </h3>
+                    <div style={{ fontSize: "0.78rem", color: "#64748B", marginTop: "3px", fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                      {course.subtitle}
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Features List Box */}

@@ -347,7 +347,7 @@ export default function Footer() {
                   overflow: "hidden",
                   border: "2px solid #C00A00",
                   boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
-                  height: "135px",
+                  height: "160px",
                   width: "100%",
                   position: "relative",
                   marginTop: "-1px",
@@ -365,77 +365,6 @@ export default function Footer() {
                 />
               </div>
             </div>
-
-            {/* Deep Red Call Banner Box */}
-            <a
-              href="tel:0786300900"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                background: "linear-gradient(180deg, #D00900 0%, #8A0000 100%)",
-                border: "1px solid rgba(255,255,255,0.15)",
-                borderRadius: "16px",
-                padding: "10px 12px",
-                textDecoration: "none",
-                color: "#FFFFFF",
-                boxShadow: "0 8px 22px rgba(180, 0, 0, 0.45)",
-                width: "100%",
-                boxSizing: "border-box",
-              }}
-            >
-              {/* Large White Circle Icon Badge */}
-              <div
-                style={{
-                  width: "46px",
-                  height: "46px",
-                  borderRadius: "50%",
-                  backgroundColor: "#FFFFFF",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
-                }}
-              >
-                <FiPhone size={20} style={{ color: "#C00A00", transform: "rotate(-10deg)" }} />
-              </div>
-
-              {/* Text Information (Single Line Guaranteed) */}
-              <div style={{ minWidth: 0, flexGrow: 1 }}>
-                <div
-                  style={{
-                    fontFamily: "var(--font-plus-jakarta), system-ui, sans-serif",
-                    fontSize: "0.7rem",
-                    fontWeight: 800,
-                    letterSpacing: "0.3px",
-                    textTransform: "uppercase",
-                    color: "#FFFFFF",
-                    opacity: 0.95,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  TƯ VẤN & ĐĂNG KÝ NGAY
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-plus-jakarta), system-ui, sans-serif",
-                    fontSize: "1.25rem",
-                    fontWeight: 900,
-                    letterSpacing: "0.4px",
-                    color: "#FFFFFF",
-                    margin: "1px 0",
-                    lineHeight: 1.15,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  0786 300 900
-                </div>
-                <div style={{ fontSize: "0.64rem", color: "rgba(255,255,255,0.85)", fontWeight: 500, whiteSpace: "nowrap" }}>
-                  Hỗ trợ tư vấn miễn phí
-                </div>
-              </div>
-            </a>
           </div>
         </div>
 

@@ -70,7 +70,7 @@ const STEPS = [
       />
     ),
     title: "Thi Sát Hạch",
-    desc: "Thi sát hạch chính thức do Sở GTVT tổ chức."
+    desc: "Thi sát hạch chính thức do PC08 tổ chức."
   },
   {
     num: 6,

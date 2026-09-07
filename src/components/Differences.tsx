@@ -7,7 +7,7 @@ const CARDS = [
     title: "Cam kết 100% đầu ra",
     icon: (
       <Image
-        src="/images/ten_lua.png"
+        src="/images/ten_lua.webp"
         alt="Cam kết 100% đầu ra"
         width={34}
         height={34}
@@ -25,7 +25,7 @@ const CARDS = [
     title: "Dẫn đầu về chất lượng",
     icon: (
       <Image
-        src="/images/huy_hieu.png"
+        src="/images/huy_hieu.webp"
         alt="Dẫn đầu về chất lượng"
         width={34}
         height={34}
@@ -43,7 +43,7 @@ const CARDS = [
     title: "Đội ngũ giảng viên",
     icon: (
       <Image
-        src="/images/user.png"
+        src="/images/user.webp"
         alt="Đội ngũ giảng viên"
         width={34}
         height={34}
@@ -61,7 +61,7 @@ const CARDS = [
     title: "Chăm sóc trọn đời",
     icon: (
       <Image
-        src="/images/ho_tro.png"
+        src="/images/ho_tro.webp"
         alt="Chăm sóc trọn đời"
         width={34}
         height={34}
@@ -85,7 +85,7 @@ export default function Differences() {
       style={{
         position: "relative",
         width: "100%",
-        backgroundImage: "url('/images/image_section_girl.png')",
+        backgroundImage: "url('/images/image_section_girl.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center left",
         backgroundRepeat: "no-repeat",

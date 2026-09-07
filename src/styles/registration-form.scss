@@ -22,7 +22,7 @@
 
 .registration-form-section {
   @include tablet {
-    background-image: url('/images/image_background-form.png') !important;
+    background-image: url('/images/image_background-form.webp') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -34,7 +34,7 @@
   }
 
   @include mobile {
-    background-image: url('/images/image_background-form_mobile.png') !important;
+    background-image: url('/images/image_background-form_mobile.webp') !important;
     background-size: 100% 100% !important;
     background-position: center top !important;
     background-repeat: no-repeat !important;

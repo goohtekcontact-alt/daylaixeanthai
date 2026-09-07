@@ -106,7 +106,7 @@ export default function RegistrationFormSection() {
       style={{
         position: "relative",
         width: "100%",
-        backgroundImage: "url('/images/image_background-form.png')",
+        backgroundImage: "url('/images/image_background-form.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",

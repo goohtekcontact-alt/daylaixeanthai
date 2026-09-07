@@ -20,7 +20,7 @@
   }
 
   @include tablet {
-    background-image: url('/images/image_section_girl.png') !important;
+    background-image: url('/images/image_section_girl.webp') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -28,7 +28,7 @@
   }
 
   @include mobile {
-    background-image: url('/images/image_section_girl_mobile.png') !important;
+    background-image: url('/images/image_section_girl_mobile.webp') !important;
     background-size: 100% auto !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;

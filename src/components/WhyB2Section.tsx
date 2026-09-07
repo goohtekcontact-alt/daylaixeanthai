@@ -69,10 +69,11 @@ export default function WhyB2Section() {
         {/* Left Side: Graphic Image */}
         <div className="why-b2-image-wrapper reveal-up">
           <Image
-            src="/images/bacground_section_4.png"
+            src="/images/bacground_section_4.webp"
             alt="Sân tập lái xe An Thái"
             width={1531}
             height={1027}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 680px"
             style={{
               width: "100%",
               height: "auto",

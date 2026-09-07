@@ -11,7 +11,7 @@ export default function Footer() {
       style={{
         position: "relative",
         width: "100%",
-        backgroundImage: "url('/images/background_footer.png')",
+        backgroundImage: "url('/images/background_footer.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",

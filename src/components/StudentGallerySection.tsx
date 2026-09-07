@@ -28,11 +28,11 @@ const GALLERY_ITEMS = [
   {
     id: 1,
     type: "image",
-    src: "/images/real_image/IMG_7059.JPG",
+    src: "/images/real_image/IMG_7059.webp",
     title: "Học viên nhận bằng tốt nghiệp lái xe tại An Thái",
     customer: {
       name: "Nguyễn Thị Mai Anh",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Cơ sở vật chất hiện đại, sân tập rộng rãi, giáo viên tận tâm hướng dẫn. Môi trường học tập chuyên nghiệp, giúp mình tự tin khi thi và lái xe thực tế."
     }
@@ -40,11 +40,11 @@ const GALLERY_ITEMS = [
   {
     id: 2,
     type: "video",
-    src: "/videos/Bản sao của 2024_09_13_09_30_IMG_0582.MOV",
+    src: "/videos/IMG_0582.mp4",
     title: "Video học viên thực hành lái xe trên sân sa hình An Thái",
     customer: {
       name: "Trần Thu Hà",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Giáo viên dạy rất nhiệt tình, hướng dẫn chi tiết từng bài thi sa hình. Nhờ vậy mà mình thi một lần là đỗ ngay cả lý thuyết lẫn thực hành!"
     }
@@ -52,11 +52,11 @@ const GALLERY_ITEMS = [
   {
     id: 3,
     type: "image",
-    src: "/images/real_image/IMG_7066.JPG",
+    src: "/images/real_image/IMG_7066.webp",
     title: "Trao chứng chỉ tốt nghiệp cho học viên lái xe xuất sắc",
     customer: {
       name: "Hoàng Bích Ngọc",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Được học thực hành nhiều giờ trên xe đời mới, thầy chỉ dẫn rất kỹ lưỡng và điềm đạm. Rất cảm ơn trung tâm An Thái!"
     }
@@ -64,11 +64,11 @@ const GALLERY_ITEMS = [
   {
     id: 4,
     type: "video",
-    src: "/videos/Bản sao của 2024_09_13_09_33_IMG_0558.MOV",
+    src: "/videos/IMG_0558.mp4",
     title: "Video buổi diễn tập sa hình chuẩn sát hạch GTVT",
     customer: {
       name: "Phạm Phương Anh",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Chi phí hợp lý, cam kết không phát sinh thêm bất kỳ khoản phụ phí nào. Trung tâm hỗ trợ thủ tục hồ sơ rất chu đáo."
     }
@@ -76,11 +76,11 @@ const GALLERY_ITEMS = [
   {
     id: 5,
     type: "image",
-    src: "/images/real_image/IMG_7074.JPG",
+    src: "/images/real_image/IMG_7074.webp",
     title: "Hình ảnh học viên vui mừng nhận giấy phép lái xe",
     customer: {
       name: "Lê Thu Trang",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Lịch học vô cùng linh hoạt, phù hợp với người đi làm bận rộn. Xe tập lái đời mới, máy lạnh mát rượi, học rất thoải mái."
     }
@@ -88,11 +88,11 @@ const GALLERY_ITEMS = [
   {
     id: 6,
     type: "video",
-    src: "/videos/Bản sao của 2024_09_13_09_35_IMG_0567.MOV",
+    src: "/videos/IMG_0567.mp4",
     title: "Video học viên luyện tập đường trường và sa hình thực tế",
     customer: {
       name: "Lê Đức Minh",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Khóa học rất chất lượng, sa hình chuẩn Sở GTVT giúp mình tự tin và phản xạ tốt trong mọi tình huống khi cầm lái."
     }
@@ -100,11 +100,11 @@ const GALLERY_ITEMS = [
   {
     id: 7,
     type: "image",
-    src: "/images/real_image/IMG_7096.JPG",
+    src: "/images/real_image/IMG_7096.webp",
     title: "Khoảnh khắc trao bằng và chụp ảnh kỷ niệm tại trung tâm",
     customer: {
       name: "Đặng Minh Anh",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Sân thi chuẩn sát hạch GTVT giúp học viên làm quen áp lực trước khi thi thật. Rất hài lòng với chất lượng đào tạo tại An Thái!"
     }
@@ -112,11 +112,11 @@ const GALLERY_ITEMS = [
   {
     id: 8,
     type: "image",
-    src: "/images/real_image/IMG_7143.JPG",
+    src: "/images/real_image/IMG_7143.webp",
     title: "Học viên xuất sắc vượt qua kỳ thi sát hạch ô tô",
     customer: {
       name: "Nguyễn Hoàng Nam",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Thầy dạy có tâm, chỉ bảo từng mẹo nhỏ khi lùi chuồng và qua vệt bánh xe. Thi đậu bằng Hạng B ngay lần đầu tiên!"
     }
@@ -124,11 +124,11 @@ const GALLERY_ITEMS = [
   {
     id: 9,
     type: "image",
-    src: "/images/real_image/IMG_7147.JPG",
+    src: "/images/real_image/IMG_7147.webp",
     title: "Thực hành tập lái thực tế cùng giảng viên An Thái",
     customer: {
       name: "Vũ Hải Đăng",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Thời gian đào tạo đúng tiến độ cam kết, xe tập lái số tự động và số sàn đều mới toanh. Rất khuyên mọi người nên học tại đây!"
     }
@@ -136,11 +136,11 @@ const GALLERY_ITEMS = [
   {
     id: 10,
     type: "image",
-    src: "/images/real_image/IMG_7148.JPG",
+    src: "/images/real_image/IMG_7148.webp",
     title: "Hình ảnh khóa học lái xe hạng B chất lượng cao",
     customer: {
       name: "Phan Thanh Tùng",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Trung tâm uy tín, đội ngũ giảng viên giàu kinh nghiệm. Môi trường thực hành sát thực tế thi giúp nâng cao tay lái nhanh chóng."
     }
@@ -148,11 +148,11 @@ const GALLERY_ITEMS = [
   {
     id: 11,
     type: "image",
-    src: "/images/real_image/Bản sao của 2025_04_28_08_07_IMG_5487.JPG",
+    src: "/images/real_image/IMG_5487.webp",
     title: "Buổi trao bằng tốt nghiệp cho học viên lái xe",
     customer: {
       name: "Trịnh Hoài Nam",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Quy trình đăng ký nhanh gọn, được chủ động sắp xếp thời gian rảnh. Rất tuyệt vời!"
     }
@@ -160,11 +160,11 @@ const GALLERY_ITEMS = [
   {
     id: 12,
     type: "image",
-    src: "/images/real_image/Bản sao của 2025_04_28_08_38_IMG_5513.JPG",
+    src: "/images/real_image/IMG_5513.webp",
     title: "Không khí học tập sôi nổi tại Trung Tâm An Thái",
     customer: {
       name: "Đỗ Quốc Việt",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Học 1 thầy 1 trò vô cùng hiệu quả, nắm chắc kiến thức và tự tin tay lái ngay từ buổi học đầu tiên."
     }
@@ -172,11 +172,11 @@ const GALLERY_ITEMS = [
   {
     id: 13,
     type: "image",
-    src: "/images/real_image/Bản sao của 2025_04_28_08_39_IMG_5514.JPG",
+    src: "/images/real_image/IMG_5514.webp",
     title: "Niềm vui nhận bằng lái xe sau khóa đào tạo",
     customer: {
       name: "Bùi Khánh Linh",
-      avatar: "/images/avatar_customer.png",
+      avatar: "/images/avatar_customer.webp",
       rating: 5,
       quote: "Nhân viên tư vấn siêu nhiệt tình, thầy giáo hiền lành kiên nhẫn. 10/10 điểm cho chất lượng dịch vụ!"
     }
@@ -195,7 +195,7 @@ export default function StudentGallerySection() {
       style={{
         width: "100%",
         padding: "60px 20px 70px",
-        backgroundImage: "url('/images/background_section_hinh_anh_thuc_te.png')",
+        backgroundImage: "url('/images/background_section_hinh_anh_thuc_te.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -417,6 +417,11 @@ export default function StudentGallerySection() {
               loop={true}
               centeredSlides={true}
               speed={550}
+              resizeObserver={true}
+              roundLengths={true}
+              watchSlidesProgress={true}
+              observer={true}
+              observeParents={true}
               autoplay={{
                 delay: 3500,
                 disableOnInteraction: false,
@@ -466,7 +471,7 @@ export default function StudentGallerySection() {
                         loop
                         muted
                         playsInline
-                        preload="auto"
+                        preload="none"
                         style={{
                           width: "100%",
                           height: "100%",

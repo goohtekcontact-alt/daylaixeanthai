@@ -93,12 +93,11 @@ export default function RegistrationOptions() {
             }}
           >
             <Image
-              src="/images/image_dang_ky.png"
+              src="/images/image_dang_ky.webp"
               alt="Hội trường đào tạo và đăng ký học lái xe An Thái"
               fill
               sizes="(max-width: 900px) 100vw, 680px"
               style={{ objectFit: "cover" }}
-              priority
             />
 
             {/* Bottom Overlay Pill / Glassmorphic Badge */}

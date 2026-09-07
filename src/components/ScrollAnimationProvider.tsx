@@ -30,16 +30,14 @@ export default function ScrollAnimationProvider() {
 
     const initObserver = () => {
       const elementsToObserve = document.querySelectorAll(
-        ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .reveal-stagger, .course-card"
+        ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .course-card"
       );
       elementsToObserve.forEach((el) => observer.observe(el));
     };
 
     initObserver();
-    const rafId = requestAnimationFrame(initObserver);
 
     return () => {
-      cancelAnimationFrame(rafId);
       observer.disconnect();
     };
   }, []);

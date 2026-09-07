@@ -50,10 +50,11 @@ export default function WhyChooseUs() {
           }}
         >
           <Image
-            src="/images/background_section_3.png"
+            src="/images/background_section_3.webp"
             alt="Lý do nên học lái xe bằng B1, B2 tại Trung tâm An Thái: Đi lại du lịch gia đình, điều khiển xe số sàn & số tự động, lái xe công nghệ Grab kiếm thêm thu nhập, chở sếp và giao lưu đối tác."
             width={1164}
             height={508}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 960px, 960px"
             style={{
               width: "100%",
               height: "auto",

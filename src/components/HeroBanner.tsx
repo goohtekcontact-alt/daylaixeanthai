@@ -14,12 +14,12 @@ export default function HeroBanner() {
     >
       <div className="reveal-zoom" style={{ width: "100%", height: "auto", position: "relative" }}>
         <Image
-          src="/images/banner_hero2.png"
+          src="/images/banner_hero2.webp"
           alt="Trung Tâm Giáo Dục Nghề Nghiệp An Thái - Banner Đào Tạo Lái Xe"
           width={1717}
           height={916}
           priority
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1400px) 100vw, 1720px"
           style={{
             width: "100%",
             height: "auto",

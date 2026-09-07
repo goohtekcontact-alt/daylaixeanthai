@@ -21,32 +21,48 @@ const GROUNDS = [
 
 export default function PracticeGrounds() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.defaultMuted = true;
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => setIsPlaying(true))
-          .catch(() => {
-            // Autoplay prevented by browser power-saving policy
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+
+    // Use IntersectionObserver: only play video when scrolled into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video
+              .play()
+              .then(() => setIsPlaying(true))
+              .catch(() => setIsPlaying(false));
+          } else {
+            video.pause();
             setIsPlaying(false);
-          });
-      }
-    }
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const togglePlay = useCallback(() => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
+        setIsPlaying(false);
       } else {
-        videoRef.current.play();
+        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
       }
-      setIsPlaying((prev) => !prev);
     }
   }, [isPlaying]);
 
@@ -57,7 +73,7 @@ export default function PracticeGrounds() {
       style={{
         position: "relative",
         width: "100%",
-        backgroundImage: "linear-gradient(to right, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.68) 45%, rgba(255, 255, 255, 0.3) 100%), url('/images/background_section_5.png')",
+        backgroundImage: "linear-gradient(to right, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.68) 45%, rgba(255, 255, 255, 0.3) 100%), url('/images/background_section_5.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
@@ -144,12 +160,11 @@ export default function PracticeGrounds() {
             <video
               ref={videoRef}
               className="grounds-video-element"
-              autoPlay
               loop
               muted
               playsInline
-              preload="auto"
-              poster="/images/poster_san_tap.jpg"
+              preload="none"
+              poster="/images/poster_san_tap.webp"
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               style={{
@@ -166,10 +181,6 @@ export default function PracticeGrounds() {
               <source
                 src="/videos/san_tap_lai_an_thai.mp4"
                 type="video/mp4"
-              />
-              <source
-                src="/videos/sân_tập_lái_an_thái.MOV"
-                type="video/quicktime"
               />
               Trình duyệt của bạn không hỗ trợ thẻ video.
             </video>

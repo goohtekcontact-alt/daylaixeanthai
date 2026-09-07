@@ -5,7 +5,6 @@ import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-plus-jakarta",
   display: "swap",
 });
@@ -14,6 +13,7 @@ const dancingScript = Dancing_Script({
   subsets: ["latin", "vietnamese"],
   variable: "--font-dancing",
   display: "swap",
+  preload: false,
 });
 
 export const viewport: Viewport = {

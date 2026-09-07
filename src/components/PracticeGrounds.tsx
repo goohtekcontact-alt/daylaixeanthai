@@ -1,6 +1,5 @@
 "use client";
 
-import "@/styles/practice-grounds.scss";
 import { useRef, useState, useCallback, useEffect } from "react";
 import { FaLocationDot, FaArrowRight, FaPlay, FaPause } from "react-icons/fa6";
 
@@ -179,7 +178,7 @@ export default function PracticeGrounds() {
               }}
             >
               <source
-                src="/videos/san_tap_lai_an_thai.mp4"
+                src="/videos/san_tap_lai_an_thai_optimized.mp4"
                 type="video/mp4"
               />
               Trình duyệt của bạn không hỗ trợ thẻ video.

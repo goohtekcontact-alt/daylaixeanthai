@@ -1,6 +1,5 @@
 "use client";
 
-import "@/styles/registration-form.scss";
 import { useState, useCallback } from "react";
 import {
   FaUser,

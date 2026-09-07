@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "@/styles/differences.scss";
 import { FiCheck } from "react-icons/fi";
 
 const CARDS = [

@@ -1,6 +1,5 @@
 "use client";
 
-import "@/styles/header.scss";
 import { useState } from "react";
 import Image from "next/image";
 import { FiMapPin, FiPhoneCall, FiClock, FiChevronRight, FiMenu, FiX, FiHome, FiFileText } from "react-icons/fi";

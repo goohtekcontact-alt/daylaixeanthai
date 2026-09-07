@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "@/styles/why-b2.scss";
 import { FaUsers, FaCar, FaCalendarDays, FaBuilding, FaGraduationCap, FaTrophy } from "react-icons/fa6";
 
 const POINTS = [
@@ -73,7 +72,8 @@ export default function WhyB2Section() {
             alt="Sân tập lái xe An Thái"
             width={1531}
             height={1027}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 680px"
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 680px"
+            quality={75}
             style={{
               width: "100%",
               height: "auto",

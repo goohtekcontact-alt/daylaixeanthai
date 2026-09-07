@@ -14,12 +14,21 @@ export default function ScrollAnimationProvider() {
     }
 
     const observerCallback: IntersectionObserverCallback = (entries, observer) => {
+      const visibleElements: Element[] = [];
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+          visibleElements.push(entry.target);
           observer.unobserve(entry.target);
         }
       });
+
+      if (visibleElements.length > 0) {
+        requestAnimationFrame(() => {
+          visibleElements.forEach((target) => {
+            target.classList.add("is-visible");
+          });
+        });
+      }
     };
 
     const observer = new IntersectionObserver(observerCallback, {
@@ -28,16 +37,15 @@ export default function ScrollAnimationProvider() {
       threshold: 0.02,
     });
 
-    const initObserver = () => {
+    const timeoutId = setTimeout(() => {
       const elementsToObserve = document.querySelectorAll(
         ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .course-card"
       );
       elementsToObserve.forEach((el) => observer.observe(el));
-    };
-
-    initObserver();
+    }, 50);
 
     return () => {
+      clearTimeout(timeoutId);
       observer.disconnect();
     };
   }, []);

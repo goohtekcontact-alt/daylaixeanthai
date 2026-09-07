@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "@/styles/footer.scss";
 import { FiMapPin, FiPhone, FiGlobe, FiChevronRight, FiHeadphones } from "react-icons/fi";
 import { FaFacebook, FaYoutube, FaTiktok, FaGraduationCap, FaUsers } from "react-icons/fa6";
 

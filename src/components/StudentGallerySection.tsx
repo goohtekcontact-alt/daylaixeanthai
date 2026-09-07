@@ -1,15 +1,9 @@
 "use client";
 
-import "@/styles/student-gallery.scss";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 import {
   FaCamera,
@@ -21,7 +15,8 @@ import {
   FaStar,
   FaQuoteLeft,
   FaQuoteRight,
-  FaArrowRight
+  FaArrowRight,
+  FaPlay
 } from "react-icons/fa6";
 
 const GALLERY_ITEMS = [
@@ -41,6 +36,7 @@ const GALLERY_ITEMS = [
     id: 2,
     type: "video",
     src: "/videos/IMG_0582.mp4",
+    poster: "/images/real_image/IMG_7147.webp",
     title: "Video học viên thực hành lái xe trên sân sa hình An Thái",
     customer: {
       name: "Trần Thu Hà",
@@ -65,6 +61,7 @@ const GALLERY_ITEMS = [
     id: 4,
     type: "video",
     src: "/videos/IMG_0558.mp4",
+    poster: "/images/real_image/IMG_7148.webp",
     title: "Video buổi diễn tập sa hình chuẩn sát hạch GTVT",
     customer: {
       name: "Phạm Phương Anh",
@@ -89,6 +86,7 @@ const GALLERY_ITEMS = [
     id: 6,
     type: "video",
     src: "/videos/IMG_0567.mp4",
+    poster: "/images/real_image/IMG_5513.webp",
     title: "Video học viên luyện tập đường trường và sa hình thực tế",
     customer: {
       name: "Lê Đức Minh",
@@ -182,6 +180,108 @@ const GALLERY_ITEMS = [
     }
   }
 ];
+
+function GalleryVideoItem({ src, poster, title }: { src: string; poster?: string; title: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  const handlePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsPlaying(true);
+    setTimeout(() => {
+      videoRef.current?.play().catch(() => {});
+    }, 50);
+  };
+
+  if (isPlaying) {
+    return (
+      <video
+        ref={videoRef}
+        src={src}
+        autoPlay
+        controls
+        loop
+        playsInline
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+          backgroundColor: "#0F172A",
+        }}
+      />
+    );
+  }
+
+  return (
+    <div
+      onClick={handlePlay}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        cursor: "pointer",
+      }}
+    >
+      <Image
+        src={poster || "/images/real_image/IMG_7059.webp"}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 78vw, 640px"
+        style={{ objectFit: "cover" }}
+      />
+      {/* Dark tint overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.28)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {/* Play Button Icon */}
+        <div
+          style={{
+            width: "54px",
+            height: "54px",
+            borderRadius: "50%",
+            backgroundColor: "rgba(192, 10, 0, 0.92)",
+            color: "#FFFFFF",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 8px 24px rgba(192, 10, 0, 0.5), 0 0 0 3px rgba(255, 255, 255, 0.85)",
+          }}
+        >
+          <FaPlay size={18} style={{ marginLeft: "3px" }} />
+        </div>
+      </div>
+      {/* Video Badge Tag */}
+      <div
+        style={{
+          position: "absolute",
+          top: "12px",
+          left: "12px",
+          backgroundColor: "rgba(15, 23, 42, 0.78)",
+          backdropFilter: "blur(6px)",
+          color: "#FFFFFF",
+          padding: "4px 10px",
+          borderRadius: "9999px",
+          fontSize: "0.7rem",
+          fontWeight: 800,
+          letterSpacing: "0.3px",
+          display: "flex",
+          alignItems: "center",
+          gap: "5px",
+        }}
+      >
+        <span>VIDEO THỰC HÀNH</span>
+      </div>
+    </div>
+  );
+}
 
 export default function StudentGallerySection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -417,11 +517,6 @@ export default function StudentGallerySection() {
               loop={true}
               centeredSlides={true}
               speed={550}
-              resizeObserver={true}
-              roundLengths={true}
-              watchSlidesProgress={true}
-              observer={true}
-              observeParents={true}
               autoplay={{
                 delay: 3500,
                 disableOnInteraction: false,
@@ -440,22 +535,17 @@ export default function StudentGallerySection() {
               onSlideChange={(swiper) => {
                 setActiveIndex(swiper.realIndex);
               }}
-              slidesPerView="auto"
-              spaceBetween={8}
+              slidesPerView={1.15}
+              spaceBetween={12}
               breakpoints={{
-                0: {
-                  slidesPerView: "auto",
-                  spaceBetween: 5,
-                  centeredSlides: true
-                },
                 640: {
-                  slidesPerView: "auto",
-                  spaceBetween: 8,
+                  slidesPerView: 1.45,
+                  spaceBetween: 16,
                   centeredSlides: true
                 },
-                900: {
-                  slidesPerView: "auto",
-                  spaceBetween: 12,
+                1024: {
+                  slidesPerView: 1.85,
+                  spaceBetween: 20,
                   centeredSlides: true
                 }
               }}
@@ -465,19 +555,10 @@ export default function StudentGallerySection() {
                 <SwiperSlide key={item.id} className="gallery-swiper-slide">
                   <div className="gallery-card-item">
                     {item.type === "video" ? (
-                      <video
+                      <GalleryVideoItem
                         src={item.src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="none"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                          display: "block"
-                        }}
+                        poster={item.poster}
+                        title={item.title}
                       />
                     ) : (
                       <Image

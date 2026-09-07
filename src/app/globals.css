@@ -96,16 +96,6 @@ section[id] {
   display: inline;
 }
 
-/* Content Visibility Optimization for off-screen sections (Eliminates Forced Reflow) */
-.grounds-section,
-.registration-options-section,
-.registration-form-section,
-.student-gallery-section,
-.footer-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 600px;
-}
-
 /* ==========================================================================
    SCROLL REVEAL ANIMATIONS (UI/UX PRO MAX)
    ========================================================================== */
@@ -116,6 +106,9 @@ section[id] {
 .reveal-right,
 .reveal-zoom {
   opacity: 0;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
               transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }

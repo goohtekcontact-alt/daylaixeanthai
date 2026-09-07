@@ -1,5 +1,4 @@
 import React from "react";
-import "@/styles/course-pricing.scss";
 import Image from "next/image";
 import { FaCar, FaTruck, FaMotorcycle, FaUsers, FaBookOpen, FaShieldHalved, FaCalendarDays, FaCompass } from "react-icons/fa6";
 import { FiCheck, FiChevronRight, FiFileText, FiDisc } from "react-icons/fi";
@@ -208,7 +207,8 @@ export default function CoursePricing() {
                   src={course.imageSrc}
                   alt={course.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 320px"
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 320px"
+                  quality={75}
                   style={{ objectFit: "cover" }}
                 />
               </div>

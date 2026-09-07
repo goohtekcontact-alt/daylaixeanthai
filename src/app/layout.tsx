@@ -2,6 +2,21 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Dancing_Script } from "next/font/google";
 import ScrollAnimationProvider from "@/components/ScrollAnimationProvider";
 import "./globals.css";
+import "@/styles/header.scss";
+import "@/styles/why-choose-us.scss";
+import "@/styles/why-b2.scss";
+import "@/styles/course-pricing.scss";
+import "@/styles/differences.scss";
+import "@/styles/process.scss";
+import "@/styles/practice-grounds.scss";
+import "@/styles/registration-options.scss";
+import "@/styles/registration-form.scss";
+import "@/styles/student-gallery.scss";
+import "@/styles/floating-contact.scss";
+import "@/styles/footer.scss";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin", "vietnamese"],
@@ -159,6 +174,13 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/banner_hero2.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANISATION_SCHEMA) }}

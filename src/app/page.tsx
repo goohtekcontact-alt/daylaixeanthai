@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import HeroBanner from "@/components/HeroBanner";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -6,14 +5,15 @@ import WhyB2Section from "@/components/WhyB2Section";
 import CoursePricing from "@/components/CoursePricing";
 import Differences from "@/components/Differences";
 import Process from "@/components/Process";
+import RegistrationOptions from "@/components/RegistrationOptions";
+import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
 
-// Below-the-fold interactive components lazy-loaded to break critical request chains
+// Below-the-fold interactive components optimized to break critical request chains
 const PracticeGrounds = dynamic(() => import("@/components/PracticeGrounds"), { ssr: true });
-const RegistrationOptions = dynamic(() => import("@/components/RegistrationOptions"), { ssr: true });
 const RegistrationFormSection = dynamic(() => import("@/components/RegistrationFormSection"), { ssr: true });
-const StudentGallerySection = dynamic(() => import("@/components/StudentGallerySection"), { ssr: true });
-const FloatingContactWidget = dynamic(() => import("@/components/FloatingContactWidget"), { ssr: true });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+const StudentGallerySection = dynamic(() => import("@/components/StudentGallerySection"), { ssr: false });
+const FloatingContactWidget = dynamic(() => import("@/components/FloatingContactWidget"), { ssr: false });
 
 export default function Home() {
   return (

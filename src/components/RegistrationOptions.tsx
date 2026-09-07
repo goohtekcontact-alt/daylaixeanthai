@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "@/styles/registration-options.scss";
 import { FaBuilding } from "react-icons/fa6";
 import { FiHeadphones, FiPhoneCall, FiMapPin, FiCheckCircle } from "react-icons/fi";
 
@@ -96,7 +95,8 @@ export default function RegistrationOptions() {
               src="/images/image_dang_ky.webp"
               alt="Hội trường đào tạo và đăng ký học lái xe An Thái"
               fill
-              sizes="(max-width: 900px) 100vw, 680px"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 680px"
+              quality={75}
               style={{ objectFit: "cover" }}
             />
 

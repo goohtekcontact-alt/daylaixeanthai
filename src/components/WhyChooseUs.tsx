@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "@/styles/why-choose-us.scss";
 
 export default function WhyChooseUs() {
   return (
@@ -54,7 +53,8 @@ export default function WhyChooseUs() {
             alt="Lý do nên học lái xe bằng B1, B2 tại Trung tâm An Thái: Đi lại du lịch gia đình, điều khiển xe số sàn & số tự động, lái xe công nghệ Grab kiếm thêm thu nhập, chở sếp và giao lưu đối tác."
             width={1164}
             height={508}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 960px, 960px"
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 90vw, 960px"
+            quality={75}
             style={{
               width: "100%",
               height: "auto",

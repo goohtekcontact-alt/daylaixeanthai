@@ -40,24 +40,25 @@
 }
 
 .gallery-swiper-slide {
-  width: auto !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  box-sizing: border-box;
 }
 
 .gallery-card-item {
   position: relative;
   overflow: hidden;
   cursor: grab;
-  width: clamp(300px, 52vw, 760px);
-  height: clamp(200px, 32vw, 420px);
+  width: 100%;
+  max-width: 760px;
+  height: clamp(210px, 32vw, 420px);
   border-radius: 22px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   opacity: 1;
-  transform: scale(0.96);
+  transform: scale(0.94);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 
@@ -75,10 +76,9 @@
   }
 
   @include mobile {
-    width: clamp(270px, 83vw, 480px) !important;
     height: clamp(200px, 56vw, 340px) !important;
     border-radius: 18px !important;
-    transform: scale(0.96) !important;
+    transform: scale(0.94) !important;
   }
 }
 

@@ -11,6 +11,10 @@
   padding-bottom: 40px;
   display: flex;
   align-items: flex-start;
+  background-image: url('/images/image_section_girl.webp');
+  background-size: cover;
+  background-position: center left;
+  background-repeat: no-repeat;
 
   @include ultra-wide {
     min-height: clamp(560px, 40vw, 720px) !important;

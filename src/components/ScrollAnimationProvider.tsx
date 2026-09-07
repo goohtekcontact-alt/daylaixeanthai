@@ -14,40 +14,42 @@ export default function ScrollAnimationProvider() {
     }
 
     const observerCallback: IntersectionObserverCallback = (entries, observer) => {
-      const visibleElements: Element[] = [];
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          visibleElements.push(entry.target);
+          entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
         }
       });
-
-      if (visibleElements.length > 0) {
-        requestAnimationFrame(() => {
-          visibleElements.forEach((target) => {
-            target.classList.add("is-visible");
-          });
-        });
-      }
     };
 
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
-      rootMargin: "0px 0px -20px 0px",
-      threshold: 0.02,
+      rootMargin: "50px 0px -10px 0px",
+      threshold: 0.01,
     });
 
-    const timeoutId = setTimeout(() => {
+    const initObserver = () => {
       const elementsToObserve = document.querySelectorAll(
         ".reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .course-card"
       );
       elementsToObserve.forEach((el) => observer.observe(el));
-    }, 50);
-
-    return () => {
-      clearTimeout(timeoutId);
-      observer.disconnect();
     };
+
+    if ("requestIdleCallback" in window) {
+      const idleId = (window as unknown as { requestIdleCallback: (cb: () => void) => number }).requestIdleCallback(initObserver);
+      return () => {
+        if ("cancelIdleCallback" in window) {
+          (window as unknown as { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId);
+        }
+        observer.disconnect();
+      };
+    } else {
+      const timeoutId = setTimeout(initObserver, 30);
+      return () => {
+        clearTimeout(timeoutId);
+        observer.disconnect();
+      };
+    }
   }, []);
 
   return null;

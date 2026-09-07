@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "@/styles/student-gallery.scss";
 
 import {
   FaCamera,
@@ -292,17 +296,6 @@ export default function StudentGallerySection() {
     <section
       id="hinh-anh-thuc-te"
       className="student-gallery-section"
-      style={{
-        width: "100%",
-        padding: "60px 20px 70px",
-        backgroundImage: "url('/images/background_section_hinh_anh_thuc_te.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        position: "relative",
-        overflow: "hidden",
-        backgroundColor: "#FDFDFD"
-      }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto", textAlign: "center" }}>
         {/* Section Subtitle Badge */}

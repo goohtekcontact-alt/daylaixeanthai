@@ -8,6 +8,10 @@
   position: relative;
   width: 100%;
   padding: 80px 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.68) 45%, rgba(255, 255, 255, 0.3) 100%), url('/images/background_section_5.webp');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   background-color: #FAFAFA;
 
   @include mobile {

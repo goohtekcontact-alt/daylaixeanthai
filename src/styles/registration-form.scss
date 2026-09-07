@@ -21,6 +21,17 @@
 }
 
 .registration-form-section {
+  position: relative;
+  width: 100%;
+  background-image: url('/images/image_background-form.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 60px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   @include tablet {
     background-image: url('/images/image_background-form.webp') !important;
     background-size: cover !important;

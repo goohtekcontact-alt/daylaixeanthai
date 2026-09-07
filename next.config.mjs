@@ -5,7 +5,16 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   experimental: {
-    optimizePackageImports: ['react-icons', 'clsx', 'swiper'],
+    optimizePackageImports: [
+      'react-icons',
+      'react-icons/fi',
+      'react-icons/fa6',
+      'react-icons/si',
+      'react-icons/hi2',
+      'react-icons/fa',
+      'clsx',
+      'swiper',
+    ],
   },
   images: {
     formats: ['image/avif', 'image/webp'],

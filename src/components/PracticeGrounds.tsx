@@ -69,15 +69,6 @@ export default function PracticeGrounds() {
     <section
       id="san-tap"
       className="grounds-section"
-      style={{
-        position: "relative",
-        width: "100%",
-        backgroundImage: "linear-gradient(to right, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.68) 45%, rgba(255, 255, 255, 0.3) 100%), url('/images/background_section_5.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        backgroundRepeat: "no-repeat",
-        padding: "80px 0",
-      }}
     >
       <div className="grounds-container">
         {/* Left Column: Heading and 2 Ground Cards */}

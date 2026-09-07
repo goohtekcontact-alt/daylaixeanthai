@@ -7,18 +7,6 @@ export default function Footer() {
     <footer
       id="lien-he"
       className="footer-section"
-      style={{
-        position: "relative",
-        width: "100%",
-        backgroundImage: "url('/images/background_footer.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        backgroundRepeat: "no-repeat",
-        color: "#FFFFFF",
-        paddingTop: "clamp(160px, 14vw, 220px)",
-        paddingBottom: "56px",
-        overflow: "hidden",
-      }}
     >
       <div
         style={{

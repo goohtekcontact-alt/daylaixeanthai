@@ -102,18 +102,6 @@ export default function RegistrationFormSection() {
     <section
       id="form-dang-ky"
       className="registration-form-section"
-      style={{
-        position: "relative",
-        width: "100%",
-        backgroundImage: "url('/images/image_background-form.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-        padding: "60px 24px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
     >
       {/* Anchor cho #dang-ky để khớp với thanh Header và Bảng giá */}
       <span id="dang-ky" style={{ position: "absolute", top: "-80px", visibility: "hidden" }} />

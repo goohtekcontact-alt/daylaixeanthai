@@ -6,14 +6,17 @@ import CoursePricing from "@/components/CoursePricing";
 import Differences from "@/components/Differences";
 import Process from "@/components/Process";
 import RegistrationOptions from "@/components/RegistrationOptions";
+import PracticeGrounds from "@/components/PracticeGrounds";
+import RegistrationFormSection from "@/components/RegistrationFormSection";
+import FloatingContactWidget from "@/components/FloatingContactWidget";
 import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
 
-// Below-the-fold interactive components optimized to break critical request chains
-const PracticeGrounds = dynamic(() => import("@/components/PracticeGrounds"), { ssr: true });
-const RegistrationFormSection = dynamic(() => import("@/components/RegistrationFormSection"), { ssr: true });
-const StudentGallerySection = dynamic(() => import("@/components/StudentGallerySection"), { ssr: false });
-const FloatingContactWidget = dynamic(() => import("@/components/FloatingContactWidget"), { ssr: false });
+// Below-the-fold heavy carousel dynamically imported with ssr: false
+const StudentGallerySection = dynamic(() => import("@/components/StudentGallerySection"), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: "380px" }} />
+});
 
 export default function Home() {
   return (

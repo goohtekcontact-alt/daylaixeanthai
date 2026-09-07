@@ -81,18 +81,6 @@ export default function Differences() {
     <section
       id="su-khac-biet"
       className="differences-section"
-      style={{
-        position: "relative",
-        width: "100%",
-        backgroundImage: "url('/images/image_section_girl.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center left",
-        backgroundRepeat: "no-repeat",
-        paddingTop: "20px",
-        paddingBottom: "40px",
-        display: "flex",
-        alignItems: "flex-start"
-      }}
     >
       <div className="differences-container">
         {/* Left Column: Title & Headline */}
